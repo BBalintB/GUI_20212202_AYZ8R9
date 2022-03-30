@@ -11,6 +11,17 @@
         <Grid.Background>
                 <ImageBrush ImageSource="Images/Background.png"/>
         </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Image Source="Images/Punk_idle.png" Grid.Column="1" Grid.Row="1" Height="400" Width="800" Margin="0,0,0,0"/>
         </Grid>
     </Grid>
 </Window>
