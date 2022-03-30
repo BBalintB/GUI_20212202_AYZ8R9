@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Logic\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Images\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Renderel\" />
+  </ItemGroup>
+
 </Project>
