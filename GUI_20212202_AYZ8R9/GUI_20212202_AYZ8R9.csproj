@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Logic\" />
     <Folder Include="Helper\" />
-    <Folder Include="Images\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Renderel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Background.png" />
   </ItemGroup>
 
 </Project>
