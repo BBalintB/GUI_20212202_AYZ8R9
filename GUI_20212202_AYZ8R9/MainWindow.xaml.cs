@@ -47,6 +47,10 @@ namespace GUI_20212202_AYZ8R9
                 case Key.Left:
                         display.Character_Pozition-=10;
                     break;
+                case Key.Space:
+                    display.jump = true;
+                    display.Character_Pozition += 10;
+                    break;
                 default:
                     break;
             }
