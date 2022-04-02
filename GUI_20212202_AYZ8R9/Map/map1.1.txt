@@ -1,0 +1,44 @@
+
+																																																															
+																																																															
+																																																															
+																																																															
+																																																															
+																																																															
+																																																															
+																																																															
+																																																															
+																						       																																									
+																																																															
+																																																															
+																													A	B	B	B	B	B	B	B	B	B	C																								
+																													R	V	V	V	V	V	V	V	V	V	E	C																							
+																													R	U	U	U	U	U	U	U	U	U	V	E	C																						
+B	B	B	B	B	B	C																							R	W	W	W	W	W	W	W	W	W	U	V	E	C																					
+V	V	V	V	V	V	E	C																						R	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	U	V	E	C																				
+U	U	U	U	U	U	V	E	B	B	B	B	B	B	B	B	C													R	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	U	V	E	C																			
+W	W	W	W	W	W	U	V	V	V	V	V	V	V	V	V	S												A	D	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	U	V	E	C																		
+Z	Z	Z	Z	Z	Z	W	U	U	U	U	U	U	U	U	U	S											A	D	V	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	U	V	E	B	B	B	B	B	B	B	B	B	B	B	B	B	B				
+Z	Z	Z	Z	Z	Z	Z	W	W	W	W	W	W	W	W	W	S										A	D	V	U	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	U	V	V	V	V	V	V	V	V	V	V	V	V	V	V	V				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	S									A	D	V	U	W	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	U	U	U	U	U	U	U	U	U	U	U	U	U	U	U				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	S								A	D	V	U	W	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	W	W	W	W	W	W	W	W	W	W	W	W	W	W				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	E	B	B	B	B	B	B	B	D	V	U	W	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	V	V	V	V	V	V	V	V	V	U	W	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	U	U	U	U	U	U	U	U	U	W	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	W	W	W	W	W	W	W	W	W	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z	Z				
+																																																															
+																																													 																		
+																																																															
+																																																															
+																																														 																	
+																																																															
+																																																															
+																																																															
+																													  																																		
