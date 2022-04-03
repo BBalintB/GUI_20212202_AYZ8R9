@@ -7,12 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Renderel\**" />
+    <EmbeddedResource Remove="Renderel\**" />
+    <None Remove="Renderel\**" />
+    <Page Remove="Renderel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\Background.png" />
     <None Remove="Images\Punk_idle.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Logic\" />
     <Folder Include="Helper\" />
+    <Folder Include="ViewModels\" />
     <Folder Include="Renderel\" />
   </ItemGroup>
 
