@@ -1,0 +1,53 @@
+﻿<Window x:Class="GUI_20212202_AYZ8R9.MenuOptionsWindows.LoadGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_20212202_AYZ8R9.MenuOptionsWindows"
+        mc:Ignorable="d"
+        Title="Load Game" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <ListBox Grid.Row="0" ItemsSource="{Binding Games}" SelectedItem="{Binding SelectNewGame}" Grid.RowSpan="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label Content="{Binding FileName}" FontSize="14" ContentStringFormat="Filename: {0}"/>
+                                <Label Content="{Binding HeroName}" FontSize="14" ContentStringFormat="Heroname: {0}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Name="stack_editor"  Grid.Row="0" Background="LightBlue">
+                        <TextBox Text="{Binding SelectNewGame.FileName, UpdateSourceTrigger=Explicit}" FontSize="14"/>
+                        <TextBox Text="{Binding SelectNewGame.HeroName, UpdateSourceTrigger=Explicit}" FontSize="14"/>
+                        <TextBox Text="{Binding SelectNewGame.FileLastSaveDate, UpdateSourceTrigger=Explicit}" FontSize="14"/>
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Load Game" Click="Button_Click" FontSize="18" Padding="5" Margin="25,10,25,10" Grid.Column="0"/>
+                        <Button Content="Delete save" Command="{Binding RemoveSaveCommand}" FontSize="18" Padding="5" Margin="25,10,25,10" Grid.Column="1"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

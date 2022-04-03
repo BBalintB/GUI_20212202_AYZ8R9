@@ -1,4 +1,9 @@
-﻿using System;
+﻿using GUI_20212202_AYZ8R9.Logic;
+using GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic;
+using GUI_20212202_AYZ8R9.Services.MenuOptionsServices;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +18,17 @@ namespace GUI_20212202_AYZ8R9
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Ioc.Default.ConfigureServices(
+                    new ServiceCollection()
+                    .AddSingleton<IMenuLogic, MenuLogic>()
+                    .AddSingleton<INewGameViaWindow, NewGameViaWindow>()
+                    .AddSingleton<ILoadGameViaWindow, LoadGameViaWindow>()
+                    .AddSingleton<INewGameLogic, NewGameLogic>()
+                    .AddSingleton<ILoadGameLogic, LoadGameLogic>()
+                    .BuildServiceProvider()
+                );
+        }
     }
 }
