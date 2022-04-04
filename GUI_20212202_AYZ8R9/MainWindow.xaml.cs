@@ -24,7 +24,7 @@ namespace GUI_20212202_AYZ8R9
         public MainWindow()
         {
             InitializeComponent();
-            GameLogic logic = new GameLogic();
+            MapLogic logic = new MapLogic();
             display.SetupModel(logic);
         }
     }

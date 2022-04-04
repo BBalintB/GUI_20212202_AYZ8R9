@@ -1,4 +1,4 @@
-﻿using static GUI_20212202_AYZ8R9.Logic.GameLogic;
+﻿using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
