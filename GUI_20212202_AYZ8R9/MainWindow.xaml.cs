@@ -39,16 +39,44 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+        //    switch (e.Key)
+        //    {
+        //        case Key.Right:
+        //            display.Character_Pozition+=10;
+        //            break;
+        //        case Key.Left:
+        //                display.Character_Pozition-=10;
+        //            break;
+        //        case Key.Space:
+        //            display.jump = true;
+        //            display.Character_Pozition += 10;
+        //            break;
+        //        case Key.LeftShift:
+        //            display.Character_Pozition += 10;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+
+        //    display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+        //    display.InvalidateVisual();
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
             switch (e.Key)
             {
                 case Key.Right:
-                    display.Character_Pozition+=10;
+                    display.Character_Pozition += 10;
                     break;
                 case Key.Left:
-                        display.Character_Pozition-=10;
+                    display.Character_Pozition -= 10;
                     break;
                 case Key.Space:
                     display.jump = true;
+                    display.Character_Pozition += 10;
+                    break;
+                case Key.LeftShift:
                     display.Character_Pozition += 10;
                     break;
                 default:

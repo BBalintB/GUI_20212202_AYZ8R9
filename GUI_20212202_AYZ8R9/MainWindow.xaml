@@ -11,7 +11,7 @@
         WindowStyle="None"
         Title="MainWindow" Height="400" Width="600"
         SizeChanged="Window_SizeChanged"
-        Loaded="Window_Loaded" KeyDown="Window_KeyDown">
+        Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" KeyDown="Window_KeyDown">
     <Window.DataContext>
         <vms:MainWindowViewModel/>
     </Window.DataContext>

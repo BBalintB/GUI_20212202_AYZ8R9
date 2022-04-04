@@ -44,7 +44,7 @@ namespace GUI_20212202_AYZ8R9.Renderer
                 {
                     Counter = 1;
                 }
-                if (Counter2 == 7)
+                if (Counter2 >= 7)
                 {
                     Counter2 = 1;
                 }
