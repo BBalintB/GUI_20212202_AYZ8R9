@@ -36,12 +36,21 @@ namespace GUI_20212202_AYZ8R9.Logic
         {           
 
             string[] lines = File.ReadAllLines(path);
-            GameMatrix = new Element[33, 60];
+            GameMatrix = new Element[34, 60];
             for (int i = 0; i < GameMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < GameMatrix.GetLength(1); j++)
                 {
-                    GameMatrix[i, j] = ConvertToEnum(lines[i][j]);
+                    char elem = lines[i][j];
+                    if (elem.ToString() == "/t")
+                    {
+                        GameMatrix[i, j] = Element.X;
+                    }
+                    else
+                    {
+                        GameMatrix[i, j] = ConvertToEnum(lines[i][j]);
+                    }
+                    
                 }
             }
             
