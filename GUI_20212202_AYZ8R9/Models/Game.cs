@@ -17,23 +17,29 @@ namespace GUI_20212202_AYZ8R9.Models
             set { SetProperty(ref fileName,value); }
         }
 
-        private string heroName; // Name of the hero in that save
+        private Hero hero;
 
-        public string HeroName
+        public Hero Hero
         {
-            get { return heroName; }
-            set { SetProperty(ref heroName, value); }
+            get { return hero; }
+            set {
+                SetProperty(ref hero, value);
+            }
         }
 
-        private DateTime fileLastSaveDate;
 
-        public DateTime FileLastSaveDate
+        private string fileLastSaveDate;
+
+        public string FileLastSaveDate
         {
             get { return fileLastSaveDate; }
             set { SetProperty(ref fileLastSaveDate, value); }
         }
 
-
+        public Game()
+        {
+            Hero = new Hero();
+        }
 
         //Coming soon
     }
