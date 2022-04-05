@@ -23,7 +23,7 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="1" Content="A p o c a l y p t i c" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontWeight="DemiBold"/>
-                <Label Grid.Row="2" Content="When the hall world stoped..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Light" Foreground="Red"/>
+                <Label Grid.Row="2" Content="When the whole world stoped..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Light" Foreground="Red"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -33,9 +33,9 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="1" BorderThickness="2" BorderBrush="Black">
                     <StackPanel>
-                        <Button Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Padding="10" Margin="20" />
-                        <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Padding="10" Margin="20" />
-                        <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Padding="10" Margin="20" />
+                        <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
+                        <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
+                        <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
                     </StackPanel>
                 </Border>
                 
