@@ -23,8 +23,11 @@ namespace GUI_20212202_AYZ8R9.Logic
         public void CreateNewGame()
         {
             Game tmp = NewGame.NewGame();
-            Game = tmp;
-            //TODO hero create window then it starts the game
+            ;
+            if (tmp.FileName != null)
+            {
+                Game = tmp;
+            }
         }
 
         public void LoadInGame() {

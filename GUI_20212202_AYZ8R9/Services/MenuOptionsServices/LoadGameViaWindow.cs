@@ -18,13 +18,13 @@ namespace GUI_20212202_AYZ8R9.Services.MenuOptionsServices
         }
         public Game LoadGame()
         {
-            Game tmp = new Game() { FileLastSaveDate = DateTime.Now}; 
-            new LoadGameWindow(logic, tmp).ShowDialog();
-            ;
-            if (tmp.FileName != "")
-            {
-                return tmp;
-            }
+            //Game tmp = new Game() { FileLastSaveDate = DateTime.Now}; 
+            //new LoadGameWindow(logic, tmp).ShowDialog();
+            //;
+            //if (tmp.FileName != "")
+            //{
+            //    return tmp;
+            //}
             return null;
         }
     }
