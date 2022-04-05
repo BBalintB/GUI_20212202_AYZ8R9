@@ -13,7 +13,6 @@ namespace GUI_20212202_AYZ8R9.Renderer
 {
     internal class Display: FrameworkElement
     {
-
         Size size;
 
         public void Resize(Size size)
