@@ -1,4 +1,5 @@
-﻿using GUI_20212202_AYZ8R9.Models;
+﻿using GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic;
+using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels;
 using System;
 using System.Collections.Generic;
@@ -21,24 +22,33 @@ namespace GUI_20212202_AYZ8R9.MenuOptionsWindows
     /// </summary>
     public partial class NewGameWindow : Window
     {
-        public NewGameWindow(Game game)
+        public NewGameWindow(Game game, INewGameLogic logic)
         {
             InitializeComponent();
-            this.DataContext = new NewGameWindowViewModel();
+            this.DataContext = new NewGameWindowViewModel(logic);
             (this.DataContext as NewGameWindowViewModel).Setup(game);
-            
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (var item in stack_editor.Children)
+            if (DataContext is IConncetion vm)
             {
-                if (item is TextBox t)
+                vm.FreshInfo += () =>
                 {
-                    t.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-                }
+                    foreach (var item in stack_editor.Children)
+                    {
+                        if (item is TextBox t)
+                        {
+                            t.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+                        }
+                    }
+                };
+                vm.Close += () =>
+                {
+                    this.DialogResult = true;
+                };
             }
-            this.DialogResult = true;
         }
     }
 }

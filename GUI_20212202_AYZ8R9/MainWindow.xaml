@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_20212202_AYZ8R9"
         xmlns:vms="clr-namespace:GUI_20212202_AYZ8R9.ViewModels"
+        xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
         mc:Ignorable="d"
         Title="Apocalyptic - Menu" Height="450" Width="800">
     <Window.DataContext>
         <vms:MainWindowViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <helper:EnumToColorConverter x:Key="enumToColor"/>
+    </Window.Resources>
     <Grid>
         <Grid Visibility="{Binding MenuVisibility}">
             <Grid.ColumnDefinitions>
@@ -57,13 +61,14 @@
                 <Grid Grid.Row="1">
                     <Border BorderThickness="2" BorderBrush="Black">
                         <StackPanel>
-                             <Button Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Padding="10" Margin="20" />
-                        <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Padding="10" Margin="20" />
-                        <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Padding="10" Margin="20" />
-                    </StackPanel>
+                            <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
+                            <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
+                            <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
+                        </StackPanel>
                     </Border>
                 </Grid>
             </Grid>
         </Grid>
+
     </Grid>
 </Window>
