@@ -20,12 +20,14 @@
     <None Remove="Images\Blocks\C.png" />
     <None Remove="Images\Blocks\D.png" />
     <None Remove="Images\Blocks\E.png" />
+    <None Remove="Images\Blocks\L.png" />
     <None Remove="Images\Blocks\R.png" />
     <None Remove="Images\Blocks\S.png" />
     <None Remove="Images\Blocks\U.png" />
     <None Remove="Images\Blocks\V.png" />
     <None Remove="Images\Blocks\W.png" />
     <None Remove="Images\Blocks\X.png" />
+    <None Remove="Images\Blocks\Y.png" />
     <None Remove="Images\Blocks\Z.png" />
     <None Remove="Images\Punk_idle.png" />
     <None Remove="Maps\map.xlsx" />
@@ -47,6 +49,9 @@
     <Content Include="Images\Blocks\E.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Blocks\L.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Blocks\R.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -60,6 +65,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\W.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\Y.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\Z.png">

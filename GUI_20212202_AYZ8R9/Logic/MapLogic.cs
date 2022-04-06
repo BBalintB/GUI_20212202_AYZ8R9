@@ -12,7 +12,7 @@ namespace GUI_20212202_AYZ8R9.Logic
     {
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y
         }
 
         int ActualMapNumber { get; set; }      
@@ -23,14 +23,13 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             ActualMapNumber = 1;
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
-            LoadFirstMap();
-            
+            LoadFirstMap();          
         }
 
         private void LoadFirstMap()
         {          
             GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(ActualMapNumber);
+            string[,] map = r.GetMap(3);
                        
             for (int i = 0; i < map.GetLength(0); i++)
             {
@@ -46,6 +45,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             GameMatrix = new Element[30, 54];
             string[,] map = r.GetMap(ActualMapNumber-1);
+            ActualMapNumber = ActualMapNumber - 1;
             ;
             for (int i = 0; i < map.GetLength(0); i++)
             {
@@ -60,7 +60,8 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             GameMatrix = new Element[30, 54];
             string[,] map = r.GetMap(ActualMapNumber + 1);
-            ;
+            ActualMapNumber = ActualMapNumber + 1;
+
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)
@@ -88,6 +89,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "U": return Element.U;
                 case "W": return Element.W;
                 case "Z": return Element.Z;
+                case "L": return Element.L;
+                case "Y": return Element.Y;
                 default:
                     return Element.X;
             }

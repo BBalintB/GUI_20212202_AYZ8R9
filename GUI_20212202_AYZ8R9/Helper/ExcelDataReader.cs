@@ -65,7 +65,27 @@ namespace GUI_20212202_AYZ8R9.Helper
                             else if (map[i - 1, j] == "W")
                             {
                                 map[i, j] = "Z";
-                            }                          
+                            }
+                            else if (map[i - 1, j] == "B")
+                            {
+                                map[i, j] = "V";
+                            }
+                            else if (map[i - 1, j] == "A")
+                            {
+                                map[i, j] = "V";
+                            }
+                            else if (map[i - 1, j] == "C")
+                            {
+                                map[i, j] = "V";
+                            }
+                            else if (map[i - 1, j] == "E")
+                            {
+                                map[i, j] = "V";
+                            }
+                            else if (map[i - 1, j] == "D")
+                            {
+                                map[i, j] = "V";
+                            }
                             else
                             {
                                 map[i, j] = "Z";
