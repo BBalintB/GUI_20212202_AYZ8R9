@@ -13,12 +13,11 @@ namespace GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic
     {
         Game game;
 
-        public void SetupHero(Game game)
-        {
+        public void SetupHero(Game game) {
             this.game = game;
             this.game.FileLastSaveDate = DateTime.Now.ToString();
         }
-        public void SetUpNewGame(Game game)
+        public void SetUpNewGame()
         {
             string newGame = JsonConvert.SerializeObject(game); //Serialize the incoming game object
             File.WriteAllText("Games/" + game.FileName+".json", newGame); //It save it into a file named after the object file name prop
