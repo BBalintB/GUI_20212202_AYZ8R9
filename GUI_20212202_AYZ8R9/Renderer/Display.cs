@@ -22,14 +22,17 @@ namespace GUI_20212202_AYZ8R9.Renderer
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            base.OnRender(drawingContext);
-            
-            
-            double rectWidth = 1920/ model.GameMatrix.GetLength(1);
-            double rectHeight =1080 / model.GameMatrix.GetLength(0);
-
+            base.OnRender(drawingContext);                      
+            double width = 1920;
+            double hight = 1080;
+            double rectWidth = width / model.GameMatrix.GetLength(1);
+            double rectHeight = hight / model.GameMatrix.GetLength(0);
+            ;
             drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
                 new Rect(0, 0, 1920, 1080));
+
+            ImageBrush brush2 = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "Background.png"), UriKind.RelativeOrAbsolute)));
+            drawingContext.DrawRectangle(brush2, new Pen(Brushes.Black, 0),new Rect(0,0,1920,1080));
 
             for (int i = 0; i < model.GameMatrix.GetLength(0); i++)
             {
@@ -82,12 +85,7 @@ namespace GUI_20212202_AYZ8R9.Renderer
                         case MapLogic.Element.Z:
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "Z.png"), UriKind.RelativeOrAbsolute)));
-                            break;
-                       /*
-                    default:
-                        brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "X.jpg"), UriKind.RelativeOrAbsolute)));
-                        break;*/
+                            break;                      
                     }
 
                     drawingContext.DrawRectangle(brush

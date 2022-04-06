@@ -78,8 +78,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Background.png" />
+    <Content Include="Images\Backgrounds\Background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\Punk_idle.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\Backgrounds\Overlay_illumination.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
