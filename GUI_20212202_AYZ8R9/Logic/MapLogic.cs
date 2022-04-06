@@ -10,33 +10,28 @@ namespace GUI_20212202_AYZ8R9.Logic
 {
     public class MapLogic : IGameModel
     {
-        int ActualMapNumber { get; set; }
-
         public enum Element
         {
-            A,B,C,D,E,R,S,V,U,W,X,Z
-                
+            A, B, C, D, E, R, S, V, U, W, X, Z
         }
 
-        ExcelDataReader r;
-
-        public string[] maps;
-
+        int ActualMapNumber { get; set; }      
         public Element[,] GameMatrix { get; set; }
-
+        private ExcelDataReader r { get; set; }
+      
         public MapLogic()
         {
             ActualMapNumber = 1;
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
-            LoadNext(ActualMapNumber);
+            LoadFirstMap();
+            
         }
 
-        private void LoadNext(int number)
-        {
-            
+        private void LoadFirstMap()
+        {          
             GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(number);
-            ;
+            string[,] map = r.GetMap(ActualMapNumber);
+                       
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)
@@ -44,9 +39,39 @@ namespace GUI_20212202_AYZ8R9.Logic
                     GameMatrix[i, j] = ConvertToEnum(map[i,j]);
                 }
             }
+            
+        }
+
+        public  void LoadNextLeftMap()
+        {
+            GameMatrix = new Element[30, 54];
+            string[,] map = r.GetMap(ActualMapNumber-1);
+            ;
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    GameMatrix[i, j] = ConvertToEnum(map[i, j]);
+                }
+            }
             ActualMapNumber++;
         }
-        
+        public void LoadNextRightMap()
+        {
+            GameMatrix = new Element[30, 54];
+            string[,] map = r.GetMap(ActualMapNumber + 1);
+            ;
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    GameMatrix[i, j] = ConvertToEnum(map[i, j]);
+                }
+            }
+            ActualMapNumber++;
+        }
+
+
         private Element ConvertToEnum(string v)
         {
             

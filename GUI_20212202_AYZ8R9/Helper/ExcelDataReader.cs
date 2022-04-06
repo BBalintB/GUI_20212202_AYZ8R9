@@ -11,7 +11,7 @@ namespace GUI_20212202_AYZ8R9.Helper
     public class ExcelDataReader
     {
         public WorkBook WorkBook { get; set; }
-        public WorkSheet[] WorkSheets { get; set; }
+        //public WorkSheet[] WorkSheets { get; set; }
         public WorkSheet WorkSheet { get; set; }
         public DataTable Table { get; set; }
 
@@ -21,20 +21,19 @@ namespace GUI_20212202_AYZ8R9.Helper
         {
             this.WorkBook = WorkBook.Load(path);
 
-            this.WorkSheets = new WorkSheet[10];
-
+            //this.WorkSheets = new WorkSheet[2];
             //SetupWorkSheets();         
         }
+        
+        //private void SetupWorkSheets()
+        //{
+        //    for (int i = 0; i < WorkSheets.Length; i++)
+        //    {
+        //        WorkSheets[i] = this.WorkBook.GetWorkSheet("Munka"+(i+1));
+        //    }
+        //}
 
-        private void SetupWorkSheets()
-        {
-            for (int i = 1; i < WorkSheets.Length+1; i++)
-            {
-                WorkSheets[i] = this.WorkBook.GetWorkSheet("Munka"+i);
-            }
-        }
-
-        private string[,] MapSetup(string[,] map)
+        private void MapSetup(ref string[,]  map)
         {
             ;string[,] map2 = map;
             for (int i = 0; i < map.GetLength(0); i++)
@@ -76,9 +75,7 @@ namespace GUI_20212202_AYZ8R9.Helper
                     }
                 }
             }
-
-            return map2;
-
+         
         }
 
         public string[,] GetMap(int number)
@@ -89,37 +86,22 @@ namespace GUI_20212202_AYZ8R9.Helper
 
             string[,] map = new string[30,54];
             int sorCount = 0;
-            ;
+            
             foreach (DataRow item in this.Table.Rows)
             {                           
                 for (int i = 0; i < 54; i++)
                 {
                     if (item.ItemArray[i].ToString() == "")
-                    {
-                        map[sorCount, i] = " ";
-
-                    }
+                      map[sorCount, i] = " ";                  
                     else
-                    {
-                        string karakter = item.ItemArray[i].ToString();
-                        map[sorCount, i] = karakter;
-                    }
-                                      
+                        map[sorCount, i] = item.ItemArray[i].ToString();                                   
                 }
-
                 sorCount++;
-                if (sorCount == 30)
-                {
-                    break;
-                }
-                
+                if (sorCount == 30) break;                            
             }
-            ;
-            map = MapSetup(map);
-            ;
+            
+            MapSetup( ref map);           
             return map;
-
-        }
-        
+        }       
     }
 }
