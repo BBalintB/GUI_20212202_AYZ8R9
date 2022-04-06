@@ -25,10 +25,8 @@ namespace GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic
             string newGame = JsonConvert.SerializeObject(game); //Serialize the incoming game object
             File.WriteAllText("Games/" + game.FileName+".json", newGame); //It save it into a file named after the object file name prop
         }
-
-        
-
-        public void SetHeroType(HeroTypes type) {
+        public void SetHeroType(HeroTypes type)
+        {
             game.Hero.HeroType = type;
         }
     }
