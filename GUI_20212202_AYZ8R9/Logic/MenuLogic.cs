@@ -19,11 +19,9 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public Game Game { get; set; }
         public INewGameViaWindow NewGame { get; set; }
-        public ILoadGameViaWindow LoadGame { get; set; }
-        public MenuLogic(INewGameViaWindow newGame, ILoadGameViaWindow loadGame)
+        public MenuLogic(INewGameViaWindow newGame)
         {
             this.NewGame = newGame;
-            this.LoadGame = loadGame;
         }
 
         public void SetupCollection(IList<Game> games)
@@ -49,7 +47,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         public void CreateNewGame()
         {
             Game tmp = NewGame.NewGame();
-            if (tmp != null)
+            if (tmp.FileName != null)
             {
                 games.Add(tmp); // Add the new game to the games collcetion
             }

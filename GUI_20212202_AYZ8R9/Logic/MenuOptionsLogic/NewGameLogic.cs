@@ -20,8 +20,12 @@ namespace GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic
         }
         public void SetUpNewGame()
         {
-            string newGame = JsonConvert.SerializeObject(game); //Serialize the incoming game object
-            File.WriteAllText("Games/" + game.FileName + ".json", newGame); //It save it into a file named after the object file name prop
+            if (game.FileName != null)
+            {
+                string newGame = JsonConvert.SerializeObject(game); //Serialize the incoming game object
+                File.WriteAllText("Games/" + game.FileName + ".json", newGame); //It save it into a file named after the object file name prop
+            }
+            
         }
         public void SetHeroType(HeroTypes type)
         {
