@@ -26,6 +26,7 @@
     <None Remove="Images\Blocks\V.png" />
     <None Remove="Images\Blocks\W.png" />
     <None Remove="Images\Blocks\X.png" />
+    <None Remove="Images\Blocks\Z.png" />
     <None Remove="Images\Punk_idle.png" />
     <None Remove="Maps\map.xlsx" />
   </ItemGroup>
@@ -61,7 +62,7 @@
     <Content Include="Images\Blocks\W.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Blocks\X.png">
+    <Content Include="Images\Blocks\Z.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Maps\map.xlsx">

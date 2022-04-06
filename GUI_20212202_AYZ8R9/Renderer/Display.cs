@@ -25,73 +25,77 @@ namespace GUI_20212202_AYZ8R9.Renderer
             base.OnRender(drawingContext);
             
             
-                double rectWidth = 1920/ model.GameMatrix.GetLength(1);
-                double rectHeight =1080 / model.GameMatrix.GetLength(0);
+            double rectWidth = 1920/ model.GameMatrix.GetLength(1);
+            double rectHeight =1080 / model.GameMatrix.GetLength(0);
 
-                drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
-                    new Rect(0, 0, 1920, 1080));
+            drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
+                new Rect(0, 0, 1920, 1080));
 
-                for (int i = 0; i < model.GameMatrix.GetLength(0); i++)
+            for (int i = 0; i < model.GameMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < model.GameMatrix.GetLength(1); j++)
                 {
-                    for (int j = 0; j < model.GameMatrix.GetLength(1); j++)
-                    {
-                        ImageBrush brush = new ImageBrush();
+                    ImageBrush brush = new ImageBrush();
                     
-                        switch (model.GameMatrix[i, j])
-                        {
-                            case MapLogic.Element.A:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks","A.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.B:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "B.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.C:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "C.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.D:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "D.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.E:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "E.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.R:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "R.jpg"), UriKind.RelativeOrAbsolute)));
-                            break;
-                            case MapLogic.Element.S:
-                                    brush = new ImageBrush
-                                        (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "S.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.V:
-                                    brush = new ImageBrush
-                                        (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "V.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;
-                            case MapLogic.Element.U:
-                                    brush = new ImageBrush
-                                        (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "U.jpg"), UriKind.RelativeOrAbsolute)));
-                                break;                           
-                            case MapLogic.Element.W:
-                                brush = new ImageBrush
-                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "W.jpg"), UriKind.RelativeOrAbsolute)));
-                            break;
-
-                        default:
+                    switch (model.GameMatrix[i, j])
+                    {
+                        case MapLogic.Element.A:
                             brush = new ImageBrush
-                                   (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "X.jpg"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks","A.png"), UriKind.RelativeOrAbsolute)));
                             break;
-                        }
-
-                        drawingContext.DrawRectangle(brush
-                                    , new Pen(Brushes.Black, 0),
-                                    new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight)
-                                    );
+                        case MapLogic.Element.B:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "B.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.C:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "C.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.D:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "D.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.E:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "E.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.R:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "R.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                        case MapLogic.Element.S:
+                                brush = new ImageBrush
+                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "S.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.V:
+                                brush = new ImageBrush
+                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "V.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.U:
+                                brush = new ImageBrush
+                                    (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "U.png"), UriKind.RelativeOrAbsolute)));
+                            break;                           
+                        case MapLogic.Element.W:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "W.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                        case MapLogic.Element.Z:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "Z.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                       /*
+                    default:
+                        brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "X.jpg"), UriKind.RelativeOrAbsolute)));
+                        break;*/
                     }
+
+                    drawingContext.DrawRectangle(brush
+                                , new Pen(Brushes.Black, 0),
+                                new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight)
+                                );
                 }
+            }
             
             
         }
