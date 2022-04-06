@@ -2,7 +2,6 @@
 using GUI_20212202_AYZ8R9.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using Microsoft.VisualStudio.PlatformUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +12,8 @@ using System.Windows.Input;
 
 namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
 {
-    public class NewGameWindowViewModel:ObservableRecipient,IConncetion
+    public class NewGameWindowViewModel:ObservableRecipient
     {
-        public Action Close { get; set; } // Action for window closing
-        public Action FreshInfo { get; set; } // action for refreshing the data in the object newGmae
-
         private Game newGame;
 
         public Game NewGame
@@ -25,13 +21,12 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
             get { return newGame; }
             set {
                 SetProperty(ref newGame, value);
+                (ChangeGridCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
 
-        INewGameLogic logic;
-        
+
         public ICommand ChangeGridCommand{ get; set; }
-        public ICommand CreateHeroCommand{ get; set; }
         public ICommand Hero1Command{ get; set; }
         public ICommand Hero2Command { get; set; }
         public ICommand Hero3Command { get; set; }
@@ -57,58 +52,36 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
             }
         }
 
-        #region Methods
         public void Setup(Game game) {
             
-            NewGame = game; // Set the new game
-            logic.SetupHero(NewGame);
+            NewGame = game; // Set the new game   
         }
-
-        public void CloseWindow()
+        public NewGameWindowViewModel()
         {
-            Close?.Invoke();
-        }
-
-        public void Refresh()
-        {
-            FreshInfo?.Invoke();
-        }
-        #endregion
-
-        public NewGameWindowViewModel(INewGameLogic logic)
-        {
-            this.logic = logic;
             GridOpenerHeroCreate = Visibility.Visible;
             GridOpenerSaveDetails = Visibility.Collapsed;
             ChangeGridCommand = new RelayCommand(() =>
             {
-                FreshInfo();
                 GridOpenerHeroCreate = GridOpenerHeroCreate == Visibility.Collapsed ? Visibility.Visible: Visibility.Collapsed;
                 GridOpenerSaveDetails = GridOpenerSaveDetails == Visibility.Collapsed ? Visibility.Visible: Visibility.Collapsed;
             }
+            //},
+            //() => NewGame.FileName != null
             );
-
-            CreateHeroCommand = new RelayCommand(
-                () =>
-                {
-                    Close();
-                    logic.SetUpNewGame();
-                }
-                );
 
             Hero1Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.archer);
+                    NewGame.Hero.HeroType = HeroTypes.archer;
                 }
            );
             Hero2Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.assault);
+                    NewGame.Hero.HeroType = HeroTypes.assault;
                 }
            );
             Hero3Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.support);
+                    NewGame.Hero.HeroType = HeroTypes.support;
                 }
            );
         }
