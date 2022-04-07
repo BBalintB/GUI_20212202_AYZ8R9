@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_20212202_AYZ8R9.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace GUI_20212202_AYZ8R9
         public MainWindow()
         {
             InitializeComponent();
+            MapLogic logic = new MapLogic();
+            display.SetupModel(logic);
         }
     }
 }

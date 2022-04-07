@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:GUI_20212202_AYZ8R9"
         xmlns:vms="clr-namespace:GUI_20212202_AYZ8R9.ViewModels"
         xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
+        xmlns:renderer="clr-namespace:GUI_20212202_AYZ8R9.Renderer"
         mc:Ignorable="d"
         Title="Apocalyptic - Menu" Height="450" Width="800">
     <Window.DataContext>
@@ -70,5 +71,8 @@
             </Grid>
         </Grid>
 
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid x:Name="grid">
+        <renderer:Display x:Name="display"/>
     </Grid>
 </Window>
