@@ -26,7 +26,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
         public Game SelectedGame
         {
             get { return selectedGame; }
-            set
+            set 
             {
                 SetProperty(ref selectedGame, value);
                 (LoadGameCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -103,7 +103,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             },
             () => SelectedGame != null);
             SettingsCommand = new RelayCommand(() =>
-            {
+        {
                 //TODO
             });
         }

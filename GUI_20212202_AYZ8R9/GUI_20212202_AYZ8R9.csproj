@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\Main_Charecter\**" />
     <Compile Remove="Renderel\**" />
+    <EmbeddedResource Remove="Images\Main_Charecter\**" />
     <EmbeddedResource Remove="Renderel\**" />
+    <None Remove="Images\Main_Charecter\**" />
     <None Remove="Renderel\**" />
+    <Page Remove="Images\Main_Charecter\**" />
     <Page Remove="Renderel\**" />
   </ItemGroup>
 
@@ -29,6 +33,12 @@
     <None Remove="Images\Blocks\X.png" />
     <None Remove="Images\Blocks\Y.png" />
     <None Remove="Images\Blocks\Z.png" />
+    <None Remove="Images\Main_Character\Run\Run_1.png" />
+    <None Remove="Images\Main_Character\Run\Run_2.png" />
+    <None Remove="Images\Main_Character\Run\Run_3.png" />
+    <None Remove="Images\Main_Character\Run\Run_4.png" />
+    <None Remove="Images\Main_Character\Run\Run_5.png" />
+    <None Remove="Images\Main_Character\Run\Run_6.png" />
     <None Remove="Images\Punk_idle.png" />
     <None Remove="Maps\map.xlsx" />
   </ItemGroup>
@@ -96,11 +106,23 @@
   <ItemGroup>
     <PackageReference Include="IronXL.Excel" Version="2022.3.0" />
   </ItemGroup>
+	  <Folder Include="Helper\" />  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Images\Backgrounds\Background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Background.png" />
+    <Resource Include="Images\Main_Character\Run\Run_1.png" />
+    <Resource Include="Images\Main_Character\Run\Run_2.png" />
+    <Resource Include="Images\Main_Character\Run\Run_3.png" />
+    <Resource Include="Images\Main_Character\Run\Run_4.png" />
+    <Resource Include="Images\Main_Character\Run\Run_5.png" />
+    <Resource Include="Images\Main_Character\Run\Run_6.png" />
     <Resource Include="Images\Punk_idle.png" />
   </ItemGroup>
 
