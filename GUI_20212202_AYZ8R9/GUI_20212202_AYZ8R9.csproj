@@ -89,7 +89,9 @@
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
-    <Folder Include="ViewModels\" />  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />  
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="IronXL.Excel" Version="2022.3.0" />

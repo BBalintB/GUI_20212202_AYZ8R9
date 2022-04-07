@@ -79,6 +79,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             Games = new ObservableCollection<Game>();
             this.logic = logic;
             logic.SetupCollection(Games);
+            GameVisibility = Visibility.Collapsed;
             logic.SetUpVisibility(MenuVisibility, GameVisibility);
             NewGameCommand = new RelayCommand(() => //This button opens the new game window
             {
@@ -90,6 +91,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             () => //This button opens the new load game window
             {
                 MenuVisibility = Visibility.Collapsed;
+                GameVisibility = Visibility.Visible;
                 logic.LoadInGame(SelectedGame);
 
             },
