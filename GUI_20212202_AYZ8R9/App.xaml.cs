@@ -25,6 +25,7 @@ namespace GUI_20212202_AYZ8R9
                     .AddSingleton<IMenuLogic, MenuLogic>()
                     .AddSingleton<INewGameViaWindow, NewGameViaWindow>()
                     .AddSingleton<INewGameLogic, NewGameLogic>()
+                    .AddSingleton<IGameModel, MapLogic>()
                     .BuildServiceProvider()
                 );
         }

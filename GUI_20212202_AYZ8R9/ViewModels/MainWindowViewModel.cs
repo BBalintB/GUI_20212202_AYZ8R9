@@ -1,6 +1,7 @@
 ﻿using GUI_20212202_AYZ8R9.Logic;
 using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
+using GUI_20212202_AYZ8R9.Renderer;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -62,6 +63,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
         public ICommand SettingsCommand { get; set; }
         public ICommand DeleteFileCommand { get; set; }
         IMenuLogic logic;
+        IGameModel model;
         public static bool IsInDesignMode
         {
             get
@@ -70,14 +72,17 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                 return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
             }
         }
-        public MainWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IMenuLogic>())
+        public MainWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IMenuLogic>(),Ioc.Default.GetService<IGameModel>())
         {
 
         }
-        public MainWindowViewModel(IMenuLogic logic)
+        public MainWindowViewModel(IMenuLogic logic, IGameModel model)
         {
+            Display display = new Display();
             Games = new ObservableCollection<Game>();
             this.logic = logic;
+            //this.model = model;
+            //display.SetupModel(model);
             logic.SetupCollection(Games);
             GameVisibility = Visibility.Collapsed;
             logic.SetUpVisibility(MenuVisibility, GameVisibility);

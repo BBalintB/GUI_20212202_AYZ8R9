@@ -24,18 +24,20 @@ namespace GUI_20212202_AYZ8R9
         public MainWindow()
         {
             InitializeComponent();
+            MapLogic logic = new MapLogic();
+            display.SetupModel(logic);
             //display.SetupModel();
         }
-
+        
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            display.InvalidateVisual();
+            //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            //display.InvalidateVisual();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -65,7 +67,7 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.Key)
+            /*switch (e.Key)
             {
                 case Key.Right:
                     display.Character_Pozition += 10;
@@ -83,11 +85,10 @@ namespace GUI_20212202_AYZ8R9
                 default:
                     break;
             }
-
+            
             display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            display.InvalidateVisual();
-            MapLogic logic = new MapLogic();
-            display.SetupModel(logic);
+            display.InvalidateVisual();*/
+            
         }
     }
 }

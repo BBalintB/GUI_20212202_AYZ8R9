@@ -106,7 +106,6 @@
   <ItemGroup>
     <PackageReference Include="IronXL.Excel" Version="2022.3.0" />
   </ItemGroup>
-	  <Folder Include="Helper\" />  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
@@ -116,7 +115,9 @@
     <Content Include="Images\Backgrounds\Background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\Background.png" />
+    <Content Include="Images\Background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\Main_Character\Run\Run_1.png" />
     <Resource Include="Images\Main_Character\Run\Run_2.png" />
     <Resource Include="Images\Main_Character\Run\Run_3.png" />
