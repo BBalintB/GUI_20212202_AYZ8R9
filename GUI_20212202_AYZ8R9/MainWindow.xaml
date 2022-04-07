@@ -11,11 +11,12 @@
         WindowStyle="None"
         Title="MainWindow" Height="400" Width="600"
         SizeChanged="Window_SizeChanged"
-        Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" KeyDown="Window_KeyDown">
+        Loaded="Window_Loaded" KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp">
     <Window.DataContext>
         <vms:MainWindowViewModel/>
     </Window.DataContext>
-    
+
     <Grid x:Name="grid">
         <renderer:Display x:Name="display"/>
     </Grid>
