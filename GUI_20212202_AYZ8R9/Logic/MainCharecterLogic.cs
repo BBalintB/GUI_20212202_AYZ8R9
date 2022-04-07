@@ -87,8 +87,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 case Controls.Jump:
                     Task_Run = false;
-                    BWJUMP.RunWorkerAsync();
-                    //Method2();
+                    //BWJUMP.RunWorkerAsync();
+                    Method2();
                     break;
                 case Controls.Stop:
                     Task_Run = true;
@@ -97,7 +97,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 default:
                     break;
             }
-            //Changed?.Invoke(this, null);
+            Changed?.Invoke(this, null);
         }
 
 
@@ -155,7 +155,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                         Animation_Counter = 1;
                     }
                     Thread.Sleep(50);
-                    //Changed?.Invoke(this, null);
+                    Changed?.Invoke(this, null);
                 }
             });
         }
@@ -185,7 +185,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     }
                     Jump_Counter++;
                     Thread.Sleep(100);
-                    //Changed?.Invoke(this, null);
+                    Changed?.Invoke(this, null);
                 }          
             });
         }
@@ -217,18 +217,17 @@ namespace GUI_20212202_AYZ8R9.Logic
                 {
                     left_corner.Vertical = left_corner.Vertical - 10;
                     right_corner.Vertical = right_corner.Vertical - 10;
-                ;
+                
                 }
                 else
                 {
                     left_corner.Vertical = left_corner.Vertical + 10;
                     right_corner.Vertical = right_corner.Vertical + 10;
-                ;
+                
                 }
                 Jump_Counter++;
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
             Changed?.Invoke(this, null);
-            //Changed?.Invoke(this, null);
         }
         #endregion
     }
