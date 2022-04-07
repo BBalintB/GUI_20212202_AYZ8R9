@@ -9,11 +9,11 @@
   <ItemGroup>
     <Compile Remove="Images\Main_Charecter\**" />
     <Compile Remove="Renderel\**" />
-    <EmbeddedResource Remove="Images\Main_Charecter\**" />
+    <EmbeddedResource Remove="Images\Main_Character\**" />
     <EmbeddedResource Remove="Renderel\**" />
-    <None Remove="Images\Main_Charecter\**" />
+    <None Remove="Images\Main_Character\**" />
     <None Remove="Renderel\**" />
-    <Page Remove="Images\Main_Charecter\**" />
+    <Page Remove="Images\Main_Character\**" />
     <Page Remove="Renderel\**" />
   </ItemGroup>
 
