@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 
 namespace GUI_20212202_AYZ8R9.Renderer
 {
-    internal class CharacterDisplay : FrameworkElement
+    public class CharacterDisplay : FrameworkElement
     {
         Size size;
         public void Resize(Size size)
@@ -36,12 +36,8 @@ namespace GUI_20212202_AYZ8R9.Renderer
 
             if (size.Width > 0 && size.Height > 0 && Character != null)
             {
-                drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", "Background.png"), UriKind.Relative)), new Rect(new Point(0, 0), new Point(size.Width, size.Height / 3 * 2.4)));
-                drawingContext.DrawLine(new Pen(Brushes.Black, 3), new Point(0, size.Height/3*2.4), new Point(size.Width , size.Height / 3 * 2.4));
-
                 drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", "Main_Character", "Run", $"{Character.DoingPath}_{Character.Animation_Counter}.png"), UriKind.Relative)), new Rect(new Point(Character.left_corner.Horizontal, Character.left_corner.Vertical), new Point(Character.right_corner.Horizontal, Character.right_corner.Vertical)));
             }
-            
         }
 
     }

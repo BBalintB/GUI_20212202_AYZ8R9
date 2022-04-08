@@ -24,13 +24,14 @@ namespace GUI_20212202_AYZ8R9
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainCharacterLogic logic;
+        MainCharacterLogic Characterlogic;
+
+        MapLogic Maplogic;
 
         public MainWindow()
         {
             InitializeComponent();
-            MapLogic logic = new MapLogic();
-            display.SetupModel(logic);
+
             //display.SetupModel();
             this.BWJUMP = new BackgroundWorker();
             this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
@@ -42,19 +43,22 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            logic = new MainCharacterLogic();
-            logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            logic.DoingPath = "Run";
-            display.SetupModel(logic);
-            display.InvalidateVisual();          
-            //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            this.Maplogic = new MapLogic();
+            display.SetupModel(Maplogic);// Load map
+            display.InvalidateVisual();
+
+            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            Characterlogic = new MainCharacterLogic();
+            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.GameMatrix /*I need the game matrix*/);
+            Characterlogic.DoingPath = "Run";
+            CharacterDisplay.SetupModel(Characterlogic);
+            CharacterDisplay.InvalidateVisual();          
             //display.InvalidateVisual();
         }
 
@@ -62,23 +66,23 @@ namespace GUI_20212202_AYZ8R9
         {
             if (e.Key == Key.Left)
             {
-                logic.Control(MainCharacterLogic.Controls.Left);
+                Characterlogic.Control(MainCharacterLogic.Controls.Left);
             }
             else if (e.Key == Key.Right)
             {
-                logic.Control(MainCharacterLogic.Controls.Right);
+                Characterlogic.Control(MainCharacterLogic.Controls.Right);
             }
             else if (e.Key == Key.A)
             {
-                logic.Control(MainCharacterLogic.Controls.Left);
+                Characterlogic.Control(MainCharacterLogic.Controls.Left);
             }
             else if (e.Key == Key.D)
             {
-                logic.Control(MainCharacterLogic.Controls.Right);
+                Characterlogic.Control(MainCharacterLogic.Controls.Right);
             }
             else if (e.Key == Key.Space)
             {
-                logic.Control(MainCharacterLogic.Controls.Jump);
+                Characterlogic.Control(MainCharacterLogic.Controls.Jump);
             }
         }
 
@@ -87,23 +91,23 @@ namespace GUI_20212202_AYZ8R9
 
             if (e.Key == Key.Left)
             {
-                logic.Control(MainCharacterLogic.Controls.Stop);
+                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
             else if (e.Key == Key.Right)
             {
-                logic.Control(MainCharacterLogic.Controls.Stop);
+                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
             else if (e.Key == Key.A)
             {
-                logic.Control(MainCharacterLogic.Controls.Stop);
+                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
             else if (e.Key == Key.D)
             {
-                logic.Control(MainCharacterLogic.Controls.Stop);
+                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
             else if (e.Key == Key.Space)
             {
-                logic.Control(MainCharacterLogic.Controls.Stop);
+                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
         }
 
@@ -122,9 +126,13 @@ namespace GUI_20212202_AYZ8R9
         private void Bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //display.Character_Pozition += e.ProgressPercentage;
-            display.InvalidateVisual();
+            CharacterDisplay.InvalidateVisual();
         }
         #endregion
 
+        private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+        }
     }
 }

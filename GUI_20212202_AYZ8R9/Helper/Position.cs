@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_20212202_AYZ8R9.Helper
 {
-    internal class Position
+    public class Position
     {
         public double Vertical;
 

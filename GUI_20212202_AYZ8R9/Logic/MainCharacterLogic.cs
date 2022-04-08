@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
-    internal class MainCharacterLogic : ICharacter
+    public class MainCharacterLogic : ICharacter
     {
         public MainCharacterLogic()
         {
@@ -20,7 +21,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public event EventHandler Changed;
 
-        public char[,] Map { get; set; }//<--------Full screen MAP matrix
+        public Element[,] Map { get; set; }//<--------Full screen MAP matrix
 
         public Position left_corner { get; set; }
 
@@ -31,6 +32,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         public string DoingPath { get; set; }
 
         System.Windows.Size size;
+
         public int Animation_Counter { get; set; }
 
         public int Idle_Animation_Counter { get; set; }
@@ -42,7 +44,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         BackgroundWorker BWJUMP;
 
-        public void SetupSizes(System.Windows.Size area)
+        public void SetupSizes(System.Windows.Size area, Element[,] map)
         {
             this.size = area;
             left_corner = new Position();
@@ -50,8 +52,8 @@ namespace GUI_20212202_AYZ8R9.Logic
             Animation_Counter = 1;
 
             //Set starter position()----------------
-            left_corner.Horizontal = 300;
-            left_corner.Vertical = 300;
+            left_corner.Horizontal = 250;
+            left_corner.Vertical = 250;
             Right_Corner_Set();
             //--------------------------------------
 
@@ -60,7 +62,9 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.BWJUMP.WorkerReportsProgress = true;
             this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
 
-            Map = new char[(int)area.Width, (int)area.Height];
+            Map = new Element[(int)area.Width, (int)area.Height];
+
+
         }
 
 
@@ -126,8 +130,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void Right_Corner_Set()
         { 
-            this.right_corner.Horizontal = this.left_corner.Horizontal + 136;
-            this.right_corner.Vertical = this.left_corner.Vertical + 167;
+            this.right_corner.Horizontal = this.left_corner.Horizontal + 56;
+            this.right_corner.Vertical = this.left_corner.Vertical + 87;
         }
 
 
@@ -155,7 +159,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                         Animation_Counter = 1;
                     }
                     Thread.Sleep(50);
-                    Changed?.Invoke(this, null);
+                    //Changed?.Invoke(this, null);
                 }
             });
         }
@@ -185,7 +189,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     }
                     Jump_Counter++;
                     Thread.Sleep(100);
-                    Changed?.Invoke(this, null);
+                    //Changed?.Invoke(this, null);
                 }          
             });
         }
