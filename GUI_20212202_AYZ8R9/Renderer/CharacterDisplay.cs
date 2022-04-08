@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 
 namespace GUI_20212202_AYZ8R9.Renderer
 {
-    internal class Display : FrameworkElement
+    internal class CharacterDisplay : FrameworkElement
     {
         Size size;
         public void Resize(Size size)

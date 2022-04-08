@@ -18,6 +18,6 @@
     </Window.DataContext>
 
     <Grid x:Name="grid">
-        <renderer:Display x:Name="display"/>
+        <renderer:CharacterDisplay x:Name="display"/>
     </Grid>
 </Window>
