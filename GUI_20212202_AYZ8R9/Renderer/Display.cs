@@ -32,12 +32,18 @@ namespace GUI_20212202_AYZ8R9.Renderer
             base.OnRender(drawingContext);
             if (model != null) // When window is starting this is run, but the model didn't set!!
             {
-            drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
-                new Rect(0, 0, size.Width, size.Height));
-            ImageBrush brush2 = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "Background.png"), UriKind.RelativeOrAbsolute)));
+            //drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
+            //    new Rect(0, 0, size.Width, size.Height));
+            ImageBrush brush2 = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War2.png"), UriKind.RelativeOrAbsolute)));
             drawingContext.DrawRectangle(brush2, new Pen(Brushes.Black, 0),new Rect(0,0,1920,1080));
 
-            BlocksLoad(drawingContext);
+            //drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
+            //new Rect(size.Width/2, size.Height/2, size.Width, size.Height));
+
+            ImageBrush brush3 = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "home2.png"), UriKind.RelativeOrAbsolute)));
+            drawingContext.DrawRectangle(brush3, new Pen(Brushes.Black, 0), new Rect(800,485, 350, 196));
+
+                BlocksLoad(drawingContext);
             }
         }
 
