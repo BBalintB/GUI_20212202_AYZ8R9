@@ -44,13 +44,16 @@ namespace GUI_20212202_AYZ8R9
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Maplogic = new MapLogic();
             display.SetupModel(Maplogic);// Load map
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));

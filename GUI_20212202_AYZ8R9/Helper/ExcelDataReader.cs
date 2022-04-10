@@ -64,7 +64,7 @@ namespace GUI_20212202_AYZ8R9.Helper
                             }
                             else if (map[i - 1, j] == "W")
                             {
-                                map[i, j] = "Z";
+                                map[i, j] = "W";
                             }
                             else if (map[i - 1, j] == "B")
                             {
@@ -85,6 +85,10 @@ namespace GUI_20212202_AYZ8R9.Helper
                             else if (map[i - 1, j] == "D")
                             {
                                 map[i, j] = "V";
+                            }
+                            else if (map[i-1,j] == "W")
+                            {
+                                map[i, j] = "W";
                             }
                             else
                             {

@@ -8,7 +8,6 @@
         xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
         xmlns:renderer="clr-namespace:GUI_20212202_AYZ8R9.Renderer"
         mc:Ignorable="d"
-        WindowState="Maximized"
         WindowStyle="None"
         Title="MainWindow" Height="400" Width="600"
         SizeChanged="Window_SizeChanged"
@@ -77,7 +76,7 @@
             </Grid>
         </Grid>
         2. grid didn't get size-->
-        <Grid Visibility="Visible" x:Name="grid" IsVisibleChanged="grid_IsVisibleChanged" Width="1920" Height="1080">
+        <Grid Visibility="Visible" x:Name="grid" IsVisibleChanged="grid_IsVisibleChanged" Width="600" Height="400">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
         </Grid>

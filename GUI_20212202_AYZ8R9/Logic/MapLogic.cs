@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace GUI_20212202_AYZ8R9.Logic
 {
     public class MapLogic : IGameModel
-    {
+    {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST
         }
 
         int ActualMapNumber { get; set; }      
@@ -29,7 +29,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         private void LoadFirstMap()
         {          
             GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(3);
+            string[,] map = r.GetMap(1);
                        
             for (int i = 0; i < map.GetLength(0); i++)
             {
@@ -91,6 +91,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "Z": return Element.Z;
                 case "L": return Element.L;
                 case "Y": return Element.Y;
+                case "PLAYER": return Element.PLAYER;
+                case "HOME": return Element.HOME;
+                case "NE": return Element.NE;
+                case "PRE": return Element.PRE;
+                case "CHEST": return Element.CHEST;
                 default:
                     return Element.X;
             }
