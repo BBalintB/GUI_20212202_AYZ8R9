@@ -12,7 +12,7 @@ namespace GUI_20212202_AYZ8R9.Logic
     {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST,CHEST1
         }
 
         int ActualMapNumber { get; set; }      
@@ -29,7 +29,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         private void LoadFirstMap()
         {          
             GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(2);
+            string[,] map = r.GetMap(3);
                        
             for (int i = 0; i < map.GetLength(0); i++)
             {
@@ -96,6 +96,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "NE": return Element.NE;
                 case "PRE": return Element.PRE;
                 case "CHEST": return Element.CHEST;
+                case "CHEST1": return Element.CHEST1;
                 default:
                     return Element.X;
             }
