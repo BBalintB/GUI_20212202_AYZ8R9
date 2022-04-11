@@ -9,8 +9,7 @@
         xmlns:renderer="clr-namespace:GUI_20212202_AYZ8R9.Renderer"
         mc:Ignorable="d"
         WindowStyle="None"
-        Title="MainWindow" Height="400" Width="600"
-        WindowState="Maximized"
+        Title="MainWindow" Height="400" Width="600"       
         SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp">
@@ -21,7 +20,7 @@
     <Window.Resources>
         <helper:EnumToColorConverter x:Key="enumToColor"/>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="grid" >
         <!--<Grid Visibility="{Binding MenuVisibility}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -77,7 +76,7 @@
             </Grid>
         </Grid>-->
        
-        <Grid Visibility="Visible" x:Name="grid"  IsVisibleChanged="grid_IsVisibleChanged" Width="1920" Height="1080">
+        <Grid Visibility="Visible"  IsVisibleChanged="grid_IsVisibleChanged">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
         </Grid>
