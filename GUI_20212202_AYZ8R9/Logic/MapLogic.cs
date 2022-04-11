@@ -29,7 +29,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         private void LoadFirstMap()
         {          
             GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(3);
+            string[,] map = r.GetMap(2);
                        
             for (int i = 0; i < map.GetLength(0); i++)
             {

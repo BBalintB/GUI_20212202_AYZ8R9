@@ -36,6 +36,8 @@
     <None Remove="Images\Blocks\D.png" />
     <None Remove="Images\Blocks\E.png" />
     <None Remove="Images\Blocks\L.png" />
+    <None Remove="Images\Blocks\NE.png" />
+    <None Remove="Images\Blocks\PRE.png" />
     <None Remove="Images\Blocks\R.png" />
     <None Remove="Images\Blocks\S.png" />
     <None Remove="Images\Blocks\U.png" />
@@ -101,6 +103,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\L.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\NE.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\PRE.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\R.png">
