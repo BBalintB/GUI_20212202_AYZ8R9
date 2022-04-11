@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
@@ -62,11 +63,40 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.BWJUMP.WorkerReportsProgress = true;
             this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
 
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(50);
+            dt.Tick += Dt_Tick;
+            dt.Start();
+
+
             Map = new Element[(int)area.Width, (int)area.Height];
 
+            double Width = area.Width / map.GetLength(0);
+            double Height = area.Height / map.GetLength(1);
 
+            int bigmapwidthcount = 0;
+            int bigmapheightcount = 0;
+
+            //for (int i = 0; i < map.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < map.GetLength(1); j++)
+            //    {
+            //        for (int k = 0; k < Width; k++)
+            //        {
+            //            for (int m = 0; m < Height; m++)
+            //            {
+            //                Map[bigmapwidthcount, bigmapheightcount] = map[i, j];
+            //                bigmapwidthcount++;
+            //            }
+            //            bigmapheightcount++;
+            //        }
+            //        bigmapwidthcount = 0;
+            //        bigmapheightcount = 0;
+            //    }
+            //}
+
+            //Method1();
         }
-
 
         public enum Controls
         {
@@ -78,29 +108,31 @@ namespace GUI_20212202_AYZ8R9.Logic
             switch (control)
             {
                 case Controls.Left:
-                    Task_Run = false;
                     this.Turn_Right = false;
                     Run_Set(Controls.Left);
                     Changed?.Invoke(this, null);
                     break;
                 case Controls.Right:
-                    Task_Run = false;
                     this.Turn_Right = true;
                     Run_Set(Controls.Right);
                     Changed?.Invoke(this, null);
                     break;
                 case Controls.Jump:
-                    Task_Run = false;
-                    //BWJUMP.RunWorkerAsync();
+                    Monitor.Exit(Changed);
+                    //if (!BWJUMP.IsBusy)
+                    //{
+                    //    BWJUMP.RunWorkerAsync();
+                    //}
                     Method2();
                     break;
                 case Controls.Stop:
-                    Task_Run = true;
-                    Method1();
+                    //Method1();
+                    //Method3();
                     break;
                 default:
                     break;
             }
+            Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
         }
 
@@ -139,7 +171,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             Task.Run(() =>
             {
-                while (Task_Run)
+                while (true)
                 {
                     MainPath = "Idle";
                     if (Turn_Right)
@@ -158,10 +190,37 @@ namespace GUI_20212202_AYZ8R9.Logic
                     {
                         Animation_Counter = 1;
                     }
-                    Thread.Sleep(50);
-                    //Changed?.Invoke(this, null);
+                    //Thread.Sleep(50);
+                    Monitor.Enter(Changed);
+                    Changed?.Invoke(this, null);
+                    Monitor.Exit(Changed);
                 }
             });
+        }
+
+        public void Method3()
+        {
+            MainPath = "Idle";
+            if (Turn_Right)
+            {
+                DoingPath = "Idle";
+            }
+            else
+            {
+                DoingPath = "Back_Idle";
+            }
+            if (Animation_Counter < 4)
+            {
+                Animation_Counter++;
+            }
+            else
+            {
+                Animation_Counter = 1;
+            }
+            //Thread.Sleep(50);
+            //Monitor.Enter(Changed);
+            Changed?.Invoke(this, null);
+            //Monitor.Exit(Changed);
         }
 
         public async Task Method2()
@@ -170,6 +229,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 for (int i = 0; i < 7; i++)
                 {
+                    
                     if (Jump_Counter >= 7)
                     {
                         Jump_Counter = 1;
@@ -189,9 +249,12 @@ namespace GUI_20212202_AYZ8R9.Logic
                     }
                     Jump_Counter++;
                     Thread.Sleep(100);
-                    //Changed?.Invoke(this, null);
-                }          
+                    Monitor.Enter(Changed);
+                    Changed?.Invoke(this, null);
+                }
+                
             });
+            Monitor.Exit(Changed);
         }
 
 
@@ -210,6 +273,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private void Bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            
                 if (Jump_Counter >= 7)
                 {
                     Jump_Counter = 1;
@@ -231,8 +295,36 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
                 Jump_Counter++;
             Thread.Sleep(100);
+            Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
+            Monitor.Exit(Changed);
         }
         #endregion
+
+        private void Dt_Tick(object? sender, EventArgs e)
+        {
+            MainPath = "Idle";
+            if (Turn_Right)
+            {
+                DoingPath = "Idle";
+            }
+            else
+            {
+                DoingPath = "Back_Idle";
+            }
+            if (Animation_Counter < 4)
+            {
+                Animation_Counter++;
+            }
+            else
+            {
+                Animation_Counter = 1;
+            }
+            //Thread.Sleep(50);
+            //Monitor.Enter(Changed);
+            Changed?.Invoke(this, null);
+            //Monitor.Exit(Changed);
+        }
+
     }
 }

@@ -105,10 +105,10 @@ namespace GUI_20212202_AYZ8R9
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
-            else if (e.Key == Key.Space)
-            {
-                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
-            }
+            //else if (e.Key == Key.Space)
+            //{
+            //    Characterlogic.Control(MainCharacterLogic.Controls.Stop);
+            //}
         }
 
         #region BW Tasks
