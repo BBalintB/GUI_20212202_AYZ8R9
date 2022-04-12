@@ -30,15 +30,14 @@ namespace GUI_20212202_AYZ8R9.Logic
         {          
             GameMatrix = new Element[30, 54];
             string[,] map = r.GetMap(3);
-                       
+                               
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
                     GameMatrix[i, j] = ConvertToEnum(map[i,j]);
                 }
-            }
-            
+            }           
         }
 
         public  void LoadNextLeftMap()

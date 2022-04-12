@@ -14,6 +14,11 @@ namespace GUI_20212202_AYZ8R9.Logic
 {
     public class MainCharacterLogic : ICharacter
     {
+        
+        public enum PixelType
+        {
+            yes,no,chest,enemy,next,previous,home
+        }
         public MainCharacterLogic()
         {
 
@@ -21,7 +26,9 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public event EventHandler Changed;
 
-        public Element[,] Map { get; set; }//<--------Full screen MAP matrix
+        public Element[,] Map { get; set; }//<--------Full screen MAP matrix / display map
+        public Element[,] PixelMap { get; set; } // pixel map
+
 
         public Position left_corner { get; set; }
 
@@ -62,11 +69,59 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.BWJUMP.WorkerReportsProgress = true;
             this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
 
-            Map = new Element[(int)area.Width, (int)area.Height];
-
+            Map = map;
+            //Map = new Element[(int)area.Width, (int)area.Height];
+            FullMapCreator();
 
         }
 
+        private void FullMapCreator()
+        {
+            int rectWidth = (int)(size.Width / Map.GetLength(1));
+            int rectHeight = (int)(size.Height / Map.GetLength(0));
+
+            //double rectWidth1 = (size.Width / Map.GetLength(1));
+            //double rectHeight1 = (size.Height / Map.GetLength(0));
+
+            PixelMap = new Element[ (int)size.Height, (int)size.Width];
+            ;           
+            int iMapIndex = 0;
+            int jMapIndex = 0;
+
+            for (int i = 0; i < PixelMap.GetLength(0); i++)
+            {
+                if (i % rectHeight == 0 && i != 0)
+                {
+                    iMapIndex++;
+                }
+                if (iMapIndex > 29)
+                {
+                    iMapIndex = 29;
+                }               
+                for (int j = 0; j < PixelMap.GetLength(1);  j++)
+                {                 
+                    if (j % rectWidth == 0 && j != 0)
+                    {
+                        jMapIndex++;
+                    }
+                    else if (true)
+                    {
+                        //jMapIndex = 0;
+                    }
+                    if (jMapIndex > 53)
+                    {
+                        PixelMap[i, j] = Map[iMapIndex, 53];
+                    }
+                    else
+                    {
+                        PixelMap[i, j] = Map[iMapIndex, jMapIndex];
+                    }
+                   
+                }
+                jMapIndex = 0;
+            }
+            ;
+        }
 
         public enum Controls
         {

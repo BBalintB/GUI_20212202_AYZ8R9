@@ -8,8 +8,8 @@
         xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
         xmlns:renderer="clr-namespace:GUI_20212202_AYZ8R9.Renderer"
         mc:Ignorable="d"
-        WindowStyle="None"
-        Title="MainWindow" Height="400" Width="600"       
+        
+        Title="MainWindow" Height="300" Width="500"   
         SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp">
