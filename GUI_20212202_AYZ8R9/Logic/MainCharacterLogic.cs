@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
@@ -56,6 +57,11 @@ namespace GUI_20212202_AYZ8R9.Logic
             left_corner.Vertical = 250;
             Right_Corner_Set();
             //--------------------------------------
+
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(50);
+            dt.Tick += Dt_Tick;
+            dt.Start();
 
             this.BWJUMP = new BackgroundWorker();
             this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
@@ -234,5 +240,31 @@ namespace GUI_20212202_AYZ8R9.Logic
             Changed?.Invoke(this, null);
         }
         #endregion
+
+
+        private void Dt_Tick(object? sender, EventArgs e)
+        {
+            MainPath = "Idle";
+            if (Turn_Right)
+            {
+                DoingPath = "Idle";
+            }
+            else
+            {
+                DoingPath = "Back_Idle";
+            }
+            if (Animation_Counter < 4)
+            {
+                Animation_Counter++;
+            }
+            else
+            {
+                Animation_Counter = 1;
+            }
+            Thread.Sleep(50);
+            //Monitor.Enter(Changed);
+            Changed?.Invoke(this, null);
+            //Monitor.Exit(Changed);
+        }
     }
 }
