@@ -142,8 +142,8 @@ namespace GUI_20212202_AYZ8R9.Logic
             MainPath = "Run";
             if (controls == Controls.Left)
             {
-                left_corner.Horizontal -= 10;
-                right_corner.Horizontal -= 10;
+                left_corner.Horizontal -= 10/*30.2*/;
+                right_corner.Horizontal -= 10/*30.2*/;
                 DoingPath = "Back_Run"; //Animation Image
             }
             else
@@ -320,7 +320,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 Animation_Counter = 1;
             }
-            //Thread.Sleep(50);
+            Thread.Sleep(50);
             //Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
             //Monitor.Exit(Changed);

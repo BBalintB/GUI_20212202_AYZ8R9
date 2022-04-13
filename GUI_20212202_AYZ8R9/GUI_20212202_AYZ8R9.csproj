@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\Main_Character\Attack - Copy\**" />
     <Compile Remove="Images\Main_Charecter\**" />
     <Compile Remove="Renderel\**" />
     <EmbeddedResource Remove="Images\Main_Character\**" />
