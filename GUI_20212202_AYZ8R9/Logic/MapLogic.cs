@@ -15,7 +15,8 @@ namespace GUI_20212202_AYZ8R9.Logic
             A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST,CHEST1
         }
 
-        int ActualMapNumber { get; set; }      
+        int ActualMapNumber { get; set; }
+        public Element[][,] AllMap { get; set; }
         public Element[,] GameMatrix { get; set; }
         private ExcelDataReader r { get; set; }
       
@@ -23,21 +24,39 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             ActualMapNumber = 1;
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
-            LoadFirstMap();          
+            LoadFirstMap();   
+            
         }
 
-        private void LoadFirstMap()
-        {          
-            GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(3);
-                               
+        public void LoadInAllMap()
+        {
+            AllMap = new Element[4][,];
+            for (int i = 0; i < 4; i++)
+            {
+                string[,] map = r.GetMap(i);
+                Element[,] matrix = MatrixConverter(map);
+                AllMap[i] = matrix;                              
+            }
+        }
+
+        private Element[,] MatrixConverter(string[,] map)
+        {
+            Element[,] matrix = new Element[30, 54];           
+            ;
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
-                    GameMatrix[i, j] = ConvertToEnum(map[i,j]);
+                    matrix[i, j] = ConvertToEnum(map[i, j]);
                 }
-            }           
+            }
+            return matrix;
+        }
+
+        private void LoadFirstMap()
+        {                     
+            string[,] map = r.GetMap(2);
+            GameMatrix = MatrixConverter(map);
         }
 
         public  void LoadNextLeftMap()
@@ -54,7 +73,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
             }
             ActualMapNumber++;
-        }
+        } // todo
         public void LoadNextRightMap()
         {
             GameMatrix = new Element[30, 54];
@@ -69,8 +88,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
             }
             ActualMapNumber++;
-        }
+        } // todo
 
+        
 
         private Element ConvertToEnum(string v)
         {

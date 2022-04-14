@@ -60,7 +60,7 @@ namespace GUI_20212202_AYZ8R9
             Characterlogic.DoingPath = "Run";
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();          
-            //display.InvalidateVisual();
+            display.InvalidateVisual();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
