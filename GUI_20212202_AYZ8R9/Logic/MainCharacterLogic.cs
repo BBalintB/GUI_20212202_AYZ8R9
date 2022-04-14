@@ -3,7 +3,7 @@ using GUI_20212202_AYZ8R9.Renderer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -74,34 +74,82 @@ namespace GUI_20212202_AYZ8R9.Logic
             //dt.Start();
 
 
-            Map = new Element[(int)area.Width, (int)area.Height];
 
-            double Width = area.Width / map.GetLength(0);
-            double Height = area.Height / map.GetLength(1);
+            //------------------------------------------------------------
+            Map = new Element[(int)area.Height, (int)area.Width];
+
+            int Height = (int)(area.Height / map.GetLength(0));
+            int Width = (int)(area.Width / map.GetLength(1));
 
             int bigmapwidthcount = 0;
             int bigmapheightcount = 0;
+            
+            bool first_time = true;
 
-            //for (int i = 0; i < map.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < map.GetLength(1); j++)
-            //    {
-            //        for (int k = 0; k < Width; k++)
-            //        {
-            //            for (int m = 0; m < Height; m++)
-            //            {
-            //                Map[bigmapwidthcount, bigmapheightcount] = map[i, j];
-            //                bigmapwidthcount++;
-            //            }
-            //            bigmapheightcount++;
-            //        }
-            //        bigmapwidthcount = 0;
-            //        bigmapheightcount = 0;
-            //    }
-            //}
+            using (TextWriter tw = new StreamWriter("matrixsmall.txt"))
+            {
+                for (int j = 0; j < map.GetLength(0); j++)
+                {
+                    for (int i = 0; i < map.GetLength(1); i++)
+                    {
+                        tw.Write(map[j, i] + " ");
+                    }
+                    tw.WriteLine();
+                }
+            }
+
+            ;
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    
+                    if (first_time)
+                    {
+                        Set(map[i, j],0,1*Height,0,1*Width);
+                        first_time = false;
+                        ;
+                    }
+                    else
+                    {
+                        Set(map[i, j], i*Height, (i+1)*Height, j*Width, (j+1)*Width);
+                        ;
+                    }
+                    
+                }
+            }
+            ;
+
+            using (TextWriter tw = new StreamWriter("matrixbig.txt"))
+            {
+                for (int j = 0; j < Map.GetLength(0); j++)
+                {
+                    for (int i = 0; i < Map.GetLength(1); i++)
+                    {
+                        tw.Write(Map[j, i] + " ");
+                    }
+                    tw.WriteLine();
+                }
+            }
+            //-------------------------------------------------------------------
+
 
             //Method1();
         }
+
+        public void Set(Element element, int lineStart, int lineStop, int columStart, int columStop)
+        {
+            for (int i = lineStart; i < lineStop; i++)
+            {
+                for (int j = columStart; j < columStop; j++)
+                {
+                    this.Map[i, j] = element;
+                }
+            }
+        }
+
+
 
         public enum Controls
         {

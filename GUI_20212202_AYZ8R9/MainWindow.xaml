@@ -12,7 +12,8 @@
         Title="MainWindow" Height="400" Width="600"       
         SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
-        KeyUp="Window_KeyUp">
+        KeyUp="Window_KeyUp"
+        WindowState="Maximized">
         <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->
     <Window.DataContext>
         <vms:MainWindowViewModel />

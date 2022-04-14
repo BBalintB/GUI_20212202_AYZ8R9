@@ -30,11 +30,6 @@ namespace GUI_20212202_AYZ8R9
         public MainWindow()
         {
             InitializeComponent();
-
-            this.BWJUMP = new BackgroundWorker();
-            this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
-            this.BWJUMP.WorkerReportsProgress = true;
-            this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
         }
 
         BackgroundWorker BWJUMP;
