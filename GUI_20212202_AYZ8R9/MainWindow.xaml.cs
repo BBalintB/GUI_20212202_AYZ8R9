@@ -30,11 +30,6 @@ namespace GUI_20212202_AYZ8R9
         public MainWindow()
         {
             InitializeComponent();
-
-            this.BWJUMP = new BackgroundWorker();
-            this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
-            this.BWJUMP.WorkerReportsProgress = true;
-            this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
         }
 
         BackgroundWorker BWJUMP;
@@ -105,10 +100,10 @@ namespace GUI_20212202_AYZ8R9
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
-            else if (e.Key == Key.Space)
-            {
-                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
-            }
+            //else if (e.Key == Key.Space)
+            //{
+            //    Characterlogic.Control(MainCharacterLogic.Controls.Stop);
+            //}
         }
 
         #region BW Tasks

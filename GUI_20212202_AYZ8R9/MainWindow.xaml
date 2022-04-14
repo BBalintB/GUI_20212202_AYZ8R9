@@ -12,8 +12,9 @@
         Title="MainWindow" Height="1089" Width="1906"   
         
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
-        KeyUp="Window_KeyUp">
-    <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->
+        KeyUp="Window_KeyUp"
+        WindowState="Maximized">
+        <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->
     <Window.DataContext>
         <vms:MainWindowViewModel />
     </Window.DataContext>
@@ -21,65 +22,63 @@
         <helper:EnumToColorConverter x:Key="enumToColor"/>
     </Window.Resources>
     <Grid x:Name="grid">
-        <!--<Grid Visibility="{Binding MenuVisibility}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <Grid  Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.75*"/>
-                    <RowDefinition Height="6*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Label Content="Choose a File:" HorizontalAlignment="Center" Grid.RowSpan="3" FontSize="25"/>
-                <Grid Grid.Row="1">
-                    <ListBox SelectedItem="{Binding SelectedGame}" ItemsSource="{Binding Games}" HorizontalContentAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Black" BorderThickness="1">
-                                    <StackPanel Background="{Binding Hero.HeroType,Mode=OneWay,Converter={StaticResource enumToColor}}">
-                                        <Label FontWeight="SemiBold" Content="{Binding FileName}" ContentStringFormat="Filename: {0}"/>
-                                        <Label FontWeight="SemiBold" Content="{Binding Hero.HeroName}" ContentStringFormat="Heroname: {0}"/>
-                                        <Label FontWeight="SemiBold" Content="{Binding FileLastSaveDate}" ContentStringFormat="Last save: {0}"/>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
-                <Button Command="{Binding DeleteFileCommand}" Content="Delete save" Grid.Row="2" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
+    <Grid Visibility="{Binding MenuVisibility}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid  Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Choose a File:" HorizontalAlignment="Center" Grid.RowSpan="3" FontSize="25"/>
+            <Grid Grid.Row="1">
+                <ListBox SelectedItem="{Binding SelectedGame}" ItemsSource="{Binding Games}" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1">
+                                <StackPanel Background="{Binding Hero.HeroType,Mode=OneWay,Converter={StaticResource enumToColor}}">
+                                    <Label FontWeight="SemiBold" Content="{Binding FileName}" ContentStringFormat="Filename: {0}"/>
+                                    <Label FontWeight="SemiBold" Content="{Binding Hero.HeroName}" ContentStringFormat="Heroname: {0}"/>
+                                    <Label FontWeight="SemiBold" Content="{Binding FileLastSaveDate}" ContentStringFormat="Last save: {0}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Grid>
-            <Grid Grid.Column="1">
+            <Button Command="{Binding DeleteFileCommand}" Content="Delete save" Grid.Row="2" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="1" Content="A p o c a l y p t i c" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontWeight="DemiBold"/>
-                    <Label Grid.Row="2" Content="When the whole world stoped..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Light" Foreground="Red"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Border BorderThickness="2" BorderBrush="Black">
-                        <StackPanel>
-                            <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
-                            <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
-                            <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
-                        </StackPanel>
-                    </Border>
-                </Grid>
+                <Label Grid.Row="1" Content="A p o c a l y p t i c" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontWeight="DemiBold"/>
+                <Label Grid.Row="2" Content="When the whole world stoped..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Light" Foreground="Red"/>
             </Grid>
-        </Grid>-->
-       
-        <Grid Visibility="Visible" >
+            <Grid Grid.Row="1">
+                <Border BorderThickness="2" BorderBrush="Black">
+                    <StackPanel>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
+                        <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
+                        <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+    <Grid Visibility="{Binding GameVisibility}" IsVisibleChanged="grid_IsVisibleChanged" Width="1920" Height="1080">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
-        </Grid>
-        
+     </Grid>
     </Grid>
 </Window>

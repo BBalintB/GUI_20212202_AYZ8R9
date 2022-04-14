@@ -3,11 +3,12 @@ using GUI_20212202_AYZ8R9.Renderer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
@@ -58,16 +59,97 @@ namespace GUI_20212202_AYZ8R9.Logic
             Right_Corner_Set();
             //--------------------------------------
 
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(50);
+            dt.Tick += Dt_Tick;
+            dt.Start();
+
             this.BWJUMP = new BackgroundWorker();
             this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
             this.BWJUMP.WorkerReportsProgress = true;
             this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
 
+            //DispatcherTimer dt = new DispatcherTimer();
+            //dt.Interval = TimeSpan.FromMilliseconds(50);
+            //dt.Tick += Dt_Tick;
+            //dt.Start();
+
+
+
+            //------------------------------------------------------------
+            Map = new Element[(int)area.Height, (int)area.Width];
+
+            int Height = (int)(area.Height / map.GetLength(0));
+            int Width = (int)(area.Width / map.GetLength(1));
+
+            int bigmapwidthcount = 0;
+            int bigmapheightcount = 0;
+            
+            bool first_time = true;
+
+            using (TextWriter tw = new StreamWriter("matrixsmall.txt"))
+            {
+                for (int j = 0; j < map.GetLength(0); j++)
+                {
+                    for (int i = 0; i < map.GetLength(1); i++)
+                    {
+                        tw.Write(map[j, i] + " ");
+                    }
+                    tw.WriteLine();
+                }
+            }
+
+            ;
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    
+                    if (first_time)
+                    {
+                        Set(map[i, j],0,1*Height,0,1*Width);
+                        first_time = false;
+                        ;
+                    }
+                    else
+                    {
+                        Set(map[i, j], i*Height, (i+1)*Height, j*Width, (j+1)*Width);
+                        ;
+                    }
+                    
+                }
+            }
+            ;
+
+            using (TextWriter tw = new StreamWriter("matrixbig.txt"))
+            {
+                for (int j = 0; j < Map.GetLength(0); j++)
+                {
+                    for (int i = 0; i < Map.GetLength(1); i++)
+                    {
+                        tw.Write(Map[j, i] + " ");
+                    }
+                    tw.WriteLine();
+                }
+            }
+            //-------------------------------------------------------------------
+
             DisplayMap = map;           
             FullMapCreator(); // creates the full pixel map from the block based
 
+            //Method1();
         }
 
+        public void Set(Element element, int lineStart, int lineStop, int columStart, int columStop)
+        {
+            for (int i = lineStart; i < lineStop; i++)
+            {
+                for (int j = columStart; j < columStop; j++)
+                {
+                    this.Map[i, j] = element;
+                }
+            }
         private void FullMapCreator()
         {
             int rectWidth = (int)(size.Width / DisplayMap.GetLength(1));
@@ -95,6 +177,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             ;
         }
 
+
         public enum Controls
         {
             Left, Right, Jump, Stop
@@ -105,29 +188,31 @@ namespace GUI_20212202_AYZ8R9.Logic
             switch (control)
             {
                 case Controls.Left:
-                    Task_Run = false;
                     this.Turn_Right = false;
                     Run_Set(Controls.Left);
                     Changed?.Invoke(this, null);
                     break;
                 case Controls.Right:
-                    Task_Run = false;
                     this.Turn_Right = true;
                     Run_Set(Controls.Right);
                     Changed?.Invoke(this, null);
                     break;
                 case Controls.Jump:
-                    Task_Run = false;
-                    //BWJUMP.RunWorkerAsync();
+                    Monitor.Exit(Changed);
+                    //if (!BWJUMP.IsBusy)
+                    //{
+                    //    BWJUMP.RunWorkerAsync();
+                    //}
                     Method2();
                     break;
                 case Controls.Stop:
-                    Task_Run = true;
-                    Method1();
+                    //Method1();
+                    //Method3();
                     break;
                 default:
                     break;
             }
+            Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
         }
 
@@ -137,8 +222,8 @@ namespace GUI_20212202_AYZ8R9.Logic
             MainPath = "Run";
             if (controls == Controls.Left)
             {
-                left_corner.Horizontal -= 10;
-                right_corner.Horizontal -= 10;
+                left_corner.Horizontal -= 10/*30.2*/;
+                right_corner.Horizontal -= 10/*30.2*/;
                 DoingPath = "Back_Run"; //Animation Image
             }
             else
@@ -166,7 +251,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             Task.Run(() =>
             {
-                while (Task_Run)
+                while (true)
                 {
                     MainPath = "Idle";
                     if (Turn_Right)
@@ -185,10 +270,37 @@ namespace GUI_20212202_AYZ8R9.Logic
                     {
                         Animation_Counter = 1;
                     }
-                    Thread.Sleep(50);
-                    //Changed?.Invoke(this, null);
+                    //Thread.Sleep(50);
+                    Monitor.Enter(Changed);
+                    Changed?.Invoke(this, null);
+                    Monitor.Exit(Changed);
                 }
             });
+        }
+
+        public void Method3()
+        {
+            MainPath = "Idle";
+            if (Turn_Right)
+            {
+                DoingPath = "Idle";
+            }
+            else
+            {
+                DoingPath = "Back_Idle";
+            }
+            if (Animation_Counter < 4)
+            {
+                Animation_Counter++;
+            }
+            else
+            {
+                Animation_Counter = 1;
+            }
+            //Thread.Sleep(50);
+            //Monitor.Enter(Changed);
+            Changed?.Invoke(this, null);
+            //Monitor.Exit(Changed);
         }
 
         public async Task Method2()
@@ -197,6 +309,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 for (int i = 0; i < 7; i++)
                 {
+                    
                     if (Jump_Counter >= 7)
                     {
                         Jump_Counter = 1;
@@ -216,9 +329,12 @@ namespace GUI_20212202_AYZ8R9.Logic
                     }
                     Jump_Counter++;
                     Thread.Sleep(100);
-                    //Changed?.Invoke(this, null);
-                }          
+                    Monitor.Enter(Changed);
+                    Changed?.Invoke(this, null);
+                }
+                
             });
+            Monitor.Exit(Changed);
         }
 
 
@@ -237,6 +353,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private void Bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            
                 if (Jump_Counter >= 7)
                 {
                     Jump_Counter = 1;
@@ -258,8 +375,36 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
                 Jump_Counter++;
             Thread.Sleep(100);
+            Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
+            Monitor.Exit(Changed);
         }
         #endregion
+
+        private void Dt_Tick(object? sender, EventArgs e)
+        {
+            MainPath = "Idle";
+            if (Turn_Right)
+            {
+                DoingPath = "Idle";
+            }
+            else
+            {
+                DoingPath = "Back_Idle";
+            }
+            if (Animation_Counter < 4)
+            {
+                Animation_Counter++;
+            }
+            else
+            {
+                Animation_Counter = 1;
+            }
+            Thread.Sleep(50);
+            //Monitor.Enter(Changed);
+            Changed?.Invoke(this, null);
+            //Monitor.Exit(Changed);
+        }
+
     }
 }

@@ -81,8 +81,6 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             Display display = new Display();
             Games = new ObservableCollection<Game>();
             this.logic = logic;
-            //this.model = model;
-            //display.SetupModel(model);
             logic.SetupCollection(Games);
             GameVisibility = Visibility.Collapsed;
             logic.SetUpVisibility(MenuVisibility, GameVisibility);
