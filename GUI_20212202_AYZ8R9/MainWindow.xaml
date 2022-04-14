@@ -76,7 +76,7 @@
             </Grid>
         </Grid>
     </Grid>
-    <Grid Visibility="{Binding GameVisibility}" IsVisibleChanged="grid_IsVisibleChanged" Width="1920" Height="1080">
+    <Grid Visibility="{Binding GameVisibility}" Width="1920" Height="1080">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
      </Grid>

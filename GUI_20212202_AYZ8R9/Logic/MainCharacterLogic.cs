@@ -41,6 +41,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private bool Task_Run { get; set; }
         private bool Turn_Right { get; set; }
+        public Element[,] Map { get; set; }
 
         BackgroundWorker BWJUMP;
 
@@ -127,6 +128,10 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             //-------------------------------------------------------------------
 
+            DisplayMap = map;
+            //FullMapCreator(); // creates the full pixel map from the block based
+
+
             //Set starter position()----------------
             int startHorizontal = 0;
             int startVertical = 0;
@@ -148,8 +153,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 }
             }
-            DisplayMap = map;           
-            FullMapCreator(); // creates the full pixel map from the block based
+
 
             //left_corner.Horizontal = 250;
             //left_corner.Vertical = 250;
@@ -171,6 +175,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.Map[i, j] = element;
                 }
             }
+        }
         private void FullMapCreator()
         {
             int rectWidth = (int)(size.Width / DisplayMap.GetLength(1));
@@ -242,7 +247,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             MainPath = "Run";
             if (controls == Controls.Left)
             {
-                if (Map[(int)left_corner.Horizontal-10,(int)right_corner.Vertical] == Element.X)
+                if (Map/*PixelMap*/[(int)left_corner.Horizontal-10,(int)right_corner.Vertical] == Element.X)
                 {
                     left_corner.Horizontal -= 10/*30.2*/;
                     right_corner.Horizontal -= 10/*30.2*/;
@@ -257,7 +262,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             else
             {
-                if (Map[(int)right_corner.Horizontal + 10, (int)right_corner.Vertical] == Element.X)
+                if (Map/*PixelMap*/[(int)right_corner.Horizontal + 10, (int)right_corner.Vertical] == Element.X)
                 {
                     left_corner.Horizontal += 10;
                     right_corner.Horizontal += 10;
@@ -274,9 +279,25 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
 
         public void Right_Corner_Set(int Height, int Width)
-        { 
-            this.right_corner.Horizontal = this.left_corner.Horizontal + Width;
-            this.right_corner.Vertical = this.left_corner.Vertical + Height*1.6;
+        {
+            int startHorizontal = 0;
+            int startVertical = 0;
+            for (int i = 0; i < Map.GetLength(0); i++)
+            {
+                for (int j = 0; j < Map.GetLength(1); j++)
+                {
+                    if (Map[i, j] == Element.PRE)
+                    {
+                        startHorizontal = j;
+                        startVertical = i;
+                    }
+                }
+            }
+            this.right_corner.Horizontal = startHorizontal;
+            this.right_corner.Vertical = startVertical;
+            ;
+            //this.right_corner.Horizontal = this.left_corner.Horizontal + Width;
+            //this.right_corner.Vertical = this.left_corner.Vertical + Height;
         }
 
 
