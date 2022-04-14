@@ -13,7 +13,7 @@
         SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp">
-    <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->
+        <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->
     <Window.DataContext>
         <vms:MainWindowViewModel />
     </Window.DataContext>
@@ -21,7 +21,7 @@
         <helper:EnumToColorConverter x:Key="enumToColor"/>
     </Window.Resources>
     <Grid x:Name="grid" >
-        <!--<Grid Visibility="{Binding MenuVisibility}">
+        <Grid Visibility="{Binding MenuVisibility}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
@@ -74,9 +74,10 @@
                     </Border>
                 </Grid>
             </Grid>
-        </Grid>-->
-       
-        <Grid Visibility="Visible"  IsVisibleChanged="grid_IsVisibleChanged">
+        </Grid>
+        
+
+        <Grid Visibility="{Binding GameVisibility}"  IsVisibleChanged="grid_IsVisibleChanged">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
         </Grid>
