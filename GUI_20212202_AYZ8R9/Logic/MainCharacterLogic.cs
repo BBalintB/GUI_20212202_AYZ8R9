@@ -68,10 +68,10 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.BWJUMP.WorkerReportsProgress = true;
             this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
 
-            DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(50);
-            dt.Tick += Dt_Tick;
-            dt.Start();
+            //DispatcherTimer dt = new DispatcherTimer();
+            //dt.Interval = TimeSpan.FromMilliseconds(50);
+            //dt.Tick += Dt_Tick;
+            //dt.Start();
 
 
             Map = new Element[(int)area.Width, (int)area.Height];
