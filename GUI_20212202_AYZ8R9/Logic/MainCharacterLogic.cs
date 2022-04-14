@@ -36,8 +36,6 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public int Animation_Counter { get; set; }
 
-        public int Idle_Animation_Counter { get; set; }
-
         public int Jump_Counter { get; set; }
 
         private bool Task_Run { get; set; }
@@ -52,11 +50,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             right_corner = new Position();
             Animation_Counter = 1;
 
-            //Set starter position()----------------
-            left_corner.Horizontal = 250;
-            left_corner.Vertical = 250;
-            Right_Corner_Set();
-            //--------------------------------------
+            
 
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(50);
@@ -109,12 +103,10 @@ namespace GUI_20212202_AYZ8R9.Logic
                     {
                         Set(map[i, j],0,1*Height,0,1*Width);
                         first_time = false;
-                        ;
                     }
                     else
                     {
                         Set(map[i, j], i*Height, (i+1)*Height, j*Width, (j+1)*Width);
-                        ;
                     }
                     
                 }
@@ -134,7 +126,36 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             //-------------------------------------------------------------------
 
+            //Set starter position()----------------
+            int startHorizontal = 0;
+            int startVertical = 0;
+            bool off = false;
+            for (int i = 0; i < Map.GetLength(0); i++)
+            {
+                for (int j = 0; j < Map.GetLength(1); j++)
+                {
+                    if (Map[i,j] == Element.PRE)
+                    {
+                        startHorizontal = j;
+                        startVertical = i;
+                        off = true;
+                        break;
+                    }
+                }
+                if (off)
+                {
+                    break;
+                }
+            }
 
+            //left_corner.Horizontal = 250;
+            //left_corner.Vertical = 250;
+
+            left_corner.Horizontal = startHorizontal;
+            left_corner.Vertical = startVertical;
+            ;
+            Right_Corner_Set(Height, Width);
+            //--------------------------------------
             //Method1();
         }
 
@@ -179,8 +200,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Method2();
                     break;
                 case Controls.Stop:
-                    //Method1();
-                    //Method3();
+                    Animation_Counter = 1;
                     break;
                 default:
                     break;
@@ -195,28 +215,41 @@ namespace GUI_20212202_AYZ8R9.Logic
             MainPath = "Run";
             if (controls == Controls.Left)
             {
-                left_corner.Horizontal -= 10/*30.2*/;
-                right_corner.Horizontal -= 10/*30.2*/;
-                DoingPath = "Back_Run"; //Animation Image
+                if (Map[(int)left_corner.Horizontal-10,(int)right_corner.Vertical] == Element.X)
+                {
+                    left_corner.Horizontal -= 10/*30.2*/;
+                    right_corner.Horizontal -= 10/*30.2*/;
+                    DoingPath = "Back_Run"; //Animation Image
+
+                    if (Animation_Counter >= 6)
+                    {
+                        Animation_Counter = 0;
+                    }
+                    Animation_Counter++;
+                }
             }
             else
             {
-                left_corner.Horizontal += 10;
-                right_corner.Horizontal += 10;
-                DoingPath = "Run"; //Animation Image
+                if (Map[(int)right_corner.Horizontal + 10, (int)right_corner.Vertical] == Element.X)
+                {
+                    left_corner.Horizontal += 10;
+                    right_corner.Horizontal += 10;
+                    DoingPath = "Run"; //Animation Image
+
+                    if (Animation_Counter >= 6)
+                    {
+                        Animation_Counter = 0;
+                    }
+                    Animation_Counter++;
+                }
             }
-            if (Animation_Counter >= 6)
-            {
-                Animation_Counter = 0;
-            }
-            Animation_Counter++;
             Thread.Sleep(50);
         }
 
-        public void Right_Corner_Set()
+        public void Right_Corner_Set(int Height, int Width)
         { 
-            this.right_corner.Horizontal = this.left_corner.Horizontal + 56;
-            this.right_corner.Vertical = this.left_corner.Vertical + 87;
+            this.right_corner.Horizontal = this.left_corner.Horizontal + Width;
+            this.right_corner.Vertical = this.left_corner.Vertical + Height*1.6;
         }
 
 
