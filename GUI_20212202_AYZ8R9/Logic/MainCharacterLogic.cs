@@ -70,7 +70,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
             Map = map;
             //Map = new Element[(int)area.Width, (int)area.Height];
-            //FullMapCreator();
+            FullMapCreator();
 
         }
 

@@ -12,7 +12,7 @@ namespace GUI_20212202_AYZ8R9.Logic
     {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST,CHEST1,EN
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN
         }
 
         public int ActualMapNumber { get; set; }
@@ -39,6 +39,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 AllMap[i] = matrix;                              
             }
         }
+
         private Element[,] MatrixConverter(string[,] map)
         {
             Element[,] matrix = new Element[30, 54];           
@@ -52,7 +53,6 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             return matrix;
         }
-
         private void LoadFirstMap()
         {
             ActualMapNumber = 1;
@@ -91,8 +91,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "HOME": return Element.HOME;
                 case "NE": return Element.NE;
                 case "PRE": return Element.PRE;
-                case "CHEST": return Element.CHEST;
-                case "CHEST1": return Element.CHEST1;
+                case "CH": return Element.CH;
+                case "CH1": return Element.CH1;
                 default:
                     return Element.X;
             }

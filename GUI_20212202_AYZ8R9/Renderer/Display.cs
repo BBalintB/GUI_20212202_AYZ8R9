@@ -61,6 +61,7 @@ namespace GUI_20212202_AYZ8R9.Renderer
 
                     switch (model.ActualMap[i, j])
                     {
+                        
                         case MapLogic.Element.A:
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "A.png"), UriKind.RelativeOrAbsolute)));
@@ -121,14 +122,14 @@ namespace GUI_20212202_AYZ8R9.Renderer
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "PRE.png"), UriKind.RelativeOrAbsolute)));
                             break;
-                        case MapLogic.Element.CHEST:
+                        case MapLogic.Element.CH:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CHEST.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CH.png"), UriKind.RelativeOrAbsolute)));
                             break;
-                        case MapLogic.Element.CHEST1:
+                        case MapLogic.Element.CH1:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CHEST1.png"), UriKind.RelativeOrAbsolute)));
-                            break;
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CH1.png"), UriKind.RelativeOrAbsolute)));
+                            break;                     
                     }
 
                     drawingContext.DrawRectangle(brush
