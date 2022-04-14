@@ -12,33 +12,33 @@ namespace GUI_20212202_AYZ8R9.Logic
     {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST,CHEST1
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CHEST,CHEST1,EN
         }
 
-        int ActualMapNumber { get; set; }
+        public int ActualMapNumber { get; set; }
         public Element[][,] AllMap { get; set; }
-        public Element[,] GameMatrix { get; set; }
+        public Element[,] ActualMap { get; set; }
         private ExcelDataReader r { get; set; }
       
         public MapLogic()
         {
             ActualMapNumber = 1;
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
-            LoadFirstMap();   
-            
+            LoadInAllMap();
+            LoadFirstMap();
+
         }
 
         public void LoadInAllMap()
         {
-            AllMap = new Element[4][,];
-            for (int i = 0; i < 4; i++)
+            AllMap = new Element[5][,];
+            for (int i = 0; i < AllMap.Length; i++)
             {
-                string[,] map = r.GetMap(i);
+                string[,] map = r.GetMap(i+1);
                 Element[,] matrix = MatrixConverter(map);
                 AllMap[i] = matrix;                              
             }
         }
-
         private Element[,] MatrixConverter(string[,] map)
         {
             Element[,] matrix = new Element[30, 54];           
@@ -54,44 +54,21 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
 
         private void LoadFirstMap()
-        {                     
-            string[,] map = r.GetMap(2);
-            GameMatrix = MatrixConverter(map);
+        {
+            ActualMapNumber = 1;
+            ActualMap = AllMap[4];
         }
 
         public  void LoadNextLeftMap()
         {
-            GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(ActualMapNumber-1);
-            ActualMapNumber = ActualMapNumber - 1;
-            ;
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    GameMatrix[i, j] = ConvertToEnum(map[i, j]);
-                }
-            }
-            ActualMapNumber++;
-        } // todo
+            ActualMap = AllMap[ActualMapNumber--];           
+        } 
         public void LoadNextRightMap()
         {
-            GameMatrix = new Element[30, 54];
-            string[,] map = r.GetMap(ActualMapNumber + 1);
-            ActualMapNumber = ActualMapNumber + 1;
-
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    GameMatrix[i, j] = ConvertToEnum(map[i, j]);
-                }
-            }
-            ActualMapNumber++;
-        } // todo
+            ActualMap = AllMap[ActualMapNumber++];           
+        }
 
         
-
         private Element ConvertToEnum(string v)
         {
             

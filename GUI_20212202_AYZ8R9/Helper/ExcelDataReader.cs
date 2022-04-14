@@ -24,10 +24,10 @@ namespace GUI_20212202_AYZ8R9.Helper
 
         private void SetupWorkSheets()
         {
-            this.WorkSheets = new WorkSheet[4];
+            this.WorkSheets = new WorkSheet[5];
             for (int i = 0; i < WorkSheets.Length; i++)
             {
-                WorkSheets[i] = this.WorkBook.GetWorkSheet("Munka" + i );
+                WorkSheets[i] = this.WorkBook.GetWorkSheet("Munka" +(i+1));
             }
         }
 
@@ -106,7 +106,7 @@ namespace GUI_20212202_AYZ8R9.Helper
 
         public string[,] GetMap(int number)
         {
-            this.WorkSheet = WorkSheets[number];
+            this.WorkSheet = WorkSheets[number-1];
 
             this.Table = this.WorkSheet.ToDataTable(true);
 

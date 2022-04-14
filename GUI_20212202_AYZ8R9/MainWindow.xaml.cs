@@ -56,7 +56,7 @@ namespace GUI_20212202_AYZ8R9
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.GameMatrix /*I need the game matrix*/);
+            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
             Characterlogic.DoingPath = "Run";
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();          
