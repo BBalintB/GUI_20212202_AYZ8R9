@@ -12,7 +12,7 @@ namespace GUI_20212202_AYZ8R9.Logic
     {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN,F,G,H
         }
 
         public int ActualMapNumber { get; set; }
@@ -31,7 +31,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void LoadInAllMap()
         {
-            AllMap = new Element[5][,];
+            AllMap = new Element[7][,];
             for (int i = 0; i < AllMap.Length; i++)
             {
                 string[,] map = r.GetMap(i+1);
@@ -55,8 +55,9 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
         private void LoadFirstMap()
         {
-            ActualMapNumber = 1;
-            ActualMap = AllMap[4];
+            ActualMapNumber = 4;
+            ActualMap = AllMap[6];
+            ;
         }
 
         public  void LoadNextLeftMap()
@@ -93,6 +94,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "PRE": return Element.PRE;
                 case "CH": return Element.CH;
                 case "CH1": return Element.CH1;
+                case "F": return Element.F;
+                case "G": return Element.G;
+                case "H": return Element.H;
                 default:
                     return Element.X;
             }

@@ -24,7 +24,7 @@ namespace GUI_20212202_AYZ8R9.Helper
 
         private void SetupWorkSheets()
         {
-            this.WorkSheets = new WorkSheet[5];
+            this.WorkSheets = new WorkSheet[7];
             for (int i = 0; i < WorkSheets.Length; i++)
             {
                 WorkSheets[i] = this.WorkBook.GetWorkSheet("Munka" +(i+1));
@@ -48,7 +48,12 @@ namespace GUI_20212202_AYZ8R9.Helper
                             {
                                 map[i, j] = " ";
                             }
-                            else if (map[i - 1, j] != " "  && map[i - 2, j] == " ") // itt a hiba
+                            else if (i + 6 < map.GetLength(0) && (map[i - 1, j] == "B" || map[i - 1, j] == "A" || map[i - 1, j] == "D" || map[i - 1, j] == "C" || map[i - 1, j] == "E" || map[i - 1, j] == "R" || map[i - 1, j] == "S") &&
+                                (map[i + 6, j] == "H" || map[i + 6, j] == "G" || map[i + 6, j] == "F" || map[i + 6, j] == "R" || map[i + 6, j] == "S"))
+                            {
+                                map[i, j] = "Z";
+                            }
+                            else if (map[i - 1, j] != " "  && map[i - 2, j] == " ")
                             {
                                 map[i, j] = "V";
                             }                                              
@@ -63,6 +68,18 @@ namespace GUI_20212202_AYZ8R9.Helper
                             else if (map[i - 1, j] == "W")
                             {
                                 map[i, j] = "W";
+                            }                         
+                            else if (map[i - 1, j] == "F")
+                            {
+                                map[i, j] = "V";
+                            }
+                            else if (map[i - 1, j] == "G")
+                            {
+                                map[i, j] = "V";
+                            }
+                            else if (map[i - 1, j] == "H")
+                            {
+                                map[i, j] = "V";
                             }
                             else if (map[i - 1, j] == "B")
                             {
@@ -95,7 +112,11 @@ namespace GUI_20212202_AYZ8R9.Helper
                             else if (map[i-1,j] == "W")
                             {
                                 map[i, j] = "W";
-                            }                         
+                            }
+                            else if (map[i - 1, j] == "Z")
+                            {
+                                map[i, j] = "Z";
+                            }
                         }
                         
                     }

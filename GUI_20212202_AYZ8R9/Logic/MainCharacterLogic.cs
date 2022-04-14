@@ -13,12 +13,7 @@ using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 namespace GUI_20212202_AYZ8R9.Logic
 {
     public class MainCharacterLogic : ICharacter
-    {
-        
-        public enum PixelType
-        {
-            yes,no,chest,enemy,next,previous,home
-        }
+    {      
         public MainCharacterLogic()
         {
 

@@ -129,7 +129,19 @@ namespace GUI_20212202_AYZ8R9.Renderer
                         case MapLogic.Element.CH1:
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CH1.png"), UriKind.RelativeOrAbsolute)));
-                            break;                     
+                            break;
+                        case MapLogic.Element.F:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "F.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.G:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "G.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.H:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "H.png"), UriKind.RelativeOrAbsolute)));
+                            break;
                     }
 
                     drawingContext.DrawRectangle(brush
