@@ -20,12 +20,27 @@
 
   <ItemGroup>
     <None Remove="Images\Background.png" />
+    <None Remove="Images\Backgrounds.png" />
+    <None Remove="Images\Backgrounds\home.png" />
+    <None Remove="Images\Backgrounds\home2.png" />
+    <None Remove="Images\Backgrounds\postapocalypse1.png" />
+    <None Remove="Images\Backgrounds\postapocalypse2.png" />
+    <None Remove="Images\Backgrounds\postapocalypse3.png" />
+    <None Remove="Images\Backgrounds\postapocalypse4.png" />
+    <None Remove="Images\Backgrounds\War1.png" />
+    <None Remove="Images\Backgrounds\War2.png" />
+    <None Remove="Images\Backgrounds\War3.png" />
+    <None Remove="Images\Backgrounds\War4.png" />
     <None Remove="Images\Blocks\A.png" />
     <None Remove="Images\Blocks\B.png" />
     <None Remove="Images\Blocks\C.png" />
+    <None Remove="Images\Blocks\chest.png" />
+    <None Remove="Images\Blocks\chest1.png" />
     <None Remove="Images\Blocks\D.png" />
     <None Remove="Images\Blocks\E.png" />
     <None Remove="Images\Blocks\L.png" />
+    <None Remove="Images\Blocks\NE.png" />
+    <None Remove="Images\Blocks\PRE.png" />
     <None Remove="Images\Blocks\R.png" />
     <None Remove="Images\Blocks\S.png" />
     <None Remove="Images\Blocks\U.png" />
@@ -45,6 +60,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\Backgrounds\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\home2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\postapocalypse1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\postapocalypse2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\postapocalypse3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\postapocalypse4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\War1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\War2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\War3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\War4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Blocks\A.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -54,6 +99,12 @@
     <Content Include="Images\Blocks\C.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Blocks\chest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\chest1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Blocks\D.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -61,6 +112,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\L.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\NE.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\PRE.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\R.png">
@@ -171,16 +228,24 @@
     <Content Include="Images\Backgrounds\Background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Background.png">
+    <Content Include="Images\Main_Character\Run\Run_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\Main_Character\Run\Run_1.png" />
-    <Resource Include="Images\Main_Character\Run\Run_2.png" />
-    <Resource Include="Images\Main_Character\Run\Run_3.png" />
-    <Resource Include="Images\Main_Character\Run\Run_4.png" />
-    <Resource Include="Images\Main_Character\Run\Run_5.png" />
-    <Resource Include="Images\Main_Character\Run\Run_6.png" />
-    <Resource Include="Images\Punk_idle.png" />
+    <Content Include="Images\Main_Character\Run\Run_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Main_Character\Run\Run_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Main_Character\Run\Run_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Main_Character\Run\Run_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Main_Character\Run\Run_6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -25,14 +25,12 @@ namespace GUI_20212202_AYZ8R9
     public partial class MainWindow : Window
     {
         MainCharacterLogic Characterlogic;
-
         MapLogic Maplogic;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            //display.SetupModel();
             this.BWJUMP = new BackgroundWorker();
             this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
             this.BWJUMP.WorkerReportsProgress = true;
@@ -44,13 +42,16 @@ namespace GUI_20212202_AYZ8R9
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             this.Maplogic = new MapLogic();
-            display.SetupModel(Maplogic);// Load map
+            display.SetupModel(Maplogic);// Load map           
             display.InvalidateVisual();
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
@@ -85,7 +86,6 @@ namespace GUI_20212202_AYZ8R9
                 Characterlogic.Control(MainCharacterLogic.Controls.Jump);
             }
         }
-
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
 

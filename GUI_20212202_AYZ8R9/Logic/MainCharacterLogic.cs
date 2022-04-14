@@ -58,6 +58,11 @@ namespace GUI_20212202_AYZ8R9.Logic
             Right_Corner_Set();
             //--------------------------------------
 
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(50);
+            dt.Tick += Dt_Tick;
+            dt.Start();
+
             this.BWJUMP = new BackgroundWorker();
             this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
             this.BWJUMP.WorkerReportsProgress = true;
