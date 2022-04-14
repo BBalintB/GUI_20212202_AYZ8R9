@@ -34,28 +34,28 @@ namespace GUI_20212202_AYZ8R9
 
         BackgroundWorker BWJUMP;
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            display.InvalidateVisual();
+        //private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+        //    display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+        //    display.InvalidateVisual();
 
-        }
+        //}
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            this.Maplogic = new MapLogic();
+            Maplogic = new MapLogic();
             display.SetupModel(Maplogic);// Load map           
             display.InvalidateVisual();
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.GameMatrix /*I need the game matrix*/);
+            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
             Characterlogic.DoingPath = "Run";
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();          
-            //display.InvalidateVisual();
+            display.InvalidateVisual();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -125,9 +125,9 @@ namespace GUI_20212202_AYZ8R9
         }
         #endregion
 
-        private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-        }
+        //private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+        //}
     }
 }

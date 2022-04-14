@@ -14,7 +14,7 @@ using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 namespace GUI_20212202_AYZ8R9.Logic
 {
     public class MainCharacterLogic : ICharacter
-    {
+    {      
         public MainCharacterLogic()
         {
 
@@ -22,7 +22,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public event EventHandler Changed;
 
-        public Element[,] Map { get; set; }//<--------Full screen MAP matrix
+        public Element[,] DisplayMap { get; set; } // block based display map
+        public Element[,] PixelMap { get; set; } // pixel based map for the player movements
 
         public Position left_corner { get; set; }
 
@@ -147,6 +148,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 }
             }
+            DisplayMap = map;           
+            FullMapCreator(); // creates the full pixel map from the block based
 
             //left_corner.Horizontal = 250;
             //left_corner.Vertical = 250;
@@ -168,8 +171,32 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.Map[i, j] = element;
                 }
             }
-        }
+        private void FullMapCreator()
+        {
+            int rectWidth = (int)(size.Width / DisplayMap.GetLength(1));
+            int rectHeight = (int)(size.Height / DisplayMap.GetLength(0));
+            PixelMap = new Element[(int)size.Height, (int)size.Width];                   
+            int iMapIndex = 0;
+            int jMapIndex = 0;
 
+            for (int i = 0; i < PixelMap.GetLength(0); i++)
+            {
+                if (i % rectHeight == 0 && i != 0)
+                {
+                    iMapIndex++;
+                }                            
+                for (int j = 0; j < PixelMap.GetLength(1);  j++)
+                {                 
+                    if (j % rectWidth == 0 && j != 0)
+                    {
+                        jMapIndex++;
+                    }
+                    PixelMap[i, j] = DisplayMap[iMapIndex, jMapIndex];
+                }
+                jMapIndex = 0;
+            }
+            ;
+        }
 
 
         public enum Controls

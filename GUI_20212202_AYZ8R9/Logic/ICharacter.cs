@@ -15,7 +15,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         Position right_corner { get; set; }
 
-        Element[,] Map { get; set; }
+        Element[,] DisplayMap { get; set; }
 
         event EventHandler Changed;
 

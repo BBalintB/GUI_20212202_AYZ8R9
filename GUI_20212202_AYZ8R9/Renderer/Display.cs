@@ -35,10 +35,10 @@ namespace GUI_20212202_AYZ8R9.Renderer
             {              
                 ImageBrush bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "war2.png"), UriKind.RelativeOrAbsolute)));
                 drawingContext.DrawRectangle(bg, new Pen(Brushes.Black, 0), new Rect(0, 0, size.Width, size.Height));
-                if (model.GameMatrix[15,21] == MapLogic.Element.HOME)
+                if (model.ActualMap[15,21] == MapLogic.Element.HOME)
                 {
                     ImageBrush home = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "home2.png"), UriKind.RelativeOrAbsolute)));
-                    drawingContext.DrawRectangle(home, new Pen(Brushes.Black, 0), new Rect(800, 485, 350, 199));
+                    drawingContext.DrawRectangle(home, new Pen(Brushes.Black, 0), new Rect(750, 385, 400, 299));
                 }
                 
           
@@ -48,19 +48,20 @@ namespace GUI_20212202_AYZ8R9.Renderer
 
         private void BlocksLoad(DrawingContext drawingContext)
         {
-            double w = model.GameMatrix.GetLength(1);
-            double h = model.GameMatrix.GetLength(0);
-            double rectWidth = size.Width / model.GameMatrix.GetLength(1);
-            double rectHeight = size.Height / model.GameMatrix.GetLength(0);
+            double w = model.ActualMap.GetLength(1);
+            double h = model.ActualMap.GetLength(0);
+            double rectWidth = size.Width / model.ActualMap.GetLength(1);
+            double rectHeight = size.Height / model.ActualMap.GetLength(0);
             ;
-            for (int i = 0; i < model.GameMatrix.GetLength(0); i++)
+            for (int i = 0; i < model.ActualMap.GetLength(0); i++)
             {
-                for (int j = 0; j < model.GameMatrix.GetLength(1); j++)
+                for (int j = 0; j < model.ActualMap.GetLength(1); j++)
                 {
                     ImageBrush brush = new ImageBrush();
 
-                    switch (model.GameMatrix[i, j])
+                    switch (model.ActualMap[i, j])
                     {
+                        
                         case MapLogic.Element.A:
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "A.png"), UriKind.RelativeOrAbsolute)));
@@ -121,13 +122,25 @@ namespace GUI_20212202_AYZ8R9.Renderer
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "PRE.png"), UriKind.RelativeOrAbsolute)));
                             break;
-                        case MapLogic.Element.CHEST:
+                        case MapLogic.Element.CH:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CHEST.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CH.png"), UriKind.RelativeOrAbsolute)));
                             break;
-                        case MapLogic.Element.CHEST1:
+                        case MapLogic.Element.CH1:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CHEST1.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "CH1.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.F:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "F.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.G:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "G.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.H:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "H.png"), UriKind.RelativeOrAbsolute)));
                             break;
                     }
 
