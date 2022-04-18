@@ -23,7 +23,7 @@
                     <Label Content="Game name:" FontSize="25" Padding="10" Margin="20,20,20,0"/>
                     <TextBox Text="{Binding NewGame.FileName, UpdateSourceTrigger=Explicit}" FontSize="25" Padding="10" Margin="20,0,20,0"/>
                     <Label Content="Hero name:" FontSize="25" Padding="10" Margin="20,20,20,0"/>
-                    <TextBox Text="{Binding NewGame.Hero.HeroName, UpdateSourceTrigger=Explicit}" FontSize="25" Padding="10" Margin="20,0,20,20"/>
+                    <TextBox Text="{Binding NewGame.Hero.Name, UpdateSourceTrigger=Explicit}" FontSize="25" Padding="10" Margin="20,0,20,20"/>
                     <Button Content="Next" Command="{Binding ChangeGridCommand}" Height="45" FontSize="25" Margin="25"/>
                 </StackPanel>
             </Border>

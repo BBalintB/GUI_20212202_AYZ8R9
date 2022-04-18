@@ -1,5 +1,4 @@
-﻿using GUI_20212202_AYZ8R9.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -10,21 +9,22 @@ using System.Windows.Media;
 
 namespace GUI_20212202_AYZ8R9.Helper
 {
-    public class EnumToColorConverter : IValueConverter
+    public class HPToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            HeroTypes type = (HeroTypes)value;
-            switch (type)
+            int tmp = (int)value;
+            if (tmp < 100 * 0.4)
             {
-                case HeroTypes.Archer:
-                    return Brushes.LightPink;
-                case HeroTypes.Assault:
-                    return Brushes.Gray;
-                case HeroTypes.Support:
-                    return Brushes.LightBlue;
-                default:
-                    return Brushes.White;
+                return Brushes.Red;
+            }
+            else if (tmp < 100 * 0.7)
+            {
+                return Brushes.Yellow;
+            }
+            else
+            {
+                return Brushes.Green;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using GUI_20212202_AYZ8R9.Models;
+﻿using GUI_20212202_AYZ8R9.MenuOptionsWindows;
+using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Services.MenuOptionsServices;
 using Newtonsoft.Json;
 using System;
@@ -65,6 +66,8 @@ namespace GUI_20212202_AYZ8R9.Logic
         public void LoadInGame(Game game)
         {
             //TODO starts the game with the selected game object
+            new FightWindow(game).ShowDialog();
+
         }
     }
 }

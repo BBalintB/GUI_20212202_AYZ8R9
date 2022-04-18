@@ -10,19 +10,23 @@ using System.Windows.Media;
 
 namespace GUI_20212202_AYZ8R9.Helper
 {
-    public class EnumToColorConverter : IValueConverter
+    public class PositionToColor : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            HeroTypes type = (HeroTypes)value;
-            switch (type)
+            RoundPosition position = (RoundPosition)value;
+            switch (position)
             {
-                case HeroTypes.Archer:
+                case RoundPosition.Neutral:
+                    var converter = new System.Windows.Media.BrushConverter();
+                    var brush = (Brush)converter.ConvertFromString("#00FFFFFF");
+                    return brush;
+                case RoundPosition.Attack:
                     return Brushes.LightPink;
-                case HeroTypes.Assault:
-                    return Brushes.Gray;
-                case HeroTypes.Support:
+                case RoundPosition.Heal:
                     return Brushes.LightBlue;
+                case RoundPosition.Special:
+                    return Brushes.LightGreen;
                 default:
                     return Brushes.White;
             }

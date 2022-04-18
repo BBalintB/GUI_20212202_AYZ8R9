@@ -94,8 +94,9 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             () => //This button opens the new load game window
             {
                 MenuVisibility = Visibility.Collapsed;
-                GameVisibility = Visibility.Visible;
+                //GameVisibility = Visibility.Visible;
                 logic.LoadInGame(SelectedGame);
+                MenuVisibility = Visibility.Visible;
 
             },
             () => SelectedGame != null);

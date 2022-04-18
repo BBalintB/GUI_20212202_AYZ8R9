@@ -97,17 +97,17 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
 
             Hero1Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.archer);
+                    logic.SetHeroType(HeroTypes.Archer);
                 }
            );
             Hero2Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.assault);
+                    logic.SetHeroType(HeroTypes.Assault);
                 }
            );
             Hero3Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.support);
+                    logic.SetHeroType(HeroTypes.Support);
                 }
            );
         }
