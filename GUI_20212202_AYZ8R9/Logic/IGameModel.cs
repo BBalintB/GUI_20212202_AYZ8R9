@@ -1,4 +1,6 @@
-﻿using static GUI_20212202_AYZ8R9.Logic.MapLogic;
+﻿using GUI_20212202_AYZ8R9.Models;
+using System.Collections.Generic;
+using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
@@ -6,5 +8,6 @@ namespace GUI_20212202_AYZ8R9.Logic
     {
         Element[,] ActualMap { get; set; }
         Element[][,] AllMap { get; set; }
+        List<Block> Blocks { get; set; }
     }
 }

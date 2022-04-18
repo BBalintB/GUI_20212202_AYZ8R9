@@ -1,10 +1,12 @@
 ﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
@@ -18,15 +20,21 @@ namespace GUI_20212202_AYZ8R9.Logic
         public int ActualMapNumber { get; set; }
         public Element[][,] AllMap { get; set; }
         public Element[,] ActualMap { get; set; }
+        public List<Block> Blocks { get; set; }
         private ExcelDataReader r { get; set; }
-      
+
         public MapLogic()
+        {
+
+        }
+        public MapLogic(Size size)
         {
             ActualMapNumber = 1;
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
+            this.Blocks = new List<Block>();
             LoadInAllMap();
             LoadFirstMap();
-
+            SetupBlock(size);
         }
 
         public void LoadInAllMap()
@@ -57,7 +65,6 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             ActualMapNumber = 4;
             ActualMap = AllMap[6];
-            ;
         }
 
         public  void LoadNextLeftMap()
@@ -69,6 +76,19 @@ namespace GUI_20212202_AYZ8R9.Logic
             ActualMap = AllMap[ActualMapNumber++];           
         }
 
+        public void SetupBlock(Size size)
+        {
+            double rectWidth = size.Width / ActualMap.GetLength(1);
+            double rectHeight = size.Height / ActualMap.GetLength(0);
+            for (int i = 0; i < ActualMap.GetLength(0); i++)
+            {
+                for (int j = 0; j < ActualMap.GetLength(1); j++)
+                {
+                    this.Blocks.Add(new Models.Block() { BlockType = ActualMap[i, j], Positon = new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight) });
+
+                }
+            }
+        }
         
         private Element ConvertToEnum(string v)
         {
@@ -101,6 +121,5 @@ namespace GUI_20212202_AYZ8R9.Logic
                     return Element.X;
             }
         }
-
     }
 }

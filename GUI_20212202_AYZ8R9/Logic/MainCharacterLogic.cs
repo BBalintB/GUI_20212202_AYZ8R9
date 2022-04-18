@@ -1,4 +1,5 @@
 ﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Renderer;
 using System;
 using System.Collections.Generic;
@@ -8,23 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 using static GUI_20212202_AYZ8R9.Logic.MapLogic;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
     public class MainCharacterLogic : ICharacter
-    {      
+    {
         public MainCharacterLogic()
         {
 
         }
 
         public event EventHandler Changed;
-
-        public Element[,] DisplayMap { get; set; } // block based display map
-        public Element[,] PixelMap { get; set; } // pixel based map for the player movements
-
+        public event EventHandler Changed2;
         public Position left_corner { get; set; }
 
         public Position right_corner { get; set; }
@@ -40,168 +39,75 @@ namespace GUI_20212202_AYZ8R9.Logic
         public int Jump_Counter { get; set; }
 
         private bool Task_Run { get; set; }
+
         private bool Turn_Right { get; set; }
-        public Element[,] Map { get; set; }
+
+        public List<Block> blocks { get; set; }
+
+        public DispatcherTimer dt2 = new DispatcherTimer();
+
+        public DispatcherTimer dt3 = new DispatcherTimer();
 
         BackgroundWorker BWJUMP;
 
-        public void SetupSizes(System.Windows.Size area, Element[,] map)
+        public void SetupSizes(System.Windows.Size area, List<Block> blocks)
         {
+            MainPath = "Idle";
             this.size = area;
             left_corner = new Position();
             right_corner = new Position();
             Animation_Counter = 1;
 
-            
+            this.blocks = new List<Block>();
+            this.blocks = blocks;
 
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(50);
             dt.Tick += Dt_Tick;
             dt.Start();
 
+
+            dt3.Interval = TimeSpan.FromMilliseconds(50);
+            dt3.Tick += Dt_Jump;
+
             this.BWJUMP = new BackgroundWorker();
             this.BWJUMP.DoWork += (obj, ea) => this.JUMP();
             this.BWJUMP.WorkerReportsProgress = true;
             this.BWJUMP.ProgressChanged += Bw_ProgressChanged;
 
-            //DispatcherTimer dt = new DispatcherTimer();
-            //dt.Interval = TimeSpan.FromMilliseconds(50);
-            //dt.Tick += Dt_Tick;
-            //dt.Start();
 
-
-
-            //------------------------------------------------------------
-            Map = new Element[(int)area.Height, (int)area.Width];
-
-            int Height = (int)(area.Height / map.GetLength(0));
-            int Width = (int)(area.Width / map.GetLength(1));
+            //dt2.Interval = TimeSpan.FromMilliseconds(50);
+            dt2.Tick += Dt_Tick2;
 
             int bigmapwidthcount = 0;
             int bigmapheightcount = 0;
-            
+
             bool first_time = true;
 
-            using (TextWriter tw = new StreamWriter("matrixsmall.txt"))
-            {
-                for (int j = 0; j < map.GetLength(0); j++)
-                {
-                    for (int i = 0; i < map.GetLength(1); i++)
-                    {
-                        tw.Write(map[j, i] + " ");
-                    }
-                    tw.WriteLine();
-                }
-            }
-
-            ;
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    
-                    if (first_time)
-                    {
-                        Set(map[i, j],0,1*Height,0,1*Width);
-                        first_time = false;
-                    }
-                    else
-                    {
-                        Set(map[i, j], i*Height, (i+1)*Height, j*Width, (j+1)*Width);
-                    }
-                    
-                }
-            }
-            ;
-
-            using (TextWriter tw = new StreamWriter("matrixbig.txt"))
-            {
-                for (int j = 0; j < Map.GetLength(0); j++)
-                {
-                    for (int i = 0; i < Map.GetLength(1); i++)
-                    {
-                        tw.Write(Map[j, i] + " ");
-                    }
-                    tw.WriteLine();
-                }
-            }
-            //-------------------------------------------------------------------
-
-            DisplayMap = map;
-            //FullMapCreator(); // creates the full pixel map from the block based
-
-
             //Set starter position()----------------
-            int startHorizontal = 0;
-            int startVertical = 0;
-            bool off = false;
-            for (int i = 0; i < Map.GetLength(0); i++)
+            for (int i = 0; i < blocks.Count; i++)
             {
-                for (int j = 0; j < Map.GetLength(1); j++)
+                if (blocks[i].BlockType == Element.PRE)
                 {
-                    if (Map[i,j] == Element.PRE)
-                    {
-                        startHorizontal = j;
-                        startVertical = i;
-                        off = true;
-                        break;
-                    }
-                }
-                if (off)
-                {
-                    break;
+                    left_corner.Horizontal = blocks[i].Positon.X;
+                    left_corner.Vertical = blocks[i].Positon.Y;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height;
                 }
             }
+            //int startHorizontal = 0;
+            //int startVertical = 0;
 
 
             //left_corner.Horizontal = 250;
-            //left_corner.Vertical = 250;
+            //left_corner.Vertical = 100;
+            Task_Run = true;
+            MethodDown();
 
-            left_corner.Horizontal = startHorizontal;
-            left_corner.Vertical = startVertical;
-            ;
-            Right_Corner_Set(Height, Width);
-            //--------------------------------------
-            //Method1();
+            //dt2.Start();
+
         }
 
-        public void Set(Element element, int lineStart, int lineStop, int columStart, int columStop)
-        {
-            for (int i = lineStart; i < lineStop; i++)
-            {
-                for (int j = columStart; j < columStop; j++)
-                {
-                    this.Map[i, j] = element;
-                }
-            }
-        }
-        private void FullMapCreator()
-        {
-            int rectWidth = (int)(size.Width / DisplayMap.GetLength(1));
-            int rectHeight = (int)(size.Height / DisplayMap.GetLength(0));
-            PixelMap = new Element[(int)size.Height, (int)size.Width];                   
-            int iMapIndex = 0;
-            int jMapIndex = 0;
-
-            for (int i = 0; i < PixelMap.GetLength(0); i++)
-            {
-                if (i % rectHeight == 0 && i != 0)
-                {
-                    iMapIndex++;
-                }                            
-                for (int j = 0; j < PixelMap.GetLength(1);  j++)
-                {                 
-                    if (j % rectWidth == 0 && j != 0)
-                    {
-                        jMapIndex++;
-                    }
-                    PixelMap[i, j] = DisplayMap[iMapIndex, jMapIndex];
-                }
-                jMapIndex = 0;
-            }
-            ;
-        }
 
 
         public enum Controls
@@ -214,22 +120,14 @@ namespace GUI_20212202_AYZ8R9.Logic
             switch (control)
             {
                 case Controls.Left:
-                    this.Turn_Right = false;
                     Run_Set(Controls.Left);
-                    Changed?.Invoke(this, null);
                     break;
                 case Controls.Right:
-                    this.Turn_Right = true;
                     Run_Set(Controls.Right);
-                    Changed?.Invoke(this, null);
                     break;
                 case Controls.Jump:
-                    Monitor.Exit(Changed);
-                    //if (!BWJUMP.IsBusy)
-                    //{
-                    //    BWJUMP.RunWorkerAsync();
-                    //}
-                    Method2();
+                    //dt3.Start();
+                    MethodJump();
                     break;
                 case Controls.Stop:
                     Animation_Counter = 1;
@@ -237,7 +135,6 @@ namespace GUI_20212202_AYZ8R9.Logic
                 default:
                     break;
             }
-            Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
         }
 
@@ -247,10 +144,28 @@ namespace GUI_20212202_AYZ8R9.Logic
             MainPath = "Run";
             if (controls == Controls.Left)
             {
-                if (Map/*PixelMap*/[(int)left_corner.Horizontal-10,(int)right_corner.Vertical] == Element.X)
+                bool run = false;
+                for (int i = 0; i < blocks.Count; i++)
                 {
-                    left_corner.Horizontal -= 10/*30.2*/;
-                    right_corner.Horizontal -= 10/*30.2*/;
+                    Rect player = new Rect(left_corner.Horizontal, left_corner.Vertical, right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
+                    if (player.IntersectsWith(blocks[i].Positon))
+                    {
+                        if (blocks[i].BlockType == Element.X || blocks[i].BlockType == Element.PRE || blocks[i].BlockType == Element.W)
+                        {
+                            run = true;
+                        }
+                        else
+                        {
+                            run = false;
+                            //break;
+                        }
+                    }
+                }
+                if (run)
+                {
+                    this.Turn_Right = false;
+                    left_corner.Horizontal -= 5/*30.2*/;
+                    right_corner.Horizontal -= 5/*30.2*/;
                     DoingPath = "Back_Run"; //Animation Image
 
                     if (Animation_Counter >= 6)
@@ -262,10 +177,28 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             else
             {
-                if (Map/*PixelMap*/[(int)right_corner.Horizontal + 10, (int)right_corner.Vertical] == Element.X)
+                bool run = false;
+                for (int i = 0; i < blocks.Count; i++)
                 {
-                    left_corner.Horizontal += 10;
-                    right_corner.Horizontal += 10;
+                    Rect player = new Rect(left_corner.Horizontal, left_corner.Vertical, right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
+                    if (player.IntersectsWith(blocks[i].Positon))
+                    {
+                        if (blocks[i].BlockType == Element.X || blocks[i].BlockType == Element.PRE || blocks[i].BlockType == Element.PLAYER || blocks[i].BlockType == Element.W)
+                        {
+                            run = true;
+                        }
+                        else
+                        {
+                            run = false;
+                            //break;
+                        }
+                    }
+                }
+                if (run)
+                {
+                    this.Turn_Right = true;
+                    left_corner.Horizontal += 5;
+                    right_corner.Horizontal += 5;
                     DoingPath = "Run"; //Animation Image
 
                     if (Animation_Counter >= 6)
@@ -282,30 +215,17 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             int startHorizontal = 0;
             int startVertical = 0;
-            for (int i = 0; i < Map.GetLength(0); i++)
-            {
-                for (int j = 0; j < Map.GetLength(1); j++)
-                {
-                    if (Map[i, j] == Element.PRE)
-                    {
-                        startHorizontal = j;
-                        startVertical = i;
-                    }
-                }
-            }
-            this.right_corner.Horizontal = startHorizontal;
-            this.right_corner.Vertical = startVertical;
-            ;
-            //this.right_corner.Horizontal = this.left_corner.Horizontal + Width;
-            //this.right_corner.Vertical = this.left_corner.Vertical + Height;
+            //this.right_corner.Horizontal = startHorizontal;
+            //this.right_corner.Vertical = startVertical;
+            this.right_corner.Horizontal = this.left_corner.Horizontal + Width;
+            this.right_corner.Vertical = this.left_corner.Vertical + Height * 1.3;
         }
-
 
         public async Task Method1()
         {
             Task.Run(() =>
             {
-                while (true)
+                while (Task_Run)
                 {
                     MainPath = "Idle";
                     if (Turn_Right)
@@ -332,63 +252,95 @@ namespace GUI_20212202_AYZ8R9.Logic
             });
         }
 
-        public void Method3()
-        {
-            MainPath = "Idle";
-            if (Turn_Right)
-            {
-                DoingPath = "Idle";
-            }
-            else
-            {
-                DoingPath = "Back_Idle";
-            }
-            if (Animation_Counter < 4)
-            {
-                Animation_Counter++;
-            }
-            else
-            {
-                Animation_Counter = 1;
-            }
-            //Thread.Sleep(50);
-            //Monitor.Enter(Changed);
-            Changed?.Invoke(this, null);
-            //Monitor.Exit(Changed);
-        }
-
-        public async Task Method2()
+        public async Task MethodJump()
         {
             Task.Run(() =>
             {
-                for (int i = 0; i < 7; i++)
+                Task_Run = false;
+                for (int i = 0; i < 4; i++)
                 {
-                    
-                    if (Jump_Counter >= 7)
+                    if (Jump_Counter > 4)
                     {
+                        //dt2.Start();
                         Jump_Counter = 1;
+
                     }
-                    left_corner.Horizontal += 10;
-                    right_corner.Horizontal += 10;
-                    DoingPath = "Run";
-                    if (Jump_Counter < 4)
-                    {
-                        left_corner.Vertical = left_corner.Vertical - 10;
-                        right_corner.Vertical = right_corner.Vertical - 10;
+                        if (right_corner.Vertical - 10 > 0)
+                        {
+                            dt2.Stop();
+                            right_corner.Vertical -= 15;
+                            left_corner.Vertical -= 15;
+                            MainPath = "Jump";
+                            if (Turn_Right)
+                            {
+                                DoingPath = "Jump";
+                            }
+                            else
+                            {
+                                DoingPath = "Back_Jump";
+                            }
+                            if (Animation_Counter < 4)
+                            {
+                                Animation_Counter++;
+                            }
+                            else
+                            {
+                                Animation_Counter = 1;
+                            }
+                            Thread.Sleep(60);
+                            Changed2?.Invoke(this, null);
+                            Jump_Counter++;
                     }
-                    else
-                    {
-                        left_corner.Vertical = left_corner.Vertical + 10;
-                        right_corner.Vertical = right_corner.Vertical + 10;
-                    }
-                    Jump_Counter++;
-                    Thread.Sleep(100);
-                    Monitor.Enter(Changed);
-                    Changed?.Invoke(this, null);
                 }
-                
+                Task_Run = true;
             });
-            Monitor.Exit(Changed);
+        }
+
+        public async Task MethodDown()
+        {
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    bool down = true;
+                    Rect player = new Rect(left_corner.Horizontal, left_corner.Vertical + 1, right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
+                    for (int i = 0; i < blocks.Count; i++)
+                    {
+                        if (player.IntersectsWith(blocks[i].Positon) && blocks[i].BlockType != Element.X && blocks[i].BlockType != Element.W)
+                        {
+                            down = false;
+                        }
+                    }
+                    if (down)
+                    {
+                        right_corner.Vertical += 1;
+                        left_corner.Vertical += 1;
+                        MainPath = "Idle";
+                        if (Turn_Right)
+                        {
+                            DoingPath = "Idle";
+                        }
+                        else
+                        {
+                            DoingPath = "Back_Idle";
+                        }
+                        if (Animation_Counter < 4)
+                        {
+                            Animation_Counter++;
+                        }
+                        else
+                        {
+                            Animation_Counter = 1;
+                        }
+                        Thread.Sleep(5);
+                        //Monitor.Enter(Changed);
+                        Changed2?.Invoke(this, null);
+                        //Monitor.Exit(Changed);
+
+                    }
+
+                }
+            });
         }
 
 
@@ -407,27 +359,27 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private void Bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            
-                if (Jump_Counter >= 7)
-                {
-                    Jump_Counter = 1;
-                }
-                left_corner.Horizontal += 10;
-                right_corner.Horizontal += 10;
-                DoingPath = "Run";
-                if (Jump_Counter < 4)
-                {
-                    left_corner.Vertical = left_corner.Vertical - 10;
-                    right_corner.Vertical = right_corner.Vertical - 10;
-                
-                }
-                else
-                {
-                    left_corner.Vertical = left_corner.Vertical + 10;
-                    right_corner.Vertical = right_corner.Vertical + 10;
-                
-                }
-                Jump_Counter++;
+
+            if (Jump_Counter >= 7)
+            {
+                Jump_Counter = 1;
+            }
+            left_corner.Horizontal += 10;
+            right_corner.Horizontal += 10;
+            DoingPath = "Run";
+            if (Jump_Counter < 4)
+            {
+                left_corner.Vertical = left_corner.Vertical - 10;
+                right_corner.Vertical = right_corner.Vertical - 10;
+
+            }
+            else
+            {
+                left_corner.Vertical = left_corner.Vertical + 10;
+                right_corner.Vertical = right_corner.Vertical + 10;
+
+            }
+            Jump_Counter++;
             Thread.Sleep(100);
             Monitor.Enter(Changed);
             Changed?.Invoke(this, null);
@@ -460,5 +412,84 @@ namespace GUI_20212202_AYZ8R9.Logic
             //Monitor.Exit(Changed);
         }
 
+
+        private void Dt_Tick2(object? sender, EventArgs e)
+        {
+            bool down = true;
+            Rect player = new Rect(left_corner.Horizontal, left_corner.Vertical+1, right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                if (player.IntersectsWith(blocks[i].Positon) && blocks[i].BlockType != Element.X)
+                {
+                    down = false;
+                }
+            }
+            if (down)
+            {
+                right_corner.Vertical += 1;
+                left_corner.Vertical += 1;
+                MainPath = "Idle";
+                if (Turn_Right)
+                {
+                    DoingPath = "Idle";
+                }
+                else
+                {
+                    DoingPath = "Back_Idle";
+                }
+                if (Animation_Counter < 4)
+                {
+                    Animation_Counter++;
+                }
+                else
+                {
+                    Animation_Counter = 1;
+                }
+                Thread.Sleep(5);
+                //Monitor.Enter(Changed);
+                Changed2?.Invoke(this, null);
+                //Monitor.Exit(Changed);
+
+            }
+        }
+
+        private void Dt_Jump(object? sender, EventArgs e)
+        {
+            if (Jump_Counter > 4)
+            {
+                //dt2.Start();
+                Jump_Counter = 1;
+                dt3.Stop();
+            }
+            else
+            {
+                if (right_corner.Vertical - 5 > 0)
+                {
+                    dt2.Stop();
+                    right_corner.Vertical -= 5;
+                    left_corner.Vertical -= 5;
+                    MainPath = "Jump";
+                    if (Turn_Right)
+                    {
+                        DoingPath = "Jump";
+                    }
+                    else
+                    {
+                        DoingPath = "Back_Jump";
+                    }
+                    if (Animation_Counter < 4)
+                    {
+                        Animation_Counter++;
+                    }
+                    else
+                    {
+                        Animation_Counter = 1;
+                    }
+                    Thread.Sleep(50);
+                    Changed?.Invoke(this, null);
+                    Jump_Counter++;
+                }
+            }
+        }
     }
 }
