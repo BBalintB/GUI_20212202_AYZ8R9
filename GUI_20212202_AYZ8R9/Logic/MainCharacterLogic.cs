@@ -147,10 +147,10 @@ namespace GUI_20212202_AYZ8R9.Logic
                 bool run = false;
                 for (int i = 0; i < blocks.Count; i++)
                 {
-                    Rect player = new Rect(left_corner.Horizontal, left_corner.Vertical, right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
+                    Rect player = new Rect(left_corner.Horizontal, right_corner.Vertical, 0, 0);
                     if (player.IntersectsWith(blocks[i].Positon))
                     {
-                        if (blocks[i].BlockType == Element.X || blocks[i].BlockType == Element.PRE || blocks[i].BlockType == Element.W)
+                        if (blocks[i].BlockType == Element.X || blocks[i].BlockType == Element.PRE || blocks[i].BlockType == Element.W || blocks[i].BlockType == Element.CH1 || blocks[i].BlockType == Element.CH)
                         {
                             run = true;
                         }
@@ -183,7 +183,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Rect player = new Rect(left_corner.Horizontal, left_corner.Vertical, right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                     if (player.IntersectsWith(blocks[i].Positon))
                     {
-                        if (blocks[i].BlockType == Element.X || blocks[i].BlockType == Element.PRE || blocks[i].BlockType == Element.PLAYER || blocks[i].BlockType == Element.W)
+                        if (blocks[i].BlockType == Element.X || blocks[i].BlockType == Element.PRE || blocks[i].BlockType == Element.PLAYER || blocks[i].BlockType == Element.W || blocks[i].BlockType == Element.CH1 || blocks[i].BlockType == Element.CH)
                         {
                             run = true;
                         }
