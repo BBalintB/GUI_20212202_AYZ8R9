@@ -34,14 +34,12 @@ namespace GUI_20212202_AYZ8R9.MenuOptionsWindows
             {
                 vm.CloseHeroWin += () =>
                 {
-                    MessageBox.Show("Hero win!");
                     this.DialogResult = true;
                     this.Close();
                 };
 
                 vm.CloseVillianWin += () => 
                 {
-                    MessageBox.Show("Villian win");
                     this.Close();
                 };
             }

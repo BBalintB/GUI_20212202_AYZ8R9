@@ -45,12 +45,12 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.game = game;
         }
 
-        public void CreateNewGame()
+        public void CreateNewGame(Game game)
         {
-            Game tmp = NewGame.NewGame();
-            if (tmp.FileName != null)
+            game = NewGame.NewGame();
+            if (game.FileName != null)
             {
-                games.Add(tmp); // Add the new game to the games collcetion
+                games.Add(game); // Add the new game to the games collcetion
             }
         }
 

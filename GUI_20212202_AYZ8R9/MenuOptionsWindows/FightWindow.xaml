@@ -7,7 +7,7 @@
         xmlns:vms="clr-namespace:GUI_20212202_AYZ8R9.ViewModels"
         xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
         mc:Ignorable="d"
-        Title="FightWindow" WindowState="{Binding WindowState}" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="FightWindow" WindowState="{Binding WindowState}" Height="650" Width="1000" Loaded="Window_Loaded">
     <Window.Resources>
         <helper:HPToColorConverter x:Key="hpToColor" />
         <helper:PositionToColor x:Key="posToColor" />
@@ -15,6 +15,7 @@
         <RotateTransform x:Key="XReverse" Angle="-180" CenterY="0" CenterX="0" />
     </Window.Resources>
     <Grid>
+
         <Grid Visibility="{Binding FightWindowVisibility}">
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/Backgrounds/postapocalypse1.png" Opacity="0.5"/>
@@ -24,21 +25,29 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <ListBox ItemsSource="{Binding Heroes}" HorizontalContentAlignment="Stretch" IsHitTestVisible="False" SelectedItem="{Binding SelectedHero}" Grid.Row="0" Grid.Column="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Background="{Binding Position,Converter={StaticResource posToColor}}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <ProgressBar Grid.Row="0" Maximum="100" Height="15" Value="{Binding HP}" Foreground="{Binding HP,Converter={StaticResource hpToColor}}" />
-                            <Label Grid.Row="1" Content="{Binding Name}" FontSize="25" Foreground="White" />
-                            <Label Grid.Row="2" Content="{Binding HeroType}" FontSize="25"  Foreground="White" />
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <ProgressBar Grid.Row="0" Maximum="100" Height="15" Value="{Binding HP}" Foreground="{Binding HP,Converter={StaticResource hpToColor}}" />
+                                <Label Grid.Row="1" Content="{Binding Name}" FontSize="25" Foreground="White" />
+                                <Label Grid.Row="2" Content="{Binding HeroType}" FontSize="25"  Foreground="White" />
+                            </Grid>
+
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -47,18 +56,39 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Background="{Binding Position,Converter={StaticResource posToColor}}" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <ProgressBar LayoutTransform="{StaticResource XReverse}" Grid.Row="0" Maximum="100" Height="15" Value="{Binding HP}" Foreground="{Binding HP,Converter={StaticResource hpToColor}}"/>
-                            <Label Grid.Row="1" Content="{Binding Name}" FontSize="25" Foreground="White" HorizontalAlignment="Right"/>
-                            <Label Grid.Row="2" Content="{Binding HeroType}" FontSize="25"  Foreground="White" HorizontalAlignment="Right"/>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <ProgressBar LayoutTransform="{StaticResource XReverse}" Grid.Row="0" Maximum="100" Height="15" Value="{Binding HP}" Foreground="{Binding HP,Converter={StaticResource hpToColor}}"/>
+                                <Label Grid.Row="1" Content="{Binding Name}" FontSize="25" Foreground="White" HorizontalAlignment="Right"/>
+                                <Label Grid.Row="2" Content="{Binding HeroType}" FontSize="25"  Foreground="White" HorizontalAlignment="Right"/>
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Grid Grid.Column="2" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Battlelog" FontSize="25" HorizontalContentAlignment="Center"/>
+                <ListBox Grid.Row="1"  FontSize="15" ItemsSource="{Binding Log}" Grid.RowSpan="2">
+                </ListBox>
+            </Grid>
+
+            <Grid  Grid.Column="2" Grid.Row="1" Background="White">
+                <Image Source="/Images/FightWindow/radioactive.jpg"/>
+            </Grid>
+
             <Grid Grid.Row="1" Grid.Column="0" Background="#995C5F63">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -147,9 +177,28 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label Content="You have 10% chance to get your team HP and Attack boosted" HorizontalContentAlignment="Center"/>
-                <Button Grid.Row="1" Content="Get booster" Command="{Binding GetBoosterCommand}" />
+                <Button Grid.Row="1" Content="Get booster" Command="{Binding GetBoosterCommand}"/>
                 <Button Grid.Row="2" Content="Start fight" Command="{Binding StartCommand}"/>
-                
+
+            </Grid>
+        </Grid>
+        <Grid Background="Black" Visibility="{Binding EndWindowVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1.2*"/>
+                </Grid.RowDefinitions>
+                <Label Content="{Binding WhoWon}" FontSize="150" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Button Command="{Binding ContinueCommand}" Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="White" Grid.Row="1" Content="Continue" Height="Auto" FontSize="25" Margin="20"/>
+                <Button Command="{Binding RestartCommand}"  Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="White" Grid.Row="2" Content="Restart" Height="Auto" FontSize="25" Margin="20"/>
+                <Button Command="{Binding ExitCommand}" Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="White" Grid.Row="3" Content="Exit" Height="Auto" FontSize="25" Margin="20"/>
             </Grid>
         </Grid>
     </Grid>

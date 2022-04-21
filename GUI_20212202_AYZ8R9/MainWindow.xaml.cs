@@ -1,4 +1,6 @@
 ﻿using GUI_20212202_AYZ8R9.Logic;
+using GUI_20212202_AYZ8R9.Models;
+using GUI_20212202_AYZ8R9.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +50,7 @@ namespace GUI_20212202_AYZ8R9
             Maplogic = new MapLogic();
             display.SetupModel(Maplogic);// Load map           
             display.InvalidateVisual();
-
+            
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Characterlogic = new MainCharacterLogic();
             Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
@@ -56,6 +58,7 @@ namespace GUI_20212202_AYZ8R9
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();          
             display.InvalidateVisual();
+            Game game = (this.DataContext as MainWindowViewModel).SelectedGame;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

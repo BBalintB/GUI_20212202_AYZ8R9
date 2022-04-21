@@ -54,6 +54,8 @@
     <None Remove="Images\Blocks\X.png" />
     <None Remove="Images\Blocks\Y.png" />
     <None Remove="Images\Blocks\Z.png" />
+    <None Remove="Images\FightWindow\hazard.jpg" />
+    <None Remove="Images\FightWindow\radioactive.jpg" />
     <None Remove="Images\Main_Character\Run\Run_1.png" />
     <None Remove="Images\Main_Character\Run\Run_2.png" />
     <None Remove="Images\Main_Character\Run\Run_3.png" />
@@ -159,6 +161,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\Z.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\FightWindow\hazard.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\FightWindow\radioactive.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Main_Character\Attack\Attack_1.png">

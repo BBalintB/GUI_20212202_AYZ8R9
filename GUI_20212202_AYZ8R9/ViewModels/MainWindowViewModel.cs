@@ -87,7 +87,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             NewGameCommand = new RelayCommand(() => //This button opens the new game window
             {
                 MenuVisibility = Visibility.Collapsed;
-                logic.CreateNewGame();
+                logic.CreateNewGame(SelectedGame);
                 MenuVisibility = Visibility.Visible;
             });
             LoadGameCommand = new RelayCommand(
