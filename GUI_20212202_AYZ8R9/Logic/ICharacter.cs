@@ -28,7 +28,5 @@ namespace GUI_20212202_AYZ8R9.Logic
         int Animation_Counter { get; set; }
 
         List<Block> blocks { get; set; }
-
-        Task Method1();
     }
 }

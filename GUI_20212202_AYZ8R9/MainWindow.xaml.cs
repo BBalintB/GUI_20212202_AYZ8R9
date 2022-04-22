@@ -41,7 +41,7 @@ namespace GUI_20212202_AYZ8R9
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.Blocks);
+            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic);
             Characterlogic.DoingPath = "Idle";
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();
@@ -64,6 +64,14 @@ namespace GUI_20212202_AYZ8R9
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
             }
+            else if (e.Key == Key.Down)
+            {
+                Characterlogic.Control(MainCharacterLogic.Controls.Down);
+            }
+            else if (e.Key == Key.Up)
+            {
+                Characterlogic.Control(MainCharacterLogic.Controls.Up);
+            }
             else if (e.Key == Key.A)
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Left);
@@ -72,9 +80,21 @@ namespace GUI_20212202_AYZ8R9
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
             }
+            else if (e.Key == Key.S)
+            {
+                Characterlogic.Control(MainCharacterLogic.Controls.Down);
+            }
+            else if (e.Key == Key.W)
+            {
+                Characterlogic.Control(MainCharacterLogic.Controls.Up);
+            }
             else if (e.Key == Key.Space)
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Jump);
+            }
+            if (Keyboard.IsKeyDown(Key.Right))
+            {
+                Characterlogic.Control(MainCharacterLogic.Controls.Right);
             }
         }
         private void Window_KeyUp(object sender, KeyEventArgs e)
