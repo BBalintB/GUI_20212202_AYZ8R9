@@ -36,7 +36,7 @@ namespace GUI_20212202_AYZ8R9.Renderer
 
             if (size.Width > 0 && size.Height > 0 && Character != null /*&&*/ /*Character.MainPath == Character.DoingPath*/)
             {
-                drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", "Main_Character", $"{Character.MainPath}", $"{Character.DoingPath}_{Character.Animation_Counter}.png"), UriKind.Relative)), new Rect(new Point(Character.left_corner.Horizontal, Character.left_corner.Vertical), new Point(Character.right_corner.Horizontal, Character.right_corner.Vertical)));
+                drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", "Main_Character", $"{Character.DoingPath}_{Character.Animation_Counter}.png"), UriKind.Relative)), new Rect(new Point(Character.left_corner.Horizontal, Character.left_corner.Vertical), new Point(Character.right_corner.Horizontal, Character.right_corner.Vertical)));
             }
         }
 

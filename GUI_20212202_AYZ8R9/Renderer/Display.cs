@@ -26,6 +26,7 @@ namespace GUI_20212202_AYZ8R9.Renderer
         public void SetupModel(IGameModel model)
         {
             this.model = model;
+            this.model.Changed += (sender, eventargs) => this.InvalidateVisual();
         }
 
         protected override void OnRender(DrawingContext drawingContext)

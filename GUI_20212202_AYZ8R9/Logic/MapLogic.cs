@@ -22,6 +22,8 @@ namespace GUI_20212202_AYZ8R9.Logic
         public Element[,] ActualMap { get; set; }
         public List<Block> Blocks { get; set; }
         private ExcelDataReader r { get; set; }
+        private Size size { get; set; }
+        public event EventHandler Changed;
 
         public MapLogic()
         {
@@ -34,7 +36,8 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.Blocks = new List<Block>();
             LoadInAllMap();
             LoadFirstMap();
-            SetupBlock(size);
+            this.size = size;
+            SetupBlock(this.size);
         }
 
         public void LoadInAllMap()
@@ -51,7 +54,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         private Element[,] MatrixConverter(string[,] map)
         {
             Element[,] matrix = new Element[30, 54];           
-            ;
+            
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)
@@ -63,21 +66,26 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
         private void LoadFirstMap()
         {
-            ActualMapNumber = 4;
-            ActualMap = AllMap[6];
+            ActualMapNumber = 0;
+            ActualMap = AllMap[ActualMapNumber];
         }
 
         public  void LoadNextLeftMap()
         {
-            ActualMap = AllMap[ActualMapNumber--];           
+            ActualMap = AllMap[ActualMapNumber--];
+            SetupBlock(this.size);
+            Changed?.Invoke(this, null);
         } 
         public void LoadNextRightMap()
         {
-            ActualMap = AllMap[ActualMapNumber++];           
+            ActualMap = AllMap[ActualMapNumber++];
+            SetupBlock(this.size);
+            Changed?.Invoke(this, null);
         }
 
         public void SetupBlock(Size size)
         {
+            this.Blocks = new List<Block>();
             double rectWidth = size.Width / ActualMap.GetLength(1);
             double rectHeight = size.Height / ActualMap.GetLength(0);
             for (int i = 0; i < ActualMap.GetLength(0); i++)
@@ -85,7 +93,6 @@ namespace GUI_20212202_AYZ8R9.Logic
                 for (int j = 0; j < ActualMap.GetLength(1); j++)
                 {
                     this.Blocks.Add(new Models.Block() { BlockType = ActualMap[i, j], Positon = new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight) });
-
                 }
             }
         }

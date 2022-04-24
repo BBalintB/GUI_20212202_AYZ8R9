@@ -153,172 +153,172 @@
     <Content Include="Images\Blocks\Z.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_1.png">
+    <Content Include="Images\Main_Character\Attack_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_2.png">
+    <Content Include="Images\Main_Character\Attack_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_3.png">
+    <Content Include="Images\Main_Character\Attack_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_4.png">
+    <Content Include="Images\Main_Character\Attack_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_5.png">
+    <Content Include="Images\Main_Character\Attack_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_6.png">
+    <Content Include="Images\Main_Character\Attack_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_7.png">
+    <Content Include="Images\Main_Character\Attack_7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Attack_8.png">
+    <Content Include="Images\Main_Character\Attack_8.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_1.png">
+    <Content Include="Images\Main_Character\Back_Attack_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_2.png">
+    <Content Include="Images\Main_Character\Back_Attack_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_3.png">
+    <Content Include="Images\Main_Character\Back_Attack_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_4.png">
+    <Content Include="Images\Main_Character\Back_Attack_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_5.png">
+    <Content Include="Images\Main_Character\Back_Attack_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_6.png">
+    <Content Include="Images\Main_Character\Back_Attack_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_7.png">
+    <Content Include="Images\Main_Character\Back_Attack_7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Attack\Back_Attack_8.png">
+    <Content Include="Images\Main_Character\Back_Attack_8.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Climb\Climb_1.png">
+    <Content Include="Images\Main_Character\Climb_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Climb\Climb_2.png">
+    <Content Include="Images\Main_Character\Climb_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Climb\Climb_3.png">
+    <Content Include="Images\Main_Character\Climb_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Climb\Climb_4.png">
+    <Content Include="Images\Main_Character\Climb_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Climb\Climb_5.png">
+    <Content Include="Images\Main_Character\Climb_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Climb\Climb_6.png">
+    <Content Include="Images\Main_Character\Climb_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Back_Death_1.png">
+    <Content Include="Images\Main_Character\Back_Death_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Back_Death_2.png">
+    <Content Include="Images\Main_Character\Back_Death_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Back_Death_3.png">
+    <Content Include="Images\Main_Character\Back_Death_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Back_Death_4.png">
+    <Content Include="Images\Main_Character\Back_Death_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Back_Death_5.png">
+    <Content Include="Images\Main_Character\Back_Death_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Back_Death_6.png">
+    <Content Include="Images\Main_Character\Back_Death_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Death_1.png">
+    <Content Include="Images\Main_Character\Death_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Death_2.png">
+    <Content Include="Images\Main_Character\Death_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Death_3.png">
+    <Content Include="Images\Main_Character\Death_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Death_4.png">
+    <Content Include="Images\Main_Character\Death_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Death_5.png">
+    <Content Include="Images\Main_Character\Death_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Death\Death_6.png">
+    <Content Include="Images\Main_Character\Death_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Back_Idle_1.png">
+    <Content Include="Images\Main_Character\Back_Idle_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Back_Idle_2.png">
+    <Content Include="Images\Main_Character\Back_Idle_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Back_Idle_3.png">
+    <Content Include="Images\Main_Character\Back_Idle_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Back_Idle_4.png">
+    <Content Include="Images\Main_Character\Back_Idle_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Idle_1.png">
+    <Content Include="Images\Main_Character\Idle_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Idle_2.png">
+    <Content Include="Images\Main_Character\Idle_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Idle_3.png">
+    <Content Include="Images\Main_Character\Idle_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Idle\Idle_4.png">
+    <Content Include="Images\Main_Character\Idle_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Back_Jump_1.png">
+    <Content Include="Images\Main_Character\Back_Jump_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Back_Jump_2.png">
+    <Content Include="Images\Main_Character\Back_Jump_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Back_Jump_3.png">
+    <Content Include="Images\Main_Character\Back_Jump_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Back_Jump_4.png">
+    <Content Include="Images\Main_Character\Back_Jump_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Jump_1.png">
+    <Content Include="Images\Main_Character\Jump_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Jump_2.png">
+    <Content Include="Images\Main_Character\Jump_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Jump_3.png">
+    <Content Include="Images\Main_Character\Jump_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Jump\Jump_4.png">
+    <Content Include="Images\Main_Character\Jump_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Back_Run_1.png">
+    <Content Include="Images\Main_Character\Back_Run_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Back_Run_2.png">
+    <Content Include="Images\Main_Character\Back_Run_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Back_Run_3.png">
+    <Content Include="Images\Main_Character\Back_Run_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Back_Run_4.png">
+    <Content Include="Images\Main_Character\Back_Run_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Back_Run_5.png">
+    <Content Include="Images\Main_Character\Back_Run_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Back_Run_6.png">
+    <Content Include="Images\Main_Character\Back_Run_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Maps\map.xlsx">
@@ -337,6 +337,12 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\Main_Character\Attack\" />
+    <Folder Include="Images\Main_Character\Climb\" />
+    <Folder Include="Images\Main_Character\Death\" />
+    <Folder Include="Images\Main_Character\Idle\" />
+    <Folder Include="Images\Main_Character\Jump\" />
+    <Folder Include="Images\Main_Character\Run\" />
     <Folder Include="ViewModels\" />  
   </ItemGroup>
 
@@ -352,22 +358,22 @@
     <Content Include="Images\Backgrounds\Background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Run_1.png">
+    <Content Include="Images\Main_Character\Run_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Run_2.png">
+    <Content Include="Images\Main_Character\Run_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Run_3.png">
+    <Content Include="Images\Main_Character\Run_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Run_4.png">
+    <Content Include="Images\Main_Character\Run_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Run_5.png">
+    <Content Include="Images\Main_Character\Run_5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Main_Character\Run\Run_6.png">
+    <Content Include="Images\Main_Character\Run_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
