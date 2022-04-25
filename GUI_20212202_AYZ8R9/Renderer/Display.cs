@@ -171,6 +171,10 @@ namespace GUI_20212202_AYZ8R9.Renderer
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "end.png"), UriKind.RelativeOrAbsolute)));
                             break;
+                        case MapLogic.Element.HC:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HC.png"), UriKind.RelativeOrAbsolute)));
+                            break;
                     }
 
                     drawingContext.DrawRectangle(brush

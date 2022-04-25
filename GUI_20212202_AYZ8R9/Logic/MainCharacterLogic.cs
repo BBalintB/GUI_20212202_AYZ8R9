@@ -144,7 +144,10 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.L
                             || blocks[i].BlockType == Element.NE
                             || blocks[i].BlockType == Element.Z
-                            || blocks[i].BlockType == Element.HOME)
+                            || blocks[i].BlockType == Element.HOME
+                            || blocks[i].BlockType == Element.EN
+                            || blocks[i].BlockType == Element.END
+                            || blocks[i].BlockType == Element.HC)
                         {
                             if (blocks[i].BlockType == Element.NE)
                             {
@@ -281,9 +284,18 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void OpenChest()
         { 
-            
+            // todo
         }
 
+        public void OpenHomeChest()
+        {
+            // todo
+        }
+
+        public void OpenAttackWindow()
+        {
+            // todo
+        }
         private void Ladder_Climbing(Controls controls)
         {
             if (controls == Controls.Down)
