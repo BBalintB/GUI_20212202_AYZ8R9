@@ -33,7 +33,7 @@ namespace GUI_20212202_AYZ8R9.Helper
 
         private void MapSetup(ref string[,]  map)
         {
-            ;string[,] map2 = map;
+          
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)

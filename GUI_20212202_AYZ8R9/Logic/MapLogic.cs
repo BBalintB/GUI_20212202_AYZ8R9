@@ -14,10 +14,12 @@ namespace GUI_20212202_AYZ8R9.Logic
     {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN,F,G,H
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN,F,G,H,END,HC
         }
 
+        int number;
         public int ActualMapNumber { get; set; }
+        public int ActualBGNumber { get; set; }
         public Element[][,] AllMap { get; set; }
         public Element[,] ActualMap { get; set; }
         public List<Block> Blocks { get; set; }
@@ -31,7 +33,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
         public MapLogic(Size size)
         {
-            ActualMapNumber = 1;
+           
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
             this.Blocks = new List<Block>();
             LoadInAllMap();
@@ -49,6 +51,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 Element[,] matrix = MatrixConverter(map);
                 AllMap[i] = matrix;                              
             }
+            ;
         }
 
         private Element[,] MatrixConverter(string[,] map)
@@ -64,24 +67,50 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             return matrix;
         }
-        private void LoadFirstMap()
+        public void LoadFirstMap()
         {
-            ActualMapNumber = 1;
+            number = 1;
+            ActualMapNumber = 0;
+            ActualBGNumber = 1;
             ActualMap = AllMap[ActualMapNumber];
+            ;
+        }
+        public void LoadNextRightMap()
+        {
+            ;
+            ActualBGNumber++;
+            if (ActualBGNumber == 5)
+            {
+                ActualBGNumber = 1;
+            }
+            
+
+            ActualMapNumber++;
+            ActualMap = AllMap[ActualMapNumber];
+            ;
+            SetupBlock(this.size);
+            Changed?.Invoke(this, null);
+            ;
         }
 
         public  void LoadNextLeftMap()
         {
-            ActualMap = AllMap[ActualMapNumber--];
+            ;
+            
+            ActualBGNumber--;
+            if (ActualBGNumber == -1)
+            {
+                ActualBGNumber = 4;
+            }
+
+            ActualMapNumber--;
+            ActualMap = AllMap[ActualMapNumber];
+            ;
             SetupBlock(this.size);
             Changed?.Invoke(this, null);
+            ;
         } 
-        public void LoadNextRightMap()
-        {
-            ActualMap = AllMap[ActualMapNumber++];
-            SetupBlock(this.size);
-            Changed?.Invoke(this, null);
-        }
+        
 
         public void SetupBlock(Size size)
         {
@@ -124,6 +153,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "F": return Element.F;
                 case "G": return Element.G;
                 case "H": return Element.H;
+                case "EN": return Element.EN;
+                case "END": return Element.END;
+                case "HC": return Element.HC;
                 default:
                     return Element.X;
             }
