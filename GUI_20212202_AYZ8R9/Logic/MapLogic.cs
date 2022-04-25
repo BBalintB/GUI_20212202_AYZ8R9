@@ -17,6 +17,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN,F,G,H
         }
 
+        int number;
         public int ActualMapNumber { get; set; }
         public Element[][,] AllMap { get; set; }
         public Element[,] ActualMap { get; set; }
@@ -31,7 +32,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
         public MapLogic(Size size)
         {
-            ActualMapNumber = 1;
+           
             r = new ExcelDataReader(Path.Combine(Directory.GetCurrentDirectory(), "Maps","map.xlsx"));
             this.Blocks = new List<Block>();
             LoadInAllMap();
@@ -49,6 +50,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 Element[,] matrix = MatrixConverter(map);
                 AllMap[i] = matrix;                              
             }
+            ;
         }
 
         private Element[,] MatrixConverter(string[,] map)
@@ -64,23 +66,33 @@ namespace GUI_20212202_AYZ8R9.Logic
             }
             return matrix;
         }
-        private void LoadFirstMap()
+        public void LoadFirstMap()
         {
+            number = 1;
             ActualMapNumber = 0;
             ActualMap = AllMap[ActualMapNumber];
+            ;
         }
 
         public  void LoadNextLeftMap()
         {
-            ActualMap = AllMap[ActualMapNumber--];
+            ;
+            ActualMapNumber--;
+            ActualMap = AllMap[ActualMapNumber];
+            ;
             SetupBlock(this.size);
             Changed?.Invoke(this, null);
+            ;
         } 
         public void LoadNextRightMap()
         {
-            ActualMap = AllMap[ActualMapNumber++];
+            ;
+            ActualMapNumber++;
+            ActualMap = AllMap[ActualMapNumber];
+            ;
             SetupBlock(this.size);
             Changed?.Invoke(this, null);
+            ;
         }
 
         public void SetupBlock(Size size)

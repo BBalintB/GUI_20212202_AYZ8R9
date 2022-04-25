@@ -75,7 +75,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             dt.Tick += Dt_Tick;
             dt.Start();
 
-            LoadNextMap();
+            LoadFirstMap();
 
             Task_Run = true;
             MethodDown();
@@ -226,6 +226,23 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
             }
             Thread.Sleep(50);
+        }
+
+        public void LoadFirstMap()
+        {
+            this.MapLogic.LoadFirstMap();
+            this.blocks = MapLogic.Blocks;
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                if (blocks[i].BlockType == Element.PLAYER)
+                {
+                    left_corner.Horizontal = blocks[i].Positon.X + 50;
+                    left_corner.Vertical = blocks[i].Positon.Y - 2;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width + 50;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
+                }
+            }
+            Changed2?.Invoke(this, null);
         }
 
         public void LoadNextMap()
