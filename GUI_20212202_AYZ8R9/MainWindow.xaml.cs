@@ -148,6 +148,10 @@ namespace GUI_20212202_AYZ8R9
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
+            else if (e.Key == Key.LeftShift)
+            {
+                Characterlogic.Control(MainCharacterLogic.Controls.RunStop);
+            }
         }
 
         private async Task Method1()
@@ -167,7 +171,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Left);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    Characterlogic.Control(MainCharacterLogic.Controls.Left);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
@@ -178,7 +182,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    Characterlogic.Control(MainCharacterLogic.Controls.Right);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
@@ -204,7 +208,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Left);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    Characterlogic.Control(MainCharacterLogic.Controls.Left);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
@@ -215,7 +219,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    Characterlogic.Control(MainCharacterLogic.Controls.Right);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });

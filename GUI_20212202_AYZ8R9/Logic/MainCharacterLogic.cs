@@ -46,6 +46,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private bool Turn_Right { get; set; }
 
+        private int RunSpeed { get; set; }
+
         public List<Block> blocks { get; set; }
 
         DispatcherTimer dt = new DispatcherTimer();
@@ -77,6 +79,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
             LoadNextMap();
 
+            this.RunSpeed = 50;
+
             Task_Run = true;
             MethodDown();
             MethodLoad();
@@ -86,7 +90,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public enum Controls
         {
-            Left, Right, Down, Up, Jump, Stop
+            Left, Right, Down, Up, Jump, Stop, Run, RunStop
         }
 
         public void Control(Controls control)
@@ -116,6 +120,12 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 case Controls.Up:
                     Ladder_Climbing(Controls.Up);
+                    break;
+                case Controls.Run:
+                    this.RunSpeed = 10;
+                    break;
+                case Controls.RunStop:
+                    this.RunSpeed = 50;
                     break;
                 default:
                     break;
@@ -223,7 +233,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Animation_Counter++;
                 }
             }
-            Thread.Sleep(50);
+            Thread.Sleep(RunSpeed);
         }
 
         public void LoadNextMap()
@@ -418,7 +428,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 while (Task_Run)
                 {
                     bool down = true;
-                    Rect player = new Rect(left_corner.Horizontal+6, left_corner.Vertical + 1, right_corner.Horizontal - left_corner.Horizontal-12, right_corner.Vertical - left_corner.Vertical);
+                    Rect player = new Rect(left_corner.Horizontal+6, left_corner.Vertical + 2, right_corner.Horizontal - left_corner.Horizontal-12, right_corner.Vertical - left_corner.Vertical);
                     for (int i = 0; i < blocks.Count; i++)
                     {
                         if (player.IntersectsWith(blocks[i].Positon)
