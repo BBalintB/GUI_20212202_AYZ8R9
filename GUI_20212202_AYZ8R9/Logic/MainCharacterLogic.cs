@@ -143,7 +143,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.CH
                             || blocks[i].BlockType == Element.L
                             || blocks[i].BlockType == Element.NE
-                            || blocks[i].BlockType == Element.Z)
+                            || blocks[i].BlockType == Element.Z
+                            || blocks[i].BlockType == Element.HOME)
                         {
                             if (blocks[i].BlockType == Element.NE)
                             {
@@ -191,7 +192,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.CH
                             || blocks[i].BlockType == Element.L
                             || blocks[i].BlockType == Element.NE
-                            || blocks[i].BlockType == Element.Z)
+                            || blocks[i].BlockType == Element.Z
+                             || blocks[i].BlockType == Element.HOME)
                         {
                             run = true;
                             if (blocks[i].BlockType == Element.NE)
