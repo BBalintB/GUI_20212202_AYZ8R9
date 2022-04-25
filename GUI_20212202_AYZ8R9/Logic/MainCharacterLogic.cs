@@ -91,6 +91,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void Control(Controls control)
         {
+            dt.Stop();
             switch (control)
             {
                 case Controls.Left:
@@ -108,6 +109,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 case Controls.Stop:
                     Animation_Counter = 1;
+                    dt.Start();
                     break;
                 case Controls.Down:
                     Ladder_Climbing(Controls.Down);
@@ -265,7 +267,6 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private void Ladder_Climbing(Controls controls)
         {
-            dt.Stop();
             if (controls == Controls.Down)
             {
                 bool down = false;
@@ -344,7 +345,6 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Animation_Counter++;
                 }
             }
-            dt.Start();
             Thread.Sleep(50);
         }
 
@@ -418,7 +418,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 while (Task_Run)
                 {
                     bool down = true;
-                    Rect player = new Rect(left_corner.Horizontal/*+4*/, left_corner.Vertical + 1, right_corner.Horizontal - left_corner.Horizontal/*-8*/, right_corner.Vertical - left_corner.Vertical);
+                    Rect player = new Rect(left_corner.Horizontal+6, left_corner.Vertical + 1, right_corner.Horizontal - left_corner.Horizontal-12, right_corner.Vertical - left_corner.Vertical);
                     for (int i = 0; i < blocks.Count; i++)
                     {
                         if (player.IntersectsWith(blocks[i].Positon)
@@ -527,19 +527,27 @@ namespace GUI_20212202_AYZ8R9.Logic
             MainPath = "Idle";
             if (Turn_Right)
             {
+                if (Animation_Counter < 4)
+                {
+                    Animation_Counter++;
+                }
+                else
+                {
+                    Animation_Counter = 1;
+                }
                 DoingPath = "Idle";
             }
             else
             {
+                if (Animation_Counter < 4)
+                {
+                    Animation_Counter++;
+                }
+                else
+                {
+                    Animation_Counter = 1;
+                }
                 DoingPath = "Back_Idle";
-            }
-            if (Animation_Counter < 4)
-            {
-                Animation_Counter++;
-            }
-            else
-            {
-                Animation_Counter = 1;
             }
             Thread.Sleep(50);
             //Monitor.Enter(Changed);

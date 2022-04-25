@@ -66,7 +66,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         }
         private void LoadFirstMap()
         {
-            ActualMapNumber = 0;
+            ActualMapNumber = 1;
             ActualMap = AllMap[ActualMapNumber];
         }
 
