@@ -33,9 +33,32 @@ namespace GUI_20212202_AYZ8R9.Renderer
         {
             base.OnRender(drawingContext);
             if (model != null) // When window is starting this is run, but the model didn't set!!
-            {              
-                ImageBrush bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "war2.png"), UriKind.RelativeOrAbsolute)));
+            {
+
+
+                
+                ImageBrush bg = new ImageBrush();
+                  switch (model.ActualBGNumber)
+                {
+                    
+                    case 1:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War1.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                    case 2:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War2.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                    case 3:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War3.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                    case 4:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War4.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                }
+
                 drawingContext.DrawRectangle(bg, new Pen(Brushes.Black, 0), new Rect(0, 0, size.Width, size.Height));
+
+
+
                 if (model.ActualMap[15,21] == MapLogic.Element.HOME)
                 {
                     ImageBrush home = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "home2.png"), UriKind.RelativeOrAbsolute)));
@@ -142,6 +165,18 @@ namespace GUI_20212202_AYZ8R9.Renderer
                         case MapLogic.Element.H:
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "H.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.EN:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "enemy.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.END:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "end.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.HC:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HC.png"), UriKind.RelativeOrAbsolute)));
                             break;
                     }
 

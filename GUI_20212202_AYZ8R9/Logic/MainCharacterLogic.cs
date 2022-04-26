@@ -72,7 +72,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             dt.Tick += Dt_Tick;
             dt.Start();
 
-            LoadNextMap();
+            LoadFirstMap();
 
             this.RunSpeed = 50;
 
@@ -154,7 +154,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.CH
                             || blocks[i].BlockType == Element.L
                             || blocks[i].BlockType == Element.NE
-                            || blocks[i].BlockType == Element.Z)
+                            || blocks[i].BlockType == Element.Z
+                            || blocks[i].BlockType == Element.HOME
+                            || blocks[i].BlockType == Element.EN
+                            || blocks[i].BlockType == Element.END
+                            || blocks[i].BlockType == Element.HC)
                         {
                             if (blocks[i].BlockType == Element.NE)
                             {
@@ -205,7 +209,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.CH
                             || blocks[i].BlockType == Element.L
                             || blocks[i].BlockType == Element.NE
-                            || blocks[i].BlockType == Element.Z)
+                            || blocks[i].BlockType == Element.Z
+                             || blocks[i].BlockType == Element.HOME)
                         {
                             run = true;
                             if (blocks[i].BlockType == Element.NE)
@@ -239,6 +244,23 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
             }
             Thread.Sleep(RunSpeed);
+        }
+
+        public void LoadFirstMap()
+        {
+            this.MapLogic.LoadFirstMap();
+            this.blocks = MapLogic.Blocks;
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                if (blocks[i].BlockType == Element.PLAYER)
+                {
+                    left_corner.Horizontal = blocks[i].Positon.X + 50;
+                    left_corner.Vertical = blocks[i].Positon.Y - 2;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width + 50;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
+                }
+            }
+            Changed2?.Invoke(this, null);
         }
 
         public void LoadNextMap()
@@ -279,9 +301,18 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void OpenChest()
         { 
-            
+            // todo
         }
 
+        public void OpenHomeChest()
+        {
+            // todo
+        }
+
+        public void OpenAttackWindow()
+        {
+            // todo
+        }
         private void Ladder_Climbing(Controls controls)
         {
             if (controls == Controls.Down)
