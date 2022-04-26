@@ -34,6 +34,9 @@ namespace GUI_20212202_AYZ8R9.Renderer
             base.OnRender(drawingContext);
             if (model != null) // When window is starting this is run, but the model didn't set!!
             {
+
+
+                
                 ImageBrush bg = new ImageBrush();
                   switch (model.ActualBGNumber)
                 {
