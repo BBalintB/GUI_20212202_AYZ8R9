@@ -92,7 +92,10 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 for (int j = 0; j < ActualMap.GetLength(1); j++)
                 {
-                    this.Blocks.Add(new Models.Block() { BlockType = ActualMap[i, j], Positon = new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight) });
+                    if (ActualMap[i, j] != Element.X)
+                    {
+                        this.Blocks.Add(new Models.Block() { BlockType = ActualMap[i, j], Positon = new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight) });
+                    }
                 }
             }
         }

@@ -42,7 +42,7 @@ namespace GUI_20212202_AYZ8R9
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic);
+            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic,new Models.Game());
             Characterlogic.DoingPath = "Idle";
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();
@@ -165,7 +165,6 @@ namespace GUI_20212202_AYZ8R9
 
                         Application.Current.Dispatcher.Invoke((Action)delegate
                         {
-
                             if (Keyboard.IsKeyDown(Key.Left))
                             {
                                 Characterlogic.Control(MainCharacterLogic.Controls.Left);
