@@ -27,6 +27,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         int Animation_Counter { get; set; }
 
+        string CharacterType { get; set; }
+
         List<Block> blocks { get; set; }
     }
 }

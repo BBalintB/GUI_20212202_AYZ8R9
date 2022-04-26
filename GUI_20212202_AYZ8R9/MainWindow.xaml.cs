@@ -1,4 +1,5 @@
 ﻿using GUI_20212202_AYZ8R9.Logic;
+using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,8 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Method1();
+            //Game game = (this.DataContext as MainWindowViewModel).SelectedGame;
             display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Maplogic = new MapLogic(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
             display.SetupModel(Maplogic);// Load map           
@@ -42,12 +45,10 @@ namespace GUI_20212202_AYZ8R9
 
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic,new Models.Game());
+            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic, new Game());
             Characterlogic.DoingPath = "Idle";
             CharacterDisplay.SetupModel(Characterlogic);
             CharacterDisplay.InvalidateVisual();
-
-            Method1();
 
             //CharacterDisplay2.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             //Characterlogic = new MainCharacterLogic();
@@ -163,7 +164,7 @@ namespace GUI_20212202_AYZ8R9
                     while (true)
                     {
 
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Left))
                             {
@@ -174,7 +175,7 @@ namespace GUI_20212202_AYZ8R9
                                 }
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Right))
                             {
@@ -185,14 +186,14 @@ namespace GUI_20212202_AYZ8R9
                                 }
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Down))
                             {
                                 Characterlogic.Control(MainCharacterLogic.Controls.Down);
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Up))
                             {
@@ -200,7 +201,7 @@ namespace GUI_20212202_AYZ8R9
                             }
                         });
 
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.A))
                             {
@@ -211,7 +212,7 @@ namespace GUI_20212202_AYZ8R9
                                 }
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.D))
                             {
@@ -222,28 +223,28 @@ namespace GUI_20212202_AYZ8R9
                                 }
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.S))
                             {
                                 Characterlogic.Control(MainCharacterLogic.Controls.Down);
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.W))
                             {
                                 Characterlogic.Control(MainCharacterLogic.Controls.Up);
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Space))
                             {
                                 Characterlogic.Control(MainCharacterLogic.Controls.Jump);
                             }
                         });
-                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Right))
                             {
@@ -269,6 +270,19 @@ namespace GUI_20212202_AYZ8R9
 
         private void Grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            //Method1();
+            //Game game = (this.DataContext as MainWindowViewModel).SelectedGame;
+            //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            //Maplogic = new MapLogic(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            //display.SetupModel(Maplogic);// Load map           
+            //display.InvalidateVisual();
+
+            //CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            //Characterlogic = new MainCharacterLogic();
+            //Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic, game);
+            //Characterlogic.DoingPath = "Idle";
+            //CharacterDisplay.SetupModel(Characterlogic);
+            //CharacterDisplay.InvalidateVisual();
         }
     }
 }

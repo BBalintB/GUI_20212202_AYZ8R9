@@ -53,10 +53,14 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         DispatcherTimer dt = new DispatcherTimer();
 
+        public string CharacterType { get; set; }
+
         private MapLogic MapLogic { get; set; }
 
         public void SetupSizes(System.Windows.Size area, MapLogic mapLogic, Game game)
         {
+            //CharacterType = game.Hero.HeroType.ToString();
+            CharacterType = "Archer";
             MainPath = "Idle";
             this.Areasize = area;
             left_corner = new Position();
@@ -254,10 +258,11 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 if (blocks[i].BlockType == Element.PLAYER)
                 {
-                    left_corner.Horizontal = blocks[i].Positon.X + 50;
+                    left_corner.Horizontal = blocks[i].Positon.X;
                     left_corner.Vertical = blocks[i].Positon.Y - 2;
-                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width + 50;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width;
                     right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
+                    this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
             Changed2?.Invoke(this, null);
@@ -451,7 +456,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                         Animation_Counter = i + 1;
                         Changed2?.Invoke(this, null);
                     }
-                    Thread.Sleep(100);
+                    Thread.Sleep(50);
                 }
                 Task_Run = true;
                 MethodDown();
@@ -476,7 +481,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                         && blocks[i].BlockType != Element.PRE
                         && blocks[i].BlockType != Element.NE
                         && blocks[i].BlockType != Element.CH1
-                        && blocks[i].BlockType != Element.Z)
+                        && blocks[i].BlockType != Element.Z
+                        && blocks[i].BlockType != Element.PLAYER)
                         {
                             down = false;
                         }
@@ -488,11 +494,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                         MainPath = "Idle";
                         if (Turn_Right)
                         {
-                            DoingPath = "Idle";
+                            DoingPath = "Jump";
                         }
                         else
                         {
-                            DoingPath = "Back_Idle";
+                            DoingPath = "Back_Jump";
                         }
                         if (Animation_Counter < 4)
                         {
@@ -511,7 +517,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     {
                         this.JumpIsBusy = false;
                     }
-
+                    Thread.Sleep(1);
                 }
             });
         }
