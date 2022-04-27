@@ -70,9 +70,23 @@ namespace GUI_20212202_AYZ8R9.Models.NPC
             }
         }
 
+        private Weapon weapon;
+
+        public Weapon Weapon
+        {
+            get { return weapon; }
+            set
+            {
+                this.Attack += Weapon.Damage;
+                this.HP += Weapon.HPBoost;
+                SetProperty(ref weapon, value);
+            }
+        }
+
         public NPC_Character()
         {
             Position = RoundPosition.Neutral;
+            Weapon = new Weapon();
         }
 
 

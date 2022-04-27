@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,12 +91,38 @@ namespace GUI_20212202_AYZ8R9.Models
             }
         }
 
+        private int mapPosition;
 
+        public int MapPosition
+        {
+            get { return mapPosition; }
+            set {
+                SetProperty(ref mapPosition, value);
+            }
+        }
+
+        private Weapon weapon;
+
+        public Weapon Weapon
+        {
+            get { return weapon; }
+            set {
+                this.Attack -= Weapon.Damage;
+                this.HP -= Weapon.HPBoost;
+                this.Attack -= value.Damage;
+                this.HP -= value.HPBoost;
+                SetProperty(ref weapon, value);
+            }
+        }
+
+        public ObservableCollection<Weapon> Inventory { get; set; }
 
         public Hero()
         {
             HeroType = HeroTypes.Neutral;
             Position = RoundPosition.Neutral;
+            Weapon = new Weapon();
+            Inventory = new ObservableCollection<Weapon>();
         }
 
 

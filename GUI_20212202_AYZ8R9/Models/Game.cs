@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,10 +37,14 @@ namespace GUI_20212202_AYZ8R9.Models
             set { SetProperty(ref fileLastSaveDate, value); }
         }
 
+        public ObservableCollection<Weapon> BunkerWeapons{ get; set; }
+
         public Game()
         {
+            BunkerWeapons = new ObservableCollection<Weapon>();
             Hero = new Hero();
         }
+
 
         //Coming soon
     }

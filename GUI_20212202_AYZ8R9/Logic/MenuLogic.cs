@@ -1,4 +1,5 @@
-﻿using GUI_20212202_AYZ8R9.MenuOptionsWindows;
+﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Services.MenuOptionsServices;
 using Newtonsoft.Json;
@@ -27,16 +28,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void SetupCollection(IList<Game> games)
         {
-            this.games = games;
-            string[] files = Directory.GetFiles("Games", "*.json"); //Reads out the files from the Games map
-            for (int i = 0; i < files.Length; i++)
-            {
-                if (File.Exists(files[i]))
-                {
-                    var hq = JsonConvert.DeserializeObject<Game>(File.ReadAllText(files[i])); //It fills up the Games list with the content of the save 
-                    games.Add(hq);
-                }
-            }
+            //this.games = games;
+            this.games = Save.ReadFiles(games);
         }
 
         public void SetUpVisibility(Visibility menu, Visibility game)

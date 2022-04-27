@@ -15,5 +15,6 @@ namespace GUI_20212202_AYZ8R9.Models
 
         public int SpecialAttackCounter { get; set; }
         public RoundPosition Position { get; set; }
+        public Weapon Weapon { get; set; }
     }
 }
