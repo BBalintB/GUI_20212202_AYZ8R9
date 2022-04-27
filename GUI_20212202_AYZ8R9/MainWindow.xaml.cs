@@ -28,6 +28,7 @@ namespace GUI_20212202_AYZ8R9
     {
         MainCharacterLogic Characterlogic;
         MapLogic Maplogic;
+        Game game;
 
         public MainWindow()
         {
@@ -46,19 +47,31 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            Maplogic = new MapLogic();
-            display.SetupModel(Maplogic);// Load map           
-            display.InvalidateVisual();
-            
-            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
-            Characterlogic.DoingPath = "Run";
-            CharacterDisplay.SetupModel(Characterlogic);
-            CharacterDisplay.InvalidateVisual();          
-            display.InvalidateVisual();
-            Game game = (this.DataContext as MainWindowViewModel).SelectedGame;
+
+            if (DataContext is IMainActions vm)
+            {
+                vm.LoadAction += () =>
+                {
+                    display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+                    Maplogic = new MapLogic();
+                    display.SetupModel(Maplogic);// Load map           
+                    display.InvalidateVisual();
+
+                    CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+                    Characterlogic = new MainCharacterLogic();
+                    Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
+                    Characterlogic.DoingPath = "Run";
+                    CharacterDisplay.SetupModel(Characterlogic);
+                    CharacterDisplay.InvalidateVisual();
+                    display.InvalidateVisual();
+                    game = (this.DataContext as MainWindowViewModel).SelectedGame;
+                };
+
+                vm.CloseWindow += () =>
+                {
+                    this.Close();
+                };
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -128,9 +141,12 @@ namespace GUI_20212202_AYZ8R9
         }
         #endregion
 
-        //private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-        //}
+        private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ;
+            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            
+            ;
+        }
     }
 }

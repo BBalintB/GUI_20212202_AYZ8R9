@@ -66,7 +66,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         public void LoadInGame(Game game)
         {
             //TODO starts the game with the selected game object
-            new FightWindow(game).ShowDialog();
+            //new FightWindow(game).ShowDialog();
 
         }
     }

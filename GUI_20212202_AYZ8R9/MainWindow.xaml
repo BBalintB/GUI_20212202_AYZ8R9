@@ -68,15 +68,16 @@
             <Grid Grid.Row="1">
                 <Border BorderThickness="2" BorderBrush="Black">
                     <StackPanel>
-                        <Button Height="Auto" Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
-                        <Button Height="Auto" Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
-                        <Button Height="Auto" Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Content="Exit" Command="{Binding ExitCommand}" FontSize="18" Margin="20" />
                     </StackPanel>
                 </Border>
             </Grid>
         </Grid>
     </Grid>
-    <Grid Visibility="{Binding GameVisibility}" Width="1920" Height="1080">
+    <Grid Visibility="{Binding GameVisibility}" IsVisibleChanged="grid_IsVisibleChanged">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
      </Grid>
