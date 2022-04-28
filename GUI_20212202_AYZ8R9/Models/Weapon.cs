@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace GUI_20212202_AYZ8R9.Models
 {
+    public enum WeaponType { 
+        uncommon,
+        common,
+        rare,
+        epic,
+        legendary
+    }
     public class Weapon:ObservableObject
     {
         private string name;
@@ -37,6 +44,22 @@ namespace GUI_20212202_AYZ8R9.Models
             set {
                 SetProperty(ref hpBoost,value);
             }
+        }
+
+        private WeaponType type;
+
+        public WeaponType Type
+        {
+            get { return type; }
+            set {
+                SetProperty(ref type, value);
+            }
+        }
+
+        public Weapon()
+        {
+            Damage = 0;
+            HPBoost = 0;
         }
 
     }

@@ -107,10 +107,14 @@ namespace GUI_20212202_AYZ8R9.Models
         {
             get { return weapon; }
             set {
-                this.Attack -= Weapon.Damage;
-                this.HP -= Weapon.HPBoost;
-                this.Attack -= value.Damage;
-                this.HP -= value.HPBoost;
+                if (Weapon != null)
+                {
+                    this.Attack -= Weapon.Damage;
+                    this.HP -= Weapon.HPBoost;
+                    this.Attack += value.Damage;
+                    this.HP += value.HPBoost;
+                }
+                
                 SetProperty(ref weapon, value);
             }
         }

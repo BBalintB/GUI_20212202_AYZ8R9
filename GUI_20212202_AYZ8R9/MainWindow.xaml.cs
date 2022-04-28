@@ -52,18 +52,18 @@ namespace GUI_20212202_AYZ8R9
             {
                 vm.LoadAction += () =>
                 {
-                    display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-                    Maplogic = new MapLogic();
-                    display.SetupModel(Maplogic);// Load map           
-                    display.InvalidateVisual();
+                    //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+                    //Maplogic = new MapLogic();
+                    //display.SetupModel(Maplogic);// Load map           
+                    //display.InvalidateVisual();
 
-                    CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-                    Characterlogic = new MainCharacterLogic();
-                    Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
-                    Characterlogic.DoingPath = "Run";
-                    CharacterDisplay.SetupModel(Characterlogic);
-                    CharacterDisplay.InvalidateVisual();
-                    display.InvalidateVisual();
+                    //CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+                    //Characterlogic = new MainCharacterLogic();
+                    //Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
+                    //Characterlogic.DoingPath = "Run";
+                    //CharacterDisplay.SetupModel(Characterlogic);
+                    //CharacterDisplay.InvalidateVisual();
+                    //display.InvalidateVisual();
                     game = (this.DataContext as MainWindowViewModel).SelectedGame;
                 };
 

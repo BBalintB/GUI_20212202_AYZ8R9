@@ -100,8 +100,8 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                 GameVisibility = Visibility.Visible;
                 LoadAction?.Invoke();
                 logic.LoadInGame(SelectedGame);
-                MenuVisibility = Visibility.Visible;
-                GameVisibility = Visibility.Collapsed;
+                //MenuVisibility = Visibility.Visible;
+                //GameVisibility = Visibility.Collapsed;
 
             },
             () => SelectedGame != null);

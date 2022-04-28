@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
-    class InventoryLogic : IInventoryLogic
+    public class InventoryLogic : IInventoryLogic
     {
         IList<Weapon> bunker;
         IList<Weapon> inventory;

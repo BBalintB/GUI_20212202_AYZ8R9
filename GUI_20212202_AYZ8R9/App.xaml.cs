@@ -27,6 +27,7 @@ namespace GUI_20212202_AYZ8R9
                     .AddSingleton<INewGameViaWindow, NewGameViaWindow>()
                     .AddSingleton<INewGameLogic, NewGameLogic>()
                     .AddSingleton<IFightWindowLogic,FightWindowLogic>()
+                    .AddSingleton<IInventoryLogic,InventoryLogic>()
                     .AddSingleton<IGameModel, MapLogic>()
                     .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                     .BuildServiceProvider()

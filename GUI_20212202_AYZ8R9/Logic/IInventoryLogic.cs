@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GUI_20212202_AYZ8R9.Logic
 {
-    interface IInventoryLogic
+    public interface IInventoryLogic
     {
         void AddToBunker(Weapon selected);
         void AddToInventory(Weapon selected);

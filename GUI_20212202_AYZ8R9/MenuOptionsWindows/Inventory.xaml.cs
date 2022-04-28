@@ -1,4 +1,5 @@
 ﻿using GUI_20212202_AYZ8R9.Models;
+using GUI_20212202_AYZ8R9.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace GUI_20212202_AYZ8R9.MenuOptionsWindows
         public Inventory(Game game)
         {
             InitializeComponent();
+            this.DataContext = new InventoryWindowViewModel();
+            (this.DataContext as InventoryWindowViewModel).Setup(game);
         }
     }
 }

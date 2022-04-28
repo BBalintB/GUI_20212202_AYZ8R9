@@ -317,6 +317,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             Messenger.Register<FightWindowViewModel, string, string>(this, "RoundInfo", (recipient, msg) =>
             {
                 OnPropertyChanged("Round");
+                
             });
             Team = "Heroes";
         }
@@ -373,7 +374,6 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                     {
                         break;
                     }
-                    
                     
                 }
                 
