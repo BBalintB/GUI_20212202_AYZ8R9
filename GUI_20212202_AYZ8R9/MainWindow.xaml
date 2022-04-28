@@ -8,12 +8,12 @@
         xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
         xmlns:renderer="clr-namespace:GUI_20212202_AYZ8R9.Renderer"
         mc:Ignorable="d"
-        
-        Title="MainWindow" Height="1089" Width="1906"   
-        
+        Title="MainWindow" 
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp"
         WindowState="Maximized">
+        <!--Height="1089" Width="1906"-->   
+        
         <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->
     <Window.DataContext>
         <vms:MainWindowViewModel />
@@ -41,7 +41,7 @@
                             <Border BorderBrush="Black" BorderThickness="1">
                                 <StackPanel Background="{Binding Hero.HeroType,Mode=OneWay,Converter={StaticResource enumToColor}}">
                                     <Label FontWeight="SemiBold" Content="{Binding FileName}" ContentStringFormat="Filename: {0}"/>
-                                    <Label FontWeight="SemiBold" Content="{Binding Hero.HeroName}" ContentStringFormat="Heroname: {0}"/>
+                                    <Label FontWeight="SemiBold" Content="{Binding Hero.Name}" ContentStringFormat="Heroname: {0}"/>
                                     <Label FontWeight="SemiBold" Content="{Binding FileLastSaveDate}" ContentStringFormat="Last save: {0}"/>
                                 </StackPanel>
                             </Border>
@@ -49,7 +49,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
-            <Button Command="{Binding DeleteFileCommand}" Content="Delete save" Grid.Row="2" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
+                <Button Height="Auto" Command="{Binding DeleteFileCommand}" Content="Delete save" Grid.Row="2" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -68,15 +68,16 @@
             <Grid Grid.Row="1">
                 <Border BorderThickness="2" BorderBrush="Black">
                     <StackPanel>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
-                        <Button Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
-                        <Button Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Style="{StaticResource MaterialDesignFlatDarkBgButton}" Content="New Game" Command="{Binding NewGameCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Content="Load Game" Command="{Binding LoadGameCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Content="Settings" Command="{Binding SettingsCommand}" FontSize="18" Margin="20" />
+                        <Button Height="50" Content="Exit" Command="{Binding ExitCommand}" FontSize="18" Margin="20" />
                     </StackPanel>
                 </Border>
             </Grid>
         </Grid>
     </Grid>
-    <Grid Visibility="{Binding GameVisibility}" IsVisibleChanged="Grid_IsVisibleChanged" Width="1920" Height="1080">
+    <Grid Visibility="{Binding GameVisibility}" IsVisibleChanged="grid_IsVisibleChanged">
             <renderer:Display x:Name="display"/>
             <renderer:CharacterDisplay x:Name="CharacterDisplay"/>
             <renderer:CharacterDisplay2 x:Name="CharacterDisplay2"/>

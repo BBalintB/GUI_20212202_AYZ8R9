@@ -8,7 +8,7 @@ namespace GUI_20212202_AYZ8R9.Logic
     {
         void DeleteFile(Game game);
         void SetupCollection(IList<Game> games);
-        void CreateNewGame();
+        void CreateNewGame(Game game);
         void LoadInGame(Game game);
         void SetUpVisibility(Visibility menu, Visibility game);
     }

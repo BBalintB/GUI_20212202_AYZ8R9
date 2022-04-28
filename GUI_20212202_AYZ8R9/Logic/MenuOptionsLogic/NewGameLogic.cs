@@ -1,4 +1,5 @@
-﻿using GUI_20212202_AYZ8R9.Models;
+﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,8 @@ namespace GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic
         {
             if (game.FileName != null)
             {
-                string newGame = JsonConvert.SerializeObject(game); //Serialize the incoming game object
-                File.WriteAllText("Games/" + game.FileName + ".json", newGame); //It save it into a file named after the object file name prop
+                Save.WriteOutJSON(game, Path.Combine("Games", game.FileName + ".json"));
             }
-            
         }
         public void SetHeroType(HeroTypes type)
         {

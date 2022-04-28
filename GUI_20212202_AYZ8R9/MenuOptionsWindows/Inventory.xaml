@@ -1,0 +1,127 @@
+﻿<Window x:Class="GUI_20212202_AYZ8R9.MenuOptionsWindows.Inventory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_20212202_AYZ8R9.MenuOptionsWindows"
+        xmlns:helper="clr-namespace:GUI_20212202_AYZ8R9.Helper"
+        mc:Ignorable="d"
+        Title="Inventory" Height="450" Width="1000">
+    <Window.Resources>
+        <helper:WeaponStatToColor x:Key="hpToColor" />
+        <helper:WeaponTypeToColor x:Key="typeToColor" />
+        <helper:EnumToColorConverter x:Key="enumToColor" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="Gray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Bunker items" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"/>
+            <ListBox ItemsSource="{Binding Bunker}" HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedFromBunker}" Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="{Binding Type,Converter={StaticResource typeToColor}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="6*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <ProgressBar Grid.Row="1" Maximum="50" Height="20" Value="{Binding Damage}" Foreground="{Binding Damage,Converter={StaticResource hpToColor}}" Margin="0,0,10,0"/>
+                                <ProgressBar Grid.Row="2" Maximum="50" Height="20" Value="{Binding HPBoost}" Foreground="{Binding HPBoost,Converter={StaticResource hpToColor}}" Margin="0,0,10,0"/>
+                                <Label Grid.Row="0" Content="{Binding Name}" Foreground="White"/>
+                                <Label Grid.Row="1" Content="{Binding Damage}" Foreground="Black" ContentStringFormat="Damage: {0}"/>
+                                <Label Grid.Row="2" Content="{Binding HPBoost}"  Foreground="Black" ContentStringFormat="HPboost: {0}" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Add to inventory" Command="{Binding AddToInventory}" Height="Auto" Grid.Row="2"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Inventory" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"/>
+            <ListBox ItemsSource="{Binding HeroInventory}" HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedFromInventory}" Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="{Binding Type,Converter={StaticResource typeToColor}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="6*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <ProgressBar Grid.Row="1" Maximum="50" Height="20" Value="{Binding Damage}" Foreground="{Binding Damage,Converter={StaticResource hpToColor}}" Margin="0,0,10,0"/>
+                                <ProgressBar Grid.Row="2" Maximum="50" Height="20" Value="{Binding HPBoost}" Foreground="{Binding HPBoost,Converter={StaticResource hpToColor}}" Margin="0,0,10,0"/>
+                                <Label Grid.Row="0" Content="{Binding Name}" Foreground="Black"/>
+                                <Label Grid.Row="1" Content="{Binding Damage}" Foreground="Black" ContentStringFormat="Damage: {0}"/>
+                                <Label Grid.Row="2" Content="{Binding HPBoost}"  Foreground="Black" ContentStringFormat="HPboost: {0}" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Add to bunker" Command="{Binding AddToBunker}" Height="Auto" Grid.Row="2"/>
+            <Button Content="Use" Command="{Binding AddToHero}" Height="Auto" Grid.Row="3"/>
+        </Grid>
+
+        <Grid Grid.Column="2" Background="{Binding Hero.HeroType,Converter={StaticResource enumToColor}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label Content="{Binding Hero.Name}" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25"/>
+            
+            <Grid Grid.Row="2" Background="{Binding Hero.Weapon.Type,Converter={StaticResource typeToColor}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <ProgressBar Grid.Row="1" Maximum="50" Height="20" Value="{Binding Hero.Weapon.Damage}" Foreground="{Binding Hero.Weapon.Damage,Converter={StaticResource hpToColor}}" Margin="0,0,10,0"/>
+                    <ProgressBar Grid.Row="2" Maximum="50" Height="20" Value="{Binding Hero.Weapon.HPBoost}" Foreground="{Binding Hero.Weapon.HPBoost,Converter={StaticResource hpToColor}}" Margin="0,0,10,0"/>
+                    <Label Grid.Row="0" Content="{Binding Hero.Weapon.Name}" Foreground="Black"/>
+                    <Label Grid.Row="1" Content="{Binding Hero.Weapon.Damage}" Foreground="Black" ContentStringFormat="Damage: {0}"/>
+                    <Label Grid.Row="2" Content="{Binding Hero.Weapon.HPBoost}"  Foreground="Black" ContentStringFormat="HPboost: {0}" />
+                </Grid>
+            </Grid>
+            <Label Content="{Binding Hero.HeroType}" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="Class: {0}"/>
+            <Label Background="White"  Content="{Binding Hero.HP}" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="HP: {0}"/>
+            <Label Content="{Binding Hero.Attack}" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="Damage: {0}"/>
+
+
+        </Grid>
+    </Grid>
+</Window>

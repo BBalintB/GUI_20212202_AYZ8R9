@@ -21,6 +21,8 @@
   <ItemGroup>
     <None Remove="Images\Background.png" />
     <None Remove="Images\Backgrounds.png" />
+    <None Remove="Images\Backgrounds\bg1.png" />
+    <None Remove="Images\Backgrounds\bg2.png" />
     <None Remove="Images\Backgrounds\home.png" />
     <None Remove="Images\Backgrounds\home2.png" />
     <None Remove="Images\Backgrounds\postapocalypse1.png" />
@@ -60,6 +62,14 @@
     <None Remove="Images\Blocks\X.png" />
     <None Remove="Images\Blocks\Y.png" />
     <None Remove="Images\Blocks\Z.png" />
+    <None Remove="Images\FightWindow\hazard.jpg" />
+    <None Remove="Images\FightWindow\radioactive.jpg" />
+    <None Remove="Images\Main_Character\Run\Run_1.png" />
+    <None Remove="Images\Main_Character\Run\Run_2.png" />
+    <None Remove="Images\Main_Character\Run\Run_3.png" />
+    <None Remove="Images\Main_Character\Run\Run_4.png" />
+    <None Remove="Images\Main_Character\Run\Run_5.png" />
+    <None Remove="Images\Main_Character\Run\Run_6.png" />
     <None Remove="Images\Punk_idle.png" />
     <None Remove="Images\Support\Back_Idle_1.png" />
     <None Remove="Images\Support\Back_Idle_2.png" />
@@ -99,6 +109,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\Backgrounds\bg1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Backgrounds\bg2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Backgrounds\home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -486,10 +502,6 @@
     <Content Include="Maps\map.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Helper\" />
   </ItemGroup>
 
   <ItemGroup>

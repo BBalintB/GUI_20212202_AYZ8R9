@@ -28,6 +28,7 @@ namespace GUI_20212202_AYZ8R9
     {
         MainCharacterLogic Characterlogic;
         MapLogic Maplogic;
+        Game game;
 
         public MainWindow()
         {
@@ -36,6 +37,25 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+            if (DataContext is IMainActions vm)
+            {
+                vm.LoadAction += () =>
+                {
+                    //display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+                    //Maplogic = new MapLogic();
+                    //display.SetupModel(Maplogic);// Load map           
+                    //display.InvalidateVisual();
+
+                    //CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+                    //Characterlogic = new MainCharacterLogic();
+                    //Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.ActualMap /*I need the game matrix*/);
+                    //Characterlogic.DoingPath = "Run";
+                    //CharacterDisplay.SetupModel(Characterlogic);
+                    //CharacterDisplay.InvalidateVisual();
+                    //display.InvalidateVisual();
+                    game = (this.DataContext as MainWindowViewModel).SelectedGame;
+                };
             Method1();
             //Game game = (this.DataContext as MainWindowViewModel).SelectedGame;
             display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
@@ -43,19 +63,11 @@ namespace GUI_20212202_AYZ8R9
             display.SetupModel(Maplogic);// Load map           
             display.InvalidateVisual();
 
-            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            Characterlogic = new MainCharacterLogic();
-            Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic, new Game());
-            Characterlogic.DoingPath = "Idle";
-            CharacterDisplay.SetupModel(Characterlogic);
-            CharacterDisplay.InvalidateVisual();
-
-            //CharacterDisplay2.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            //Characterlogic = new MainCharacterLogic();
-            //Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic.Blocks);
-            //Characterlogic.DoingPath = "Idle";
-            //CharacterDisplay2.SetupModel(Characterlogic);
-            //CharacterDisplay2.InvalidateVisual();
+                vm.CloseWindow += () =>
+                {
+                    this.Close();
+                };
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -277,12 +289,12 @@ namespace GUI_20212202_AYZ8R9
             //display.SetupModel(Maplogic);// Load map           
             //display.InvalidateVisual();
 
-            //CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            //Characterlogic = new MainCharacterLogic();
-            //Characterlogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight), Maplogic, game);
-            //Characterlogic.DoingPath = "Idle";
-            //CharacterDisplay.SetupModel(Characterlogic);
-            //CharacterDisplay.InvalidateVisual();
+        private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ;
+            CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            
+            ;
         }
     }
 }

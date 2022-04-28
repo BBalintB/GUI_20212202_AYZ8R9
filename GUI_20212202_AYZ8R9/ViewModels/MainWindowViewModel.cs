@@ -19,7 +19,7 @@ using System.Windows.Input;
 
 namespace GUI_20212202_AYZ8R9.ViewModels
 {
-    public class MainWindowViewModel : ObservableRecipient
+    public class MainWindowViewModel : ObservableRecipient,IMainActions
     {
         public ObservableCollection<Game> Games { get; set; }
         private Game selectedGame;
@@ -34,6 +34,8 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                 (DeleteFileCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
+        public Action CloseWindow { get; set; }
+        public Action LoadAction { get; set; }
 
         private Visibility menuVisibility;
 
@@ -62,6 +64,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
         public ICommand LoadGameCommand { get; set; }
         public ICommand SettingsCommand { get; set; }
         public ICommand DeleteFileCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
         IMenuLogic logic;
         IGameModel model;
         public static bool IsInDesignMode
@@ -87,7 +90,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             NewGameCommand = new RelayCommand(() => //This button opens the new game window
             {
                 MenuVisibility = Visibility.Collapsed;
-                logic.CreateNewGame();
+                logic.CreateNewGame(SelectedGame);
                 MenuVisibility = Visibility.Visible;
             });
             LoadGameCommand = new RelayCommand(
@@ -95,7 +98,10 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             {
                 MenuVisibility = Visibility.Collapsed;
                 GameVisibility = Visibility.Visible;
+                LoadAction?.Invoke();
                 logic.LoadInGame(SelectedGame);
+                //MenuVisibility = Visibility.Visible;
+                //GameVisibility = Visibility.Collapsed;
 
             },
             () => SelectedGame != null);
@@ -106,9 +112,13 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             },
             () => SelectedGame != null);
             SettingsCommand = new RelayCommand(() =>
-        {
+            {
                 //TODO
             });
+
+            ExitCommand = new RelayCommand(
+                () => CloseWindow?.Invoke()
+                ) ;
         }
     }
 }
