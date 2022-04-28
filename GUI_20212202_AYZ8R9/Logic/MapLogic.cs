@@ -74,6 +74,15 @@ namespace GUI_20212202_AYZ8R9.Logic
             ActualBGNumber = 1;
             ActualMap = AllMap[ActualMapNumber];
         }
+
+        public void LoadFirstMap(int map)
+        {
+            number = 1;
+            ActualMapNumber = map;
+            ActualBGNumber = map;
+            ActualMap = AllMap[ActualMapNumber];
+        }
+
         public void LoadNextRightMap()
         {
             ;
@@ -86,10 +95,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
             ActualMapNumber++;
             ActualMap = AllMap[ActualMapNumber];
-            ;
             SetupBlock(this.size);
             Changed?.Invoke(this, null);
-            ;
         }
 
         public  void LoadNextLeftMap()

@@ -1,4 +1,5 @@
 ﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Renderer;
 using System;
@@ -57,11 +58,14 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private MapLogic MapLogic { get; set; }
 
+        private Game game { get; set; }
+
         public void SetupSizes(System.Windows.Size area, MapLogic mapLogic, Game game)
         {
             //CharacterType = game.Hero.HeroType.ToString();
             CharacterType = game.Hero.HeroType.ToString();
             MainPath = "Idle";
+            this.game = game;
             this.Areasize = area;
             left_corner = new Position();
             right_corner = new Position();
@@ -173,6 +177,14 @@ namespace GUI_20212202_AYZ8R9.Logic
                             {
                                 LoadPreviousMap();
                             }
+                            if (blocks[i].BlockType == Element.EN)
+                            {
+                                new FightWindow(this.game).ShowDialog();
+                            }
+                            if (blocks[i].BlockType == Element.CH || blocks[i].BlockType == Element.CH1)
+                            {
+                                
+                            }
                             run = true;
                             
                         }
@@ -206,8 +218,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Rect player = new Rect(right_corner.Horizontal, right_corner.Vertical-1,1 /*right_corner.Horizontal - left_corner.Horizontal*/,1 /*right_corner.Vertical - left_corner.Vertical*/);
                     if (player.IntersectsWith(blocks[i].Positon))
                     {
-                        if (blocks[i].BlockType == Element.X
-                            || blocks[i].BlockType == Element.PRE
+                        if (
+                            blocks[i].BlockType == Element.PRE
                             || blocks[i].BlockType == Element.PLAYER
                             || blocks[i].BlockType == Element.W
                             || blocks[i].BlockType == Element.CH1
@@ -270,6 +282,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
+            this.game.Hero.MapPosition = this.MapLogic.ActualMapNumber;
             Changed2?.Invoke(this, null);
         }
 
@@ -288,6 +301,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical- left_corner.Vertical); 
                 }
             }
+            this.game.Hero.MapPosition = this.MapLogic.ActualMapNumber;
             Changed2?.Invoke(this, null);
         }
 
@@ -306,6 +320,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
+            this.game.Hero.MapPosition = this.MapLogic.ActualMapNumber;
             Changed2?.Invoke(this, null);
         }
 
@@ -465,8 +480,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
                 Task_Run = true;
                 MethodDown();
+                dt.Start();
             });
-            dt.Start();
         }
 
         public async Task MethodDown()

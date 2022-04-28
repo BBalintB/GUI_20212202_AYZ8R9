@@ -1,4 +1,5 @@
 ﻿using GUI_20212202_AYZ8R9.Logic;
+using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.ViewModels;
 using System;
@@ -56,7 +57,6 @@ namespace GUI_20212202_AYZ8R9
                     CharacterDisplay.SetupModel(Characterlogic);
                     CharacterDisplay.InvalidateVisual();
                     display.InvalidateVisual();
-
                 };
             //Game game = (this.DataContext as MainWindowViewModel).SelectedGame;
 
@@ -81,6 +81,10 @@ namespace GUI_20212202_AYZ8R9
                     (DataContext as MainWindowViewModel).GameVisibility = Visibility.Visible;
                     (DataContext as MainWindowViewModel).MenuVisibility = Visibility.Collapsed;
                 }
+            }
+            else if(e.Key == Key.L)
+            {
+                new Inventory(this.game).ShowDialog();
             }
             //else if (e.Key == Key.Right)
             //{
