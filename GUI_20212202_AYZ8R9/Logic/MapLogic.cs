@@ -14,7 +14,7 @@ namespace GUI_20212202_AYZ8R9.Logic
     {   
         public enum Element
         {
-            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN,F,G,H,END,HC
+            A, B, C, D, E, R, S, V, U, W, X, Z,L,Y,NE,PRE,HOME,PLAYER,CH,CH1,EN,F,G,H,END,HC, HOMEB, HOMEC, HOMELC, HOMELW, HOMERC, HOMERW
         }
 
         int number;
@@ -159,6 +159,12 @@ namespace GUI_20212202_AYZ8R9.Logic
                 case "EN": return Element.EN;
                 case "END": return Element.END;
                 case "HC": return Element.HC;
+                case "HOMEB": return Element.HOMEB;
+                case "HOMEC": return Element.HOMEC;
+                case "HOMELC": return Element.HOMELC;
+                case "HOMELW": return Element.HOMELW;
+                case "HOMERC": return Element.HOMERC;
+                case "HOMERW": return Element.HOMERW;
                 default:
                     return Element.X;
             }

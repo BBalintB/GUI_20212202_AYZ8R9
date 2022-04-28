@@ -43,6 +43,12 @@
     <None Remove="Images\Blocks\G.png" />
     <None Remove="Images\Blocks\H.png" />
     <None Remove="Images\Blocks\HC.png" />
+    <None Remove="Images\Blocks\HOMEB.png" />
+    <None Remove="Images\Blocks\HOMEC.png" />
+    <None Remove="Images\Blocks\HOMELC.png" />
+    <None Remove="Images\Blocks\HOMELW.png" />
+    <None Remove="Images\Blocks\HOMERC.png" />
+    <None Remove="Images\Blocks\HOMERW.png" />
     <None Remove="Images\Blocks\L.png" />
     <None Remove="Images\Blocks\NE.png" />
     <None Remove="Images\Blocks\PRE.png" />
@@ -157,6 +163,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\HC.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\HOMEB.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\HOMEC.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\HOMELC.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\HOMELW.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\HOMERC.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\HOMERW.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Blocks\L.png">

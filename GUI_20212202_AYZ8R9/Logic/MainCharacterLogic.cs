@@ -162,7 +162,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.HOME
                             || blocks[i].BlockType == Element.EN
                             || blocks[i].BlockType == Element.END
-                            || blocks[i].BlockType == Element.HC)
+                            || blocks[i].BlockType == Element.HC
+                            || blocks[i].BlockType == Element.HOMEB)
                         {
                             if (blocks[i].BlockType == Element.NE)
                             {
@@ -214,7 +215,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.L
                             || blocks[i].BlockType == Element.NE
                             || blocks[i].BlockType == Element.Z
-                             || blocks[i].BlockType == Element.HOME)
+                            || blocks[i].BlockType == Element.HOME 
+                            || blocks[i].BlockType == Element.EN
+                            || blocks[i].BlockType == Element.END
+                            || blocks[i].BlockType == Element.HC
+                            || blocks[i].BlockType == Element.HOMEB)
                         {
                             run = true;
                             if (blocks[i].BlockType == Element.NE)
@@ -482,7 +487,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                         && blocks[i].BlockType != Element.NE
                         && blocks[i].BlockType != Element.CH1
                         && blocks[i].BlockType != Element.Z
-                        && blocks[i].BlockType != Element.PLAYER)
+                        && blocks[i].BlockType != Element.PLAYER
+                        && blocks[i].BlockType != Element.HOMEB)
                         {
                             down = false;
                         }

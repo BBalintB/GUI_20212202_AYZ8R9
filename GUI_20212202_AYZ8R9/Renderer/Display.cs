@@ -178,6 +178,30 @@ namespace GUI_20212202_AYZ8R9.Renderer
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HC.png"), UriKind.RelativeOrAbsolute)));
                             break;
+                        case MapLogic.Element.HOMEB:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMEB.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.HOMEC:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMEC.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.HOMELC:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMELC.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.HOMELW:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMELW.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.HOMERC:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMERC.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.HOMERW:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMERW.png"), UriKind.RelativeOrAbsolute)));
+                            break;
                     }
 
                     drawingContext.DrawRectangle(brush
