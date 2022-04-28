@@ -73,7 +73,6 @@ namespace GUI_20212202_AYZ8R9.Logic
             ActualMapNumber = 0;
             ActualBGNumber = 1;
             ActualMap = AllMap[ActualMapNumber];
-            ;
         }
         public void LoadNextRightMap()
         {

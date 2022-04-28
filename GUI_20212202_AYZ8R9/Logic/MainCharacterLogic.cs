@@ -60,7 +60,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         public void SetupSizes(System.Windows.Size area, MapLogic mapLogic, Game game)
         {
             //CharacterType = game.Hero.HeroType.ToString();
-            CharacterType = "Archer";
+            CharacterType = game.Hero.HeroType.ToString();
             MainPath = "Idle";
             this.Areasize = area;
             left_corner = new Position();

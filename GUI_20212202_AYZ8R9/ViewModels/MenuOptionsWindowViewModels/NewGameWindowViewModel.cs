@@ -93,7 +93,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
         /// </summary>
         public void SetUpHero1()
         {
-            logic.SetHeroType(HeroTypes.archer);
+            logic.SetHeroType(HeroTypes.Archer);
             string path = Directory.GetCurrentDirectory();
             this.HeroImagePath = (Path.Combine(path, "Images", "Archer", "Idle_1.png"));
         }
@@ -104,7 +104,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
         /// </summary>
         public void SetUpHero2()
         {
-            logic.SetHeroType(HeroTypes.assault);
+            logic.SetHeroType(HeroTypes.Assault);
             string path = Directory.GetCurrentDirectory();
             this.HeroImagePath = (Path.Combine(path ,"Images", "Archer", "Idle_1.png"));
         }
@@ -115,7 +115,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
         /// </summary>
         public void SetUpHero3()
         {
-            logic.SetHeroType(HeroTypes.support);
+            logic.SetHeroType(HeroTypes.Support);
             string path = Directory.GetCurrentDirectory();
             this.HeroImagePath = (Path.Combine(path, "Images", "Support", "Idle_1.png"));
         }
