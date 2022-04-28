@@ -4,6 +4,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,17 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
         public ICommand Hero1Command{ get; set; }
         public ICommand Hero2Command { get; set; }
         public ICommand Hero3Command { get; set; }
+
+        private string heroImagePath;
+
+        public string HeroImagePath
+        {
+            get { return heroImagePath; }
+            set
+            {
+                SetProperty(ref heroImagePath, value);
+            }
+        }
 
         private Visibility gridOpenerHC;
 
@@ -74,6 +86,40 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
         }
         #endregion
 
+
+        /// <summary>
+        /// logic.SetHeroType(HeroTypes.archer);
+        /// this.HeroImagePath = @"Images\Archer\Idle_1";
+        /// </summary>
+        public void SetUpHero1()
+        {
+            logic.SetHeroType(HeroTypes.archer);
+            string path = Directory.GetCurrentDirectory();
+            this.HeroImagePath = (Path.Combine(path, "Images", "Archer", "Idle_1.png"));
+        }
+
+        /// <summary>
+        /// logic.SetHeroType(HeroTypes.assault);
+        /// this.HeroImagePath = @"Images\Archer\Idle_1";
+        /// </summary>
+        public void SetUpHero2()
+        {
+            logic.SetHeroType(HeroTypes.assault);
+            string path = Directory.GetCurrentDirectory();
+            this.HeroImagePath = (Path.Combine(path ,"Images", "Archer", "Idle_1.png"));
+        }
+
+        /// <summary>
+        /// logic.SetHeroType(HeroTypes.support);
+        /// this.HeroImagePath = @"Images\Support\Idle_1";
+        /// </summary>
+        public void SetUpHero3()
+        {
+            logic.SetHeroType(HeroTypes.support);
+            string path = Directory.GetCurrentDirectory();
+            this.HeroImagePath = (Path.Combine(path, "Images", "Support", "Idle_1.png"));
+        }
+
         public NewGameWindowViewModel(INewGameLogic logic)
         {
             this.logic = logic;
@@ -97,17 +143,17 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
 
             Hero1Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.archer);
+                    SetUpHero1();
                 }
            );
             Hero2Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.assault);
+                    SetUpHero2();
                 }
            );
             Hero3Command = new RelayCommand(
                 () => {
-                    logic.SetHeroType(HeroTypes.support);
+                    SetUpHero3();
                 }
            );
         }
