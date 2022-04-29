@@ -179,6 +179,7 @@ namespace GUI_20212202_AYZ8R9
             else if (e.Key == Key.LeftShift)
             {
                 Characterlogic.Control(MainCharacterLogic.Controls.RunStop);
+                Characterlogic.Control(MainCharacterLogic.Controls.Stop);
             }
         }
 

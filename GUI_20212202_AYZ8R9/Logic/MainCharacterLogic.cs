@@ -43,6 +43,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         public int Jump_Counter { get; set; }
 
         private bool Task_Run { get; set; }
+        private bool Task_Idle { get; set; }
 
         private bool JumpIsBusy { get; set; }
 
@@ -78,7 +79,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
             dt.Interval = TimeSpan.FromMilliseconds(50);
             dt.Tick += Dt_Tick;
-            dt.Start();
+            //dt.Start();
 
             LoadFirstMap();
 
@@ -86,7 +87,8 @@ namespace GUI_20212202_AYZ8R9.Logic
 
             Task_Run = true;
             MethodDown();
-            //MethodLoad();
+            MethodIdle();
+            MethodLoad();
         }
 
 
@@ -98,7 +100,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void Control(Controls control)
         {
-            dt.Stop();
+            //dt.Stop();         
             if (this.Charactersize.Width != right_corner.Horizontal - left_corner.Horizontal && this.Charactersize.Height != right_corner.Vertical - left_corner.Vertical)
             {
                 right_corner.Horizontal = left_corner.Horizontal + this.Charactersize.Width;
@@ -107,33 +109,48 @@ namespace GUI_20212202_AYZ8R9.Logic
             switch (control)
             {
                 case Controls.Left:
+                    this.Task_Idle = false;
                     Run_Set(Controls.Left);
                     break;
                 case Controls.Right:
+                    this.Task_Idle = false;
                     Run_Set(Controls.Right);
                     break;
                 case Controls.Jump:
                     if (!JumpIsBusy)
                     { 
-                        dt.Stop();
+                        //dt.Stop();
                         MethodJump();
                     }
                     break;
                 case Controls.Stop:
                     Animation_Counter = 1;
-                    dt.Start();
+                    Task_Run = true;
+                    Task_Idle = true;
+                    MethodIdle();
+                    MethodDown();
+                    //dt.Start();
                     break;
                 case Controls.Down:
+                    Task_Idle = false;
                     Ladder_Climbing(Controls.Down);
                     break;
                 case Controls.Up:
+                    Task_Idle = false;
                     Ladder_Climbing(Controls.Up);
                     break;
                 case Controls.Run:
                     this.RunSpeed = 10;
                     break;
                 case Controls.RunStop:
-                    this.RunSpeed = 50;
+                    this.RunSpeed = 50;                    
+                    if (!Task_Run)
+                    {
+                        Task_Run = true;
+                        Task_Idle = true;
+                        MethodIdle();
+                        MethodDown();
+                    }
                     break;
                 default:
                     break;
@@ -447,36 +464,36 @@ namespace GUI_20212202_AYZ8R9.Logic
             Thread.Sleep(50);
         }
 
-        //public async Task Method1()
-        //{
-        //    Task.Run(() =>
-        //    {
-        //        while (Task_Run)
-        //        {
-        //            MainPath = "Idle";
-        //            if (Turn_Right)
-        //            {
-        //                DoingPath = "Idle";
-        //            }
-        //            else
-        //            {
-        //                DoingPath = "Back_Idle";
-        //            }
-        //            if (Animation_Counter < 4)
-        //            {
-        //                Animation_Counter++;
-        //            }
-        //            else
-        //            {
-        //                Animation_Counter = 1;
-        //            }
-        //            //Thread.Sleep(50);
-        //            Monitor.Enter(Changed);
-        //            Changed?.Invoke(this, null);
-        //            Monitor.Exit(Changed);
-        //        }
-        //    });
-        //}
+        public async Task MethodIdle()
+        {
+            Task.Run(() =>
+            {
+                while (Task_Idle)
+                {
+                    MainPath = "Idle";
+                    if (Turn_Right)
+                    {
+                        DoingPath = "Idle";
+                    }
+                    else
+                    {
+                        DoingPath = "Back_Idle";
+                    }
+                    if (Animation_Counter < 4)
+                    {
+                        Animation_Counter++;
+                    }
+                    else
+                    {
+                        Animation_Counter = 1;
+                    }
+                    Thread.Sleep(50);
+                    Monitor.Enter(Changed);
+                    Changed2?.Invoke(this, null);
+                    Monitor.Exit(Changed);
+                }
+            });
+        }
 
         public async Task MethodJump()
         {
@@ -484,6 +501,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             Task.Run(() =>
             {
                 Task_Run = false;
+                Task_Idle = false;
                 for (int i = 0; i < 4; i++)
                 {
                     if (right_corner.Vertical - 10 > 0)
@@ -505,8 +523,10 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Thread.Sleep(50);
                 }
                 Task_Run = true;
+                Task_Idle = true;
                 MethodDown();
-                dt.Start();
+                MethodIdle();
+                //dt.Start();
             });
         }
 
@@ -576,6 +596,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 while (true)
                 {
                     Changed2?.Invoke(this, null);
+                    Thread.Sleep(2);
                     //Changed?.Invoke(this, null);
                 }
             });
