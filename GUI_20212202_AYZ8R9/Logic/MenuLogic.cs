@@ -60,8 +60,8 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             //TODO starts the game with the selected game object
             //new FightWindow(game).ShowDialog();
-            game.Hero.MapPosition = 4;
-            new Inventory(game).ShowDialog();
+            //game.Hero.MapPosition = 4;
+            //new Inventory(game).ShowDialog();
         }
     }
 }

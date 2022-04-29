@@ -19,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Enemy\2.txt" />
+    <None Remove="Enemy\3.txt" />
     <None Remove="Images\Background.png" />
     <None Remove="Images\Backgrounds.png" />
     <None Remove="Images\Backgrounds\bg1.png" />
@@ -106,9 +108,16 @@
     <None Remove="Images\Support\Run_5.png" />
     <None Remove="Images\Support\Run_6.png" />
     <None Remove="Maps\map.xlsx" />
+    <None Remove="Weapons\Weapon.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Enemy\2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Backgrounds\bg1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -500,6 +509,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Maps\map.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Weapons\Weapon.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

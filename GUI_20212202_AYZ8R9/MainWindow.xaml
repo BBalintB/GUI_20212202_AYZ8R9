@@ -11,7 +11,8 @@
         Title="MainWindow" 
         Loaded="Window_Loaded" KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        WindowStyle="None">
         <!--Height="1089" Width="1906"-->   
         
         <!--Title="Apocalyptic - Menu" Height="1080" Width="1920">-->

@@ -1,4 +1,5 @@
-﻿using GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic;
+﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic;
 using GUI_20212202_AYZ8R9.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -138,6 +139,8 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
                 {
                     Close();
                     logic.SetUpNewGame();
+                    NewGame.Hero.Weapon = RandomUtil.GetARandomWeapon();
+                    NewGame.Hero.Inventory.Add(NewGame.Hero.Weapon);
                 }
                 );
 

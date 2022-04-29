@@ -23,12 +23,14 @@ namespace GUI_20212202_AYZ8R9.Logic.MenuOptionsLogic
         {
             if (game.FileName != null)
             {
+                this.game.FileLastSaveDate = DateTime.Now.ToString();
                 Save.WriteOutJSON(game, Path.Combine("Games", game.FileName + ".json"));
             }
         }
         public void SetHeroType(HeroTypes type)
         {
             game.Hero.HeroType = type;
+            
         }
     }
 }

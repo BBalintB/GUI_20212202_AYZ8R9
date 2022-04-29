@@ -1,4 +1,5 @@
-﻿using GUI_20212202_AYZ8R9.Logic;
+﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.Logic;
 using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.ViewModels;
@@ -29,7 +30,15 @@ namespace GUI_20212202_AYZ8R9
     {
         MainCharacterLogic Characterlogic;
         MapLogic Maplogic;
-        Game game;
+
+        private Game game;
+
+        public Game Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+
 
         public MainWindow()
         {
@@ -43,8 +52,9 @@ namespace GUI_20212202_AYZ8R9
             {
                 vm.LoadAction += () =>
                 {
+                    
                     Method1();
-                    game = (this.DataContext as MainWindowViewModel).SelectedGame;
+                    this.Game = (this.DataContext as MainWindowViewModel).SelectedGame;
                     display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
                     Maplogic = new MapLogic(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
                     display.SetupModel(Maplogic);// Load map                     
@@ -62,6 +72,7 @@ namespace GUI_20212202_AYZ8R9
 
                 vm.CloseWindow += () =>
                 {
+                    
                     this.Close();
                 };
             }
@@ -71,6 +82,7 @@ namespace GUI_20212202_AYZ8R9
         {
             if (e.Key == Key.Escape)
             {
+               
                 if ((DataContext as MainWindowViewModel).GameVisibility == Visibility.Visible)
                 {
                     (DataContext as MainWindowViewModel).GameVisibility = Visibility.Collapsed;
@@ -84,7 +96,9 @@ namespace GUI_20212202_AYZ8R9
             }
             else if(e.Key == Key.L)
             {
-                new Inventory(this.game).ShowDialog();
+                new Inventory(this.Game).ShowDialog();
+                this.Game.FileLastSaveDate = DateTime.Now.ToString();
+                Save.WriteOutJSON(this.Game, System.IO.Path.Combine("Games", game.FileName + ".json"));
             }
             //else if (e.Key == Key.Right)
             //{

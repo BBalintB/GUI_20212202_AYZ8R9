@@ -7,6 +7,6 @@ namespace GUI_20212202_AYZ8R9.Logic
     {
         void AddToBunker(Weapon selected);
         void AddToInventory(Weapon selected);
-        void SetupCollections(IList<Weapon> bunker, IList<Weapon> inventory);
+        void SetupCollections(IList<Weapon> bunker, IList<Weapon> inventory, Game game);
     }
 }

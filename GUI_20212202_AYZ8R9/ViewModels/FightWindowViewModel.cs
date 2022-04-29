@@ -297,6 +297,8 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             #region EndWindowCommands
             ContinueCommand = new RelayCommand(
                 () => {
+                    this.Game.FileLastSaveDate = DateTime.Now.ToString();
+                    Save.WriteOutJSON(Game, Path.Combine("Games", Game.FileName + ".json"));
                     CloseHeroWin?.Invoke();
                 },
                 ()=> Villians.Count==0
@@ -309,6 +311,25 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                 );
             ExitCommand = new RelayCommand(
                 () => {
+                    backupGame = JsonConvert.DeserializeObject<Game>(File.ReadAllText(Path.Combine("Games", Game.FileName + ".json")));
+                    this.Game = backupGame;
+                    if (Villians.Count != 0)
+                    {
+                        int i = 0;
+                        while (Game.Hero.Inventory.Count>1)
+                        {
+                            var xy = Game.Hero.Inventory[i].Name != this.hero.Weapon.Name;
+                            if (xy)
+                            {
+                                Game.Hero.Inventory.Remove(Game.Hero.Inventory[i]);
+                            }
+                            else {
+                                i++;
+                            }
+                        }
+                    }
+                    this.Game.FileLastSaveDate = DateTime.Now.ToString();
+                    Save.WriteOutJSON(Game, Path.Combine("Games", Game.FileName + ".json"));
                     CloseVillianWin?.Invoke();
                 }
                 );
@@ -342,7 +363,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             backupGame = JsonConvert.DeserializeObject<Game>(File.ReadAllText(Path.Combine("Games", game.FileName + ".json")));
             this.hero = backupGame.Hero;
             Heroes.Add(hero);
-            logic.SetupCollections(Heroes, Villians, AvailableHeroes,Log);
+            logic.SetupCollections(Heroes, Villians, AvailableHeroes,Log, Game);
             FightWindowVisibility = Visibility.Collapsed;
             EndWindowVisibility = Visibility.Collapsed;
             SlectorWindowVisibility = Visibility.Visible;
@@ -361,9 +382,10 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             bool tmp = true;
             if (heroRound == Heroes.Count() - 1)
             {
+                tmp = EndGame;
                 foreach (var item in Villians)
                 {
-                    tmp = EndGame;
+                    
                     if (tmp)
                     {
                         ;
@@ -374,7 +396,8 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                     {
                         break;
                     }
-                    
+                    tmp = EndGame;
+
                 }
                 
             }
@@ -384,6 +407,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
                 SelectedHero = Heroes.ElementAt(heroRound);
                 CurrentPlayer = SelectedHero;
                 Team = "Heroes";
+
             }
 
             

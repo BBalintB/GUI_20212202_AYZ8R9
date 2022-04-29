@@ -27,5 +27,9 @@ namespace GUI_20212202_AYZ8R9.Helper
             }
             return games;
         }
+
+        public static string[] ReadFromTxt(string url) {
+            return File.ReadAllLines(url);
+        }
     }
 }

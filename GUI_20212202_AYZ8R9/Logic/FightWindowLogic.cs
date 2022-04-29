@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -18,6 +19,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         IList<Models.ICharacter> villians;
         IList<string> log;
         IMessenger messenger;
+        Game game;
         int round;
         int roundCounter;
         public int Rounds
@@ -45,12 +47,13 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.messenger = messenger;
         }
 
-        public void SetupCollections(IList<Models.ICharacter> heroes, IList<Models.ICharacter> villians, IList<Models.ICharacter> availableHeroes, IList<string> log)
+        public void SetupCollections(IList<Models.ICharacter> heroes, IList<Models.ICharacter> villians, IList<Models.ICharacter> availableHeroes, IList<string> log, Game game)
         {
             this.heroes = heroes;
             this.villians = villians;
             this.availableHeroes = availableHeroes;
             this.log = log;
+            this.game = game;
             round = 1;
             roundCounter = 0;
             availableHeroes.Add(new NPC_Character()
@@ -98,29 +101,23 @@ namespace GUI_20212202_AYZ8R9.Logic
                 HeroType = HeroTypes.Support
             });
 
-
+            
             #region tmpenemys
-            villians.Add(new NPC_Character()
+            string direction = Directory.GetCurrentDirectory();
+            string[] enemys = Save.ReadFromTxt(Path.Combine(direction, "Enemy", game.Hero.MapPosition.ToString() + ".txt"));
+            for (int i = 0; i < enemys.Length; i++)
             {
-                Name = "bandit1",
-                HP = 100,
-                Attack = 20,
-                HeroType = HeroTypes.Bandit
-            });
-            villians.Add(new NPC_Character()
-            {
-                Name = "bandit2",
-                HP = 100,
-                Attack = 20,
-                HeroType = HeroTypes.Bandit
-            });
-            villians.Add(new NPC_Character()
-            {
-                Name = "bandit3",
-                HP = 100,
-                Attack = 20,
-                HeroType = HeroTypes.Bandit
-            });
+                string[] tmp = enemys[i].Split(':');
+                Enum.TryParse(tmp[3], out HeroTypes xy);
+                villians.Add(new NPC_Character()
+                {
+                    Name = tmp[0],
+                    HP = int.Parse(tmp[1]),
+                    Attack = int.Parse(tmp[2]),
+                    HeroType = xy
+                });
+            }
+            
             #endregion
 
             messenger.Send("Round changed", "RoundInfo");

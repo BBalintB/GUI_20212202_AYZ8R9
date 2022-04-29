@@ -1,12 +1,15 @@
-﻿using GUI_20212202_AYZ8R9.Logic;
+﻿using GUI_20212202_AYZ8R9.Helper;
+using GUI_20212202_AYZ8R9.Logic;
 using GUI_20212202_AYZ8R9.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +24,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels
         public ObservableCollection<Weapon> HeroInventory { get; set; }
 
         IInventoryLogic logic;
+        public Game Game { get; set; }
 
         private Hero hero;
 
@@ -76,20 +80,23 @@ namespace GUI_20212202_AYZ8R9.ViewModels
         }
 
         public void Setup(Game game) {
-            this.Hero = game.Hero;
-            //this.Bunker = game.BunkerWeapons;
-            //this.HeroInventory = Hero.Inventory;
+            this.Game = game;
+            this.Hero = this.Game.Hero;
+            this.Bunker = this.Game.BunkerWeapons;
+            this.HeroInventory = Hero.Inventory;
             AddToBunker = new RelayCommand(() => {
                 logic.AddToBunker(selectedFromInventory);
+                
             },
-           () => Hero.MapPosition==4 && SelectedFromInventory != null
+           () => Hero.MapPosition==0 && SelectedFromInventory != null
            );
 
             AddToInventory = new RelayCommand(() => {
                 logic.AddToInventory(selectedFromBunker);
-            },
-            () => Hero.MapPosition == 4 && SelectedFromBunker != null
+                },
+            () => Hero.MapPosition == 0 && SelectedFromBunker != null
             );
+            logic.SetupCollections(Bunker, HeroInventory, this.Game);
         }
 
         public InventoryWindowViewModel(IInventoryLogic logic)
@@ -97,48 +104,48 @@ namespace GUI_20212202_AYZ8R9.ViewModels
             Bunker = new ObservableCollection<Weapon>();
             HeroInventory = new ObservableCollection<Weapon>();
             this.logic = logic;
-            logic.SetupCollections(Bunker, HeroInventory);
-            Bunker.Add(new Weapon() { 
-                Name = "Brutal Axe",
-                Type=WeaponType.rare,
-                Damage = 15,
-                HPBoost=2
-            });
-            Bunker.Add(new Weapon()
-            {
-                Name = "Extra Sniper",
-                Type = WeaponType.common,
-                Damage = 25,
-                HPBoost = -5
-            });
-            Bunker.Add(new Weapon()
-            {
-                Name = "Legendary Pistol",
-                Type = WeaponType.uncommon,
-                Damage = 12,
-                HPBoost = 5
-            });
-            Bunker.Add(new Weapon()
-            {
-                Name = "Shield",
-                Type = WeaponType.epic,
-                Damage = 10,
-                HPBoost = 25
-            });
-            Bunker.Add(new Weapon()
-            {
-                Name = "Minigun",
-                Type = WeaponType.legendary,
-                Damage = 45,
-                HPBoost = 0
-            });
+            
+            //Bunker.Add(new Weapon() { 
+            //    Name = "Brutal Axe",
+            //    Type=WeaponType.rare,
+            //    Damage = 15,
+            //    HPBoost=2
+            //});
+            //Bunker.Add(new Weapon()
+            //{
+            //    Name = "Extra Sniper",
+            //    Type = WeaponType.common,
+            //    Damage = 25,
+            //    HPBoost = -5
+            //});
+            //Bunker.Add(new Weapon()
+            //{
+            //    Name = "Legendary Pistol",
+            //    Type = WeaponType.uncommon,
+            //    Damage = 12,
+            //    HPBoost = 5
+            //});
+            //Bunker.Add(new Weapon()
+            //{
+            //    Name = "Shield",
+            //    Type = WeaponType.epic,
+            //    Damage = 10,
+            //    HPBoost = 25
+            //});
+            //Bunker.Add(new Weapon()
+            //{
+            //    Name = "Minigun",
+            //    Type = WeaponType.legendary,
+            //    Damage = 45,
+            //    HPBoost = 0
+            //});
 
 
 
 
             AddToHero = new RelayCommand(() => {
                 Hero.Weapon = selectedFromInventory;
-            },
+                },
             ()=> SelectedFromInventory != null
             );
         }

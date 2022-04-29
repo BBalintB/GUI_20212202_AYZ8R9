@@ -1,0 +1,5 @@
+Gonosz Péter:100:25:Bandit
+Gonosz Ányos:100:25:Bandit
+Gonosz Károly:100:25:Bandit
+Gonosz István:100:25:Bandit
+Gonosz Alexander:100:25:Bandit

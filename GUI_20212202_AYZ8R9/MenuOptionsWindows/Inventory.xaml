@@ -121,7 +121,6 @@
             <Label Background="White"  Content="{Binding Hero.HP}" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="HP: {0}"/>
             <Label Content="{Binding Hero.Attack}" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="Damage: {0}"/>
 
-
         </Grid>
     </Grid>
 </Window>

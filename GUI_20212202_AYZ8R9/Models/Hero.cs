@@ -119,6 +119,23 @@ namespace GUI_20212202_AYZ8R9.Models
             }
         }
 
+        private int[] chests;
+
+        public int[] Chests
+        {
+            get { return chests; }
+            set { chests = value; }
+        }
+
+        private bool[] battles;
+
+        public bool[] Battles
+        {
+            get { return battles; }
+            set { battles = value; }
+        }
+
+
         public ObservableCollection<Weapon> Inventory { get; set; }
 
         public Hero()
@@ -127,6 +144,9 @@ namespace GUI_20212202_AYZ8R9.Models
             Position = RoundPosition.Neutral;
             Weapon = new Weapon();
             Inventory = new ObservableCollection<Weapon>();
+            Chests = new int[7];
+            Battles = new bool[7];
+
         }
 
 
@@ -151,6 +171,27 @@ namespace GUI_20212202_AYZ8R9.Models
                     Attack = 0;
                     break;
             }
+            if (Chests != null)
+            {
+                Chests[0] = 0;
+                Chests[1] = 2;
+                Chests[2] = 3;
+                Chests[3] = 0;
+                Chests[4] = 0;
+                Chests[5] = 0;
+                Chests[6] = 0;
+            }
+            if (Battles != null)
+            {
+                Battles[0] = true;
+                Battles[1] = true;
+                Battles[2] = false;
+                Battles[3] = false;
+                Battles[4] = false;
+                Battles[5] = false;
+                Battles[6] = false;
+            }
+
         }
 
 

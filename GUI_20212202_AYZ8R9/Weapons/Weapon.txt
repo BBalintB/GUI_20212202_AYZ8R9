@@ -1,0 +1,30 @@
+Rusty Axe:8:-3:common
+Rusty Sword:9:-2:common
+Rusty Knife:6:-1:common
+Hammer:8:0:common
+Baseball Bat:9:0:common
+Pistol:11:0:common
+Bottle:6:0:common
+Old sniper:14:0:common
+Stick:6:0:common
+Rusty Revolver:12:-1:common
+Axe:13:1:uncommon
+Sword:14:1:uncommon
+Knife:11:1:uncommon
+Iron Baseball Bat:13:1:uncommon
+Revolver:20:2:uncommon
+Iron Stick:12:1:uncommon
+Spear:16:2:uncommon
+Crowbar:16:2:uncommon
+Sniper:25:-5:rare
+Shotgun:22:0:rare
+Vector:16:10:rare
+Thompson:18:8:rare
+MP5:17:10:rare
+Rifle:20:12:rare
+LMG:30:15:epic
+50. cal Sniper:50:-20:epic
+Laser Pistol:35:20:epic
+Flamethrower:30:-15:epic
+Minigun:55:50:legendary
+Rocket Launcher:60:20:legendary
