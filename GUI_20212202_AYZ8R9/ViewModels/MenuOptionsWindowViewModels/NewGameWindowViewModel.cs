@@ -107,7 +107,7 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
         {
             logic.SetHeroType(HeroTypes.Assault);
             string path = Directory.GetCurrentDirectory();
-            this.HeroImagePath = (Path.Combine(path ,"Images", "Archer", "Idle_1.png"));
+            this.HeroImagePath = (Path.Combine(path ,"Images", "Assault", "Idle_1.png"));
         }
 
         /// <summary>

@@ -21,6 +21,40 @@
   <ItemGroup>
     <None Remove="Enemy\2.txt" />
     <None Remove="Enemy\3.txt" />
+    <None Remove="Images\Assault\Back_Idle_1.png" />
+    <None Remove="Images\Assault\Back_Idle_2.png" />
+    <None Remove="Images\Assault\Back_Idle_3.png" />
+    <None Remove="Images\Assault\Back_Idle_4.png" />
+    <None Remove="Images\Assault\Back_Jump_1.png" />
+    <None Remove="Images\Assault\Back_Jump_2.png" />
+    <None Remove="Images\Assault\Back_Jump_3.png" />
+    <None Remove="Images\Assault\Back_Jump_4.png" />
+    <None Remove="Images\Assault\Back_Run_1.png" />
+    <None Remove="Images\Assault\Back_Run_2.png" />
+    <None Remove="Images\Assault\Back_Run_3.png" />
+    <None Remove="Images\Assault\Back_Run_4.png" />
+    <None Remove="Images\Assault\Back_Run_5.png" />
+    <None Remove="Images\Assault\Back_Run_6.png" />
+    <None Remove="Images\Assault\Climb_1.png" />
+    <None Remove="Images\Assault\Climb_2.png" />
+    <None Remove="Images\Assault\Climb_3.png" />
+    <None Remove="Images\Assault\Climb_4.png" />
+    <None Remove="Images\Assault\Climb_5.png" />
+    <None Remove="Images\Assault\Climb_6.png" />
+    <None Remove="Images\Assault\Idle_1.png" />
+    <None Remove="Images\Assault\Idle_2.png" />
+    <None Remove="Images\Assault\Idle_3.png" />
+    <None Remove="Images\Assault\Idle_4.png" />
+    <None Remove="Images\Assault\Jump_1.png" />
+    <None Remove="Images\Assault\Jump_2.png" />
+    <None Remove="Images\Assault\Jump_3.png" />
+    <None Remove="Images\Assault\Jump_4.png" />
+    <None Remove="Images\Assault\Run_1.png" />
+    <None Remove="Images\Assault\Run_2.png" />
+    <None Remove="Images\Assault\Run_3.png" />
+    <None Remove="Images\Assault\Run_4.png" />
+    <None Remove="Images\Assault\Run_5.png" />
+    <None Remove="Images\Assault\Run_6.png" />
     <None Remove="Images\Background.png" />
     <None Remove="Images\Backgrounds.png" />
     <None Remove="Images\Backgrounds\bg1.png" />
@@ -116,6 +150,108 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Enemy\3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Idle_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Idle_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Idle_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Idle_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Jump_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Jump_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Jump_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Jump_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Run_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Run_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Run_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Run_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Run_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Back_Run_6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Climb_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Climb_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Climb_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Climb_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Climb_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Climb_6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Idle_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Idle_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Idle_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Idle_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Jump_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Jump_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Jump_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Jump_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Run_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Run_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Run_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Run_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Run_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Assault\Run_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Backgrounds\bg1.png">
@@ -523,7 +659,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Assault\" />
     <Folder Include="ViewModels\" />  
   </ItemGroup>
 
