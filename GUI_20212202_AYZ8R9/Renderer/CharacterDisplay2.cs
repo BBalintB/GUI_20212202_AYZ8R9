@@ -36,7 +36,7 @@ namespace GUI_20212202_AYZ8R9.Renderer
             {
                 if (size.Width > 0 && size.Height > 0 && Character != null)
                 {
-                    if (Character.DoingPath == "Back_Idle" || Character.DoingPath == "Idle")
+                    if ((Character.DoingPath == "Back_Idle" || Character.DoingPath == "Idle") || (Character.DoingPath == "Back_Jump" || Character.DoingPath == "Jump"))
                     {
                         if (Character.Animation_Counter < 5)
                         {

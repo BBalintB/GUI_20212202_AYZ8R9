@@ -29,7 +29,7 @@ namespace GUI_20212202_AYZ8R9.Helper
         }
 
         public static string[] ReadFromTxt(string url) {
-            return File.ReadAllLines(url);
+             return File.ReadAllLines(url);
         }
     }
 }
