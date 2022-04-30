@@ -41,6 +41,14 @@ namespace GUI_20212202_AYZ8R9.Renderer
                     {
                         drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", Character.CharacterType, $"{Character.DoingPath}_{Character.Animation_Counter}.png"), UriKind.Relative)), new Rect(new Point(Character.left_corner.Horizontal, Character.left_corner.Vertical), new Point(Character.right_corner.Horizontal, Character.right_corner.Vertical)));
                     }
+                    else
+                    {
+                        if (Character.Turn_Right)
+                        {
+                            drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", Character.CharacterType, "Jump_1.png"), UriKind.Relative)), new Rect(new Point(Character.left_corner.Horizontal, Character.left_corner.Vertical), new Point(Character.right_corner.Horizontal, Character.right_corner.Vertical)));
+                        }
+                        else drawingContext.DrawImage(new BitmapImage(new Uri(Path.Combine("Images", Character.CharacterType, "Back_Jump_1.png"), UriKind.Relative)), new Rect(new Point(Character.left_corner.Horizontal, Character.left_corner.Vertical), new Point(Character.right_corner.Horizontal, Character.right_corner.Vertical)));
+                    }
                 }
                 else
                 {

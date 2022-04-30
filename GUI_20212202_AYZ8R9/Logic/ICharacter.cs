@@ -21,6 +21,8 @@ namespace GUI_20212202_AYZ8R9.Logic
         event EventHandler Changed;
         event EventHandler Changed2;
 
+        bool Turn_Right { get; set; }
+
         string MainPath { get; set; }
 
         string DoingPath { get; set; }

@@ -20,7 +20,6 @@ namespace GUI_20212202_AYZ8R9.Logic
     {
         public MainCharacterLogic()
         {
-
         }
 
         public event EventHandler Changed;
@@ -47,7 +46,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         private bool JumpIsBusy { get; set; }
 
-        private bool Turn_Right { get; set; }
+        public bool Turn_Right { get; set; }
 
         private int RunSpeed { get; set; }
 
@@ -78,7 +77,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             this.MapLogic = mapLogic;
 
             dt.Interval = TimeSpan.FromMilliseconds(50);
-            dt.Tick += Dt_Tick;
+            dt.Tick += Dt_Idle;
             dt.Start();
 
             LoadFirstMap();
@@ -87,11 +86,10 @@ namespace GUI_20212202_AYZ8R9.Logic
 
             Task_Run = true;
             MethodDown();
+            MethodFix();
             //MethodIdle();
             //MethodLoad();
         }
-
-
 
         public enum Controls
         {
@@ -127,7 +125,6 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Animation_Counter = 1;
                     Task_Run = true;
                     Task_Idle = true;
-                    //MethodIdle();
                     MethodDown();
                     dt.Start();
                     break;
@@ -158,7 +155,6 @@ namespace GUI_20212202_AYZ8R9.Logic
             Changed?.Invoke(this, null);
         }
 
-
         public void Run_Set(Controls controls)
         {
             MainPath = "Run";
@@ -171,27 +167,14 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Rect player = new Rect(left_corner.Horizontal, right_corner.Vertical, 0, 0);
                     if (player.IntersectsWith(blocks[i].Positon))
                     {
-                        if (blocks[i].BlockType == Element.X
-                            || blocks[i].BlockType == Element.PRE
-                            || blocks[i].BlockType == Element.PLAYER
-                            || blocks[i].BlockType == Element.W
-                            || blocks[i].BlockType == Element.CH1
-                            || blocks[i].BlockType == Element.CH
-                            || blocks[i].BlockType == Element.L
-                            || blocks[i].BlockType == Element.NE
-                            || blocks[i].BlockType == Element.Z
-                            || blocks[i].BlockType == Element.HOME
-                            || blocks[i].BlockType == Element.EN
-                            || blocks[i].BlockType == Element.END
-                            || blocks[i].BlockType == Element.HC
-                            || blocks[i].BlockType == Element.HOMEB)
+                        if (RunCanExecute(i))
                         {
                             if (blocks[i].BlockType == Element.NE)
                             {
                                 if (this.game.Hero.Battles[this.MapLogic.ActualMapNumber] == true)
                                 {
                                     LoadNextMap();
-                                }                         
+                                }
                             }
                             if (blocks[i].BlockType == Element.PRE)
                             {
@@ -215,7 +198,6 @@ namespace GUI_20212202_AYZ8R9.Logic
                                 }
                             }
                             run = true;
-                            
                         }
                         else
                         {
@@ -244,23 +226,10 @@ namespace GUI_20212202_AYZ8R9.Logic
                 bool inx = true;
                 for (int i = 0; i < blocks.Count; i++)
                 {
-                    Rect player = new Rect(right_corner.Horizontal, right_corner.Vertical-1,1 /*right_corner.Horizontal - left_corner.Horizontal*/,1 /*right_corner.Vertical - left_corner.Vertical*/);
+                    Rect player = new Rect(right_corner.Horizontal, right_corner.Vertical - 1, 1 /*right_corner.Horizontal - left_corner.Horizontal*/, 1 /*right_corner.Vertical - left_corner.Vertical*/);
                     if (player.IntersectsWith(blocks[i].Positon))
                     {
-                        if (
-                            blocks[i].BlockType == Element.PRE
-                            || blocks[i].BlockType == Element.PLAYER
-                            || blocks[i].BlockType == Element.W
-                            || blocks[i].BlockType == Element.CH1
-                            || blocks[i].BlockType == Element.CH
-                            || blocks[i].BlockType == Element.L
-                            || blocks[i].BlockType == Element.NE
-                            || blocks[i].BlockType == Element.Z
-                            || blocks[i].BlockType == Element.HOME 
-                            || blocks[i].BlockType == Element.EN
-                            || blocks[i].BlockType == Element.END
-                            || blocks[i].BlockType == Element.HC
-                            || blocks[i].BlockType == Element.HOMEB)
+                        if (RunCanExecute(i))
                         {
                             run = true;
                             if (blocks[i].BlockType == Element.NE)
@@ -313,6 +282,92 @@ namespace GUI_20212202_AYZ8R9.Logic
             Thread.Sleep(RunSpeed);
         }
 
+        private void Ladder_Climbing(Controls controls)
+        {
+            if (controls == Controls.Down)
+            {
+                bool down = false;
+                for (int i = 0; i < blocks.Count; i++)
+                {
+                    Rect player = new Rect(left_corner.Horizontal + (right_corner.Horizontal - left_corner.Horizontal) / 2, right_corner.Vertical, 10, 5);
+                    if (player.IntersectsWith(blocks[i].Positon))
+                    {
+                        if ((blocks[i].BlockType != Element.X
+                            || blocks[i].BlockType != Element.R
+                            || blocks[i].BlockType != Element.W
+                            || blocks[i].BlockType != Element.S
+                            || blocks[i].BlockType != Element.H
+                            || blocks[i].BlockType != Element.U
+                            || blocks[i].BlockType != Element.V)
+                            && blocks[i].BlockType == Element.L)
+                        {
+                            MainPath = "Climb";
+                            down = true;
+                        }
+                        else
+                        {
+                            down = false;
+                            //break;
+                        }
+                    }
+                }
+                if (down)
+                {
+                    this.Turn_Right = false;
+                    left_corner.Vertical += 5/*30.2*/;
+                    right_corner.Vertical += 5/*30.2*/;
+                    DoingPath = "Climb"; //Animation Image
+
+                    if (Animation_Counter >= 6)
+                    {
+                        Animation_Counter = 0;
+                    }
+                    Animation_Counter++;
+                }
+            }
+            else
+            {
+                bool up = false;
+                for (int i = 0; i < blocks.Count; i++)
+                {
+                    Rect player = new Rect(left_corner.Horizontal + (right_corner.Horizontal - left_corner.Horizontal) / 2, left_corner.Vertical, 1, right_corner.Vertical - left_corner.Vertical);
+                    if (player.IntersectsWith(blocks[i].Positon))
+                    {
+                        if (//blocks[i].BlockType == Element.X 
+                            //    || blocks[i].BlockType == Element.PRE 
+                            //    || blocks[i].BlockType == Element.PLAYER 
+                            //    || blocks[i].BlockType == Element.W 
+                            //    || blocks[i].BlockType == Element.CH1 
+                            //    || blocks[i].BlockType == Element.CH 
+                            /*||*/ blocks[i].BlockType == Element.L)
+                        {
+                            MainPath = "Climb";
+                            up = true;
+                        }
+                        else
+                        {
+                            up = false;
+                            //break;
+                        }
+                    }
+                }
+                if (up)
+                {
+                    left_corner.Vertical -= 5;
+                    right_corner.Vertical -= 5;
+                    DoingPath = "Climb"; //Animation Image
+
+                    if (Animation_Counter >= 6)
+                    {
+                        Animation_Counter = 0;
+                    }
+                    Animation_Counter++;
+                }
+            }
+            Thread.Sleep(50);
+        }
+
+        #region MapMethod
         public void LoadFirstMap()
         {
             this.MapLogic.LoadFirstMap();
@@ -370,6 +425,9 @@ namespace GUI_20212202_AYZ8R9.Logic
             Changed2?.Invoke(this, null);
         }
 
+        #endregion
+
+        #region ChestMethod
         public void OpenChest()
         { 
             // todo
@@ -384,91 +442,9 @@ namespace GUI_20212202_AYZ8R9.Logic
         {
             // todo
         }
-        private void Ladder_Climbing(Controls controls)
-        {
-            if (controls == Controls.Down)
-            {
-                bool down = false;
-                for (int i = 0; i < blocks.Count; i++)
-                {
-                    Rect player = new Rect(left_corner.Horizontal + (right_corner.Horizontal - left_corner.Horizontal) / 2, right_corner.Vertical, 10, 5);
-                    if (player.IntersectsWith(blocks[i].Positon))
-                    {
-                        if ((blocks[i].BlockType != Element.X
-                            && blocks[i].BlockType != Element.R
-                            && blocks[i].BlockType != Element.W
-                            && blocks[i].BlockType != Element.S
-                            && blocks[i].BlockType != Element.H
-                            && blocks[i].BlockType != Element.U
-                            && blocks[i].BlockType != Element.V)
-                            && blocks[i].BlockType == Element.L)
-                        {
-                            MainPath = "Climb";
-                            down = true;
-                        }
-                        else
-                        {
-                            down = false;
-                            //break;
-                        }
-                    }
-                }
-                if (down)
-                {
-                    this.Turn_Right = false;
-                    left_corner.Vertical += 5/*30.2*/;
-                    right_corner.Vertical += 5/*30.2*/;
-                    DoingPath = "Climb"; //Animation Image
+        #endregion
 
-                    if (Animation_Counter >= 6)
-                    {
-                        Animation_Counter = 0;
-                    }
-                    Animation_Counter++;
-                }
-            }
-            else
-            {
-                bool up = false;
-                for (int i = 0; i < blocks.Count; i++)
-                {
-                    Rect player = new Rect(left_corner.Horizontal+(right_corner.Horizontal - left_corner.Horizontal)/ 2, left_corner.Vertical, 1, right_corner.Vertical- left_corner.Vertical);
-                    if (player.IntersectsWith(blocks[i].Positon))
-                    {
-                        if (//blocks[i].BlockType == Element.X 
-                            //    || blocks[i].BlockType == Element.PRE 
-                            //    || blocks[i].BlockType == Element.PLAYER 
-                            //    || blocks[i].BlockType == Element.W 
-                            //    || blocks[i].BlockType == Element.CH1 
-                            //    || blocks[i].BlockType == Element.CH 
-                            /*||*/ blocks[i].BlockType == Element.L)
-                        {
-                            MainPath = "Climb";
-                            up = true;
-                        }
-                        else
-                        {
-                            up = false;
-                            //break;
-                        }
-                    }
-                }
-                if (up)
-                {
-                    left_corner.Vertical -= 5;
-                    right_corner.Vertical -= 5;
-                    DoingPath = "Climb"; //Animation Image
-
-                    if (Animation_Counter >= 6)
-                    {
-                        Animation_Counter = 0;
-                    }
-                    Animation_Counter++;
-                }
-            }
-            Thread.Sleep(50);
-        }
-
+        #region Tasks
         public async Task MethodIdle()
         {
             Task.Run(() =>
@@ -530,7 +506,6 @@ namespace GUI_20212202_AYZ8R9.Logic
                 Task_Run = true;
                 Task_Idle = true;
                 MethodDown();
-                //MethodIdle();
                 dt.Start();
             });
         }
@@ -563,7 +538,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                             inx = true;
                         }
                     }
-                    if (down /*|| !inx*/)
+                    if (down)
                     {
                         right_corner.Vertical += 1;
                         left_corner.Vertical += 1;
@@ -576,18 +551,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                         {
                             DoingPath = "Back_Jump";
                         }
-                        if (Animation_Counter < 4)
-                        {
-                            Animation_Counter++;
-                        }
-                        else
-                        {
-                            Animation_Counter = 1;
-                        }
                         Thread.Sleep(5);
-                        //Monitor.Enter(Changed);
                         Changed2?.Invoke(this, null);
-                        //Monitor.Exit(Changed);
                     }
                     else
                     {
@@ -598,20 +563,90 @@ namespace GUI_20212202_AYZ8R9.Logic
             });
         }
 
-        public async Task MethodLoad()
+        public async Task MethodFix()
         {
             Task.Run(() =>
             {
                 while (true)
                 {
-                    Changed2?.Invoke(this, null);
-                    Thread.Sleep(2);
-                    //Changed?.Invoke(this, null);
+                    bool up = true;
+                    bool inx = false;
+                    Rect player = new Rect(left_corner.Horizontal + 6, left_corner.Vertical, right_corner.Horizontal - left_corner.Horizontal - 12, 1);
+                    for (int i = 0; i < blocks.Count; i++)
+                    {
+                        if (player.IntersectsWith(blocks[i].Positon)
+                        || blocks[i].BlockType == Element.W
+                        || blocks[i].BlockType == Element.CH
+                        || blocks[i].BlockType == Element.PRE
+                        || blocks[i].BlockType == Element.NE
+                        || blocks[i].BlockType == Element.CH1
+                        || blocks[i].BlockType == Element.Z
+                        || blocks[i].BlockType == Element.PLAYER
+                        || blocks[i].BlockType == Element.HOMEB)
+                        {
+                            up = false;
+                        }
+                        else
+                        {
+                            inx = true;
+                        }
+                    }
+                    if (up || !inx)
+                    {
+                        right_corner.Vertical -= 1;
+                        left_corner.Vertical -= 1;
+                        MainPath = "Idle";
+                        if (Turn_Right)
+                        {
+                            DoingPath = "Jump";
+                        }
+                        else
+                        {
+                            DoingPath = "Back_Jump";
+                        }
+                        Thread.Sleep(5);
+                        this.JumpIsBusy = false;
+                        Changed2?.Invoke(this, null);
+                    }
+                    Thread.Sleep(1);
                 }
             });
         }
+        #endregion
 
-        private void Dt_Tick(object? sender, EventArgs e)
+        #region Bools
+
+        public bool RunCanExecute(int i)
+        {
+            if (blocks[i].BlockType == Element.X
+                            || blocks[i].BlockType == Element.PRE
+                            || blocks[i].BlockType == Element.PLAYER
+                            || blocks[i].BlockType == Element.W
+                            || blocks[i].BlockType == Element.CH1
+                            || blocks[i].BlockType == Element.CH
+                            || blocks[i].BlockType == Element.L
+                            || blocks[i].BlockType == Element.NE
+                            || blocks[i].BlockType == Element.Z
+                            || blocks[i].BlockType == Element.HOME
+                            || blocks[i].BlockType == Element.EN
+                            || blocks[i].BlockType == Element.END
+                            || blocks[i].BlockType == Element.HC
+                            || blocks[i].BlockType == Element.HOMEB)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DownCanExecute(int i)
+        {
+            return true;
+        }
+        #endregion
+        private void Dt_Idle(object? sender, EventArgs e)
         {
             MainPath = "Idle";
             if (Turn_Right)
