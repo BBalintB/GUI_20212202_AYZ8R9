@@ -9,12 +9,20 @@
   <ItemGroup>
     <Compile Remove="Images\Archer\Attack - Copy\**" />
     <Compile Remove="Images\Main_Charecter\**" />
+    <Compile Remove="NPC\**" />
+    <Compile Remove="NPC_HEAD\**" />
     <Compile Remove="Renderel\**" />
     <EmbeddedResource Remove="Images\Archer\**" />
+    <EmbeddedResource Remove="NPC\**" />
+    <EmbeddedResource Remove="NPC_HEAD\**" />
     <EmbeddedResource Remove="Renderel\**" />
     <None Remove="Images\Archer\**" />
+    <None Remove="NPC\**" />
+    <None Remove="NPC_HEAD\**" />
     <None Remove="Renderel\**" />
     <Page Remove="Images\Archer\**" />
+    <Page Remove="NPC\**" />
+    <Page Remove="NPC_HEAD\**" />
     <Page Remove="Renderel\**" />
   </ItemGroup>
 
@@ -106,6 +114,14 @@
     <None Remove="Images\Main_Character\Run\Run_4.png" />
     <None Remove="Images\Main_Character\Run\Run_5.png" />
     <None Remove="Images\Main_Character\Run\Run_6.png" />
+    <None Remove="Images\NPC\P1.png" />
+    <None Remove="Images\NPC\P2.png" />
+    <None Remove="Images\NPC\P3.png" />
+    <None Remove="Images\NPC\P4.png" />
+    <None Remove="Images\NPC_HEAD\flame_head.png" />
+    <None Remove="Images\NPC_HEAD\heavy_head.png" />
+    <None Remove="Images\NPC_HEAD\medic_head.png" />
+    <None Remove="Images\NPC_HEAD\shotgun_head.png" />
     <None Remove="Images\Punk_idle.png" />
     <None Remove="Images\Support\Back_Idle_1.png" />
     <None Remove="Images\Support\Back_Idle_2.png" />
@@ -142,15 +158,22 @@
     <None Remove="Images\Support\Run_5.png" />
     <None Remove="Images\Support\Run_6.png" />
     <None Remove="Maps\map.xlsx" />
-    <None Remove="NPC\flame.png" />
-    <None Remove="NPC\heavy.png" />
-    <None Remove="NPC\medic.png" />
-    <None Remove="NPC\shotgun.png" />
-    <None Remove="NPC_HEAD\flame_head.png" />
-    <None Remove="NPC_HEAD\heavy_head.png" />
-    <None Remove="NPC_HEAD\medic_head.png" />
-    <None Remove="NPC_HEAD\shotgun_head.png" />
     <None Remove="Weapons\Weapon.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\NPC_HEAD\flame_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NPC_HEAD\heavy_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NPC_HEAD\medic_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NPC_HEAD\shotgun_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -550,6 +573,18 @@
     <Content Include="Images\Archer\Back_Run_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\NPC\P1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NPC\P2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NPC\P3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NPC\P4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Support\Back_Idle_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -653,30 +688,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Maps\map.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC\flame.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC\heavy.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC\medic.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC\shotgun.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC_HEAD\flame_head.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC_HEAD\heavy_head.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC_HEAD\medic_head.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NPC_HEAD\shotgun_head.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Weapons\Weapon.txt">

@@ -217,19 +217,19 @@ namespace GUI_20212202_AYZ8R9.Renderer
                             break;
                         case MapLogic.Element.P1:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("NPC", "flame.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "NPC", "P1.png"), UriKind.RelativeOrAbsolute)));
                             break;
                         case MapLogic.Element.P2:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("NPC", "heavy.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "NPC", "P2.png"), UriKind.RelativeOrAbsolute)));
                             break;
                         case MapLogic.Element.P3:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("NPC", "medic.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "NPC", "P3.png"), UriKind.RelativeOrAbsolute)));
                             break;
                         case MapLogic.Element.P4:
                             brush = new ImageBrush
-                                (new BitmapImage(new Uri(Path.Combine("NPC", "shotgun.png"), UriKind.RelativeOrAbsolute)));
+                                (new BitmapImage(new Uri(Path.Combine("Images", "NPC", "P4.png"), UriKind.RelativeOrAbsolute)));
                             break;
                     }
 
