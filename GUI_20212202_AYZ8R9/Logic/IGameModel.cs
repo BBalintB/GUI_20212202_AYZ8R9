@@ -12,6 +12,7 @@ namespace GUI_20212202_AYZ8R9.Logic
         List<Block> Blocks { get; set; }
         event EventHandler Changed;
         int ActualBGNumber { get; set; }
+        int ActualMapNumber { get; set; }
 
     }
 }

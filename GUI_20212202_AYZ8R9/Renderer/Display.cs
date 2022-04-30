@@ -38,11 +38,13 @@ namespace GUI_20212202_AYZ8R9.Renderer
 
                 
                 ImageBrush bg = new ImageBrush();
-                  switch (model.ActualBGNumber)
+                switch (model.ActualMapNumber)
                 {
-                    
-                    case 1:
+                    case 0:
                         bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War1.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                    case 1:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War4.png"), UriKind.RelativeOrAbsolute)));
                         break;
                     case 2:
                         bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War2.png"), UriKind.RelativeOrAbsolute)));
@@ -51,9 +53,20 @@ namespace GUI_20212202_AYZ8R9.Renderer
                         bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War3.png"), UriKind.RelativeOrAbsolute)));
                         break;
                     case 4:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War1.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                    case 5:
                         bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War4.png"), UriKind.RelativeOrAbsolute)));
                         break;
+                    case 6:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War2.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+                    case 7:
+                        bg = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Backgrounds", "War3.png"), UriKind.RelativeOrAbsolute)));
+                        break;
+
                 }
+
 
                 drawingContext.DrawRectangle(bg, new Pen(Brushes.Black, 0), new Rect(0, 0, size.Width, size.Height));
 
@@ -201,6 +214,22 @@ namespace GUI_20212202_AYZ8R9.Renderer
                         case MapLogic.Element.HOMERW:
                             brush = new ImageBrush
                                 (new BitmapImage(new Uri(Path.Combine("Images", "Blocks", "HOMERW.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.P1:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("NPC", "flame.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.P2:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("NPC", "heavy.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.P3:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("NPC", "medic.png"), UriKind.RelativeOrAbsolute)));
+                            break;
+                        case MapLogic.Element.P4:
+                            brush = new ImageBrush
+                                (new BitmapImage(new Uri(Path.Combine("NPC", "shotgun.png"), UriKind.RelativeOrAbsolute)));
                             break;
                     }
 

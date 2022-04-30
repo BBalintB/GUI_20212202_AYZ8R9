@@ -142,6 +142,14 @@
     <None Remove="Images\Support\Run_5.png" />
     <None Remove="Images\Support\Run_6.png" />
     <None Remove="Maps\map.xlsx" />
+    <None Remove="NPC\flame.png" />
+    <None Remove="NPC\heavy.png" />
+    <None Remove="NPC\medic.png" />
+    <None Remove="NPC\shotgun.png" />
+    <None Remove="NPC_HEAD\flame_head.png" />
+    <None Remove="NPC_HEAD\heavy_head.png" />
+    <None Remove="NPC_HEAD\medic_head.png" />
+    <None Remove="NPC_HEAD\shotgun_head.png" />
     <None Remove="Weapons\Weapon.txt" />
   </ItemGroup>
 
@@ -645,6 +653,30 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Maps\map.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC\flame.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC\heavy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC\medic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC\shotgun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC_HEAD\flame_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC_HEAD\heavy_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC_HEAD\medic_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NPC_HEAD\shotgun_head.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Weapons\Weapon.txt">
