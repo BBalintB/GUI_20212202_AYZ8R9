@@ -118,9 +118,9 @@
     <None Remove="Images\NPC\P2.png" />
     <None Remove="Images\NPC\P3.png" />
     <None Remove="Images\NPC\P4.png" />
-    <None Remove="Images\NPC_HEAD\flame_head.png" />
     <None Remove="Images\NPC_HEAD\heavy_head.png" />
     <None Remove="Images\NPC_HEAD\medic_head.png" />
+    <None Remove="Images\NPC_HEAD\P1.png" />
     <None Remove="Images\NPC_HEAD\shotgun_head.png" />
     <None Remove="Images\Punk_idle.png" />
     <None Remove="Images\Support\Back_Idle_1.png" />
@@ -162,7 +162,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\NPC_HEAD\flame_head.png">
+    <Content Include="Images\NPC_HEAD\P1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\NPC_HEAD\heavy_head.png">

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 using GUI_20212202_AYZ8R9.Helper;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Models.NPC;
@@ -58,47 +59,58 @@ namespace GUI_20212202_AYZ8R9.Logic
             roundCounter = 0;
             availableHeroes.Add(new NPC_Character()
             {
-                Name = "Pista",
-                HP = 100,
+                Color = "Red",
+                Name = "Green",
+                HP = 100,               
                 Attack = 35,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Assault
+                HeroType = HeroTypes.Assault,
+                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute))
+
             });
 
             availableHeroes.Add(new NPC_Character()
             {
+                Color = "Blue",
                 Name = "Jóska",
                 HP = 100,
                 Attack = 20,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Support
+                HeroType = HeroTypes.Support,
+                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(),"Images", "NPC_HEAD", "medic_head.png"), UriKind.RelativeOrAbsolute))
             });
 
             availableHeroes.Add(new NPC_Character()
             {
+                Color = "Black",
                 Name = "Kati",
                 HP = 100,
                 Attack = 45,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Archer
+                HeroType = HeroTypes.Archer,
+                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "shotgun_head.png"), UriKind.RelativeOrAbsolute))
             });
 
             availableHeroes.Add(new NPC_Character()
             {
+                Color = "Red",
                 Name = "Killmogger",
                 HP = 100,
                 Attack = 30,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Assault
+                HeroType = HeroTypes.Assault,
+                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute))
             });
 
             availableHeroes.Add(new NPC_Character()
             {
+                Color = "Red",
                 Name = "Supi",
                 HP = 100,
                 Attack = 15,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Support
+                HeroType = HeroTypes.Support,
+                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "medic_head.png"), UriKind.RelativeOrAbsolute))
             });
 
             

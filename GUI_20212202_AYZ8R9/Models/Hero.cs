@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace GUI_20212202_AYZ8R9.Models
 {
@@ -32,6 +34,16 @@ namespace GUI_20212202_AYZ8R9.Models
 
     public class Hero:ObservableObject,ICharacter
     {
+        private BitmapImage image;
+        public BitmapImage Image
+        {
+            get { return image; }
+            set
+            {
+                SetProperty(ref image, value);
+            }
+        }
+
         private string heroName; // Name of the hero in that save
 
         public string Name
@@ -146,10 +158,8 @@ namespace GUI_20212202_AYZ8R9.Models
             Inventory = new ObservableCollection<Weapon>();
             Chests = new int[7];
             Battles = new bool[7];
-
+            Image = Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
         }
-
-
 
         void SetStats(HeroTypes type) {
             switch (type)
@@ -193,7 +203,5 @@ namespace GUI_20212202_AYZ8R9.Models
             }
 
         }
-
-
     }
 }

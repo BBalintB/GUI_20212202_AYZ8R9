@@ -1,14 +1,39 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace GUI_20212202_AYZ8R9.Models.NPC
 {
     public class NPC_Character:ObservableObject,ICharacter
     {
+
+
+        private string color;
+        public string Color
+        {
+            get { return color; }
+            set
+            {
+                SetProperty(ref color, value);
+            }
+        }
+
+        private BitmapImage image;
+        public BitmapImage Image
+        {
+            get { return image; }
+            set
+            {
+                SetProperty(ref image, value);
+            }
+        }
+
+
         private string name;
 
         public string Name
@@ -91,7 +116,7 @@ namespace GUI_20212202_AYZ8R9.Models.NPC
         public NPC_Character()
         {
             Position = RoundPosition.Neutral;
-            Weapon = new Weapon();
+            Weapon = new Weapon();            
         }
 
 
