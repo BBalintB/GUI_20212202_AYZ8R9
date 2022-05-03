@@ -190,14 +190,16 @@ namespace GUI_20212202_AYZ8R9.Logic
                                     bool tmp = (bool)a.ShowDialog();
                                     //(a.DataContext as FightWindowViewModel).
                                     this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = tmp;
+                                    this.game.FileLastSaveDate = DateTime.Now.ToString();
+                                    Save.WriteOutJSON(game, Path.Combine("Games", game.FileName + ".json"));
                                 }
                             }
                             if (blocks[i].BlockType == Element.CH || blocks[i].BlockType == Element.CH1)
                             {
-                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] > 0)
+                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] ==false )
                                 {
                                     game.Hero.Inventory.Add(RandomUtil.GetARandomWeapon());
-                                    game.Hero.Chests[this.MapLogic.ActualMapNumber]--;
+                                    game.Hero.Chests[this.MapLogic.ActualMapNumber]= true;
                                 }
                             }
                             run = true;
@@ -249,15 +251,17 @@ namespace GUI_20212202_AYZ8R9.Logic
                                 if (this.game.Hero.Battles[this.MapLogic.ActualMapNumber] == false)
                                 {
                                     bool tmp = (bool)new FightWindow(this.game).ShowDialog();
-                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = true;
+                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = tmp;
+                                    this.game.FileLastSaveDate = DateTime.Now.ToString();
+                                    Save.WriteOutJSON(game, Path.Combine("Games", game.FileName + ".json"));
                                 }
                             }
                             if (blocks[i].BlockType == Element.CH || blocks[i].BlockType == Element.CH1)
                             {
-                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] > 0)
+                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] == false)
                                 {
                                     game.Hero.Inventory.Add(RandomUtil.GetARandomWeapon());
-                                    game.Hero.Chests[this.MapLogic.ActualMapNumber]--;
+                                    game.Hero.Chests[this.MapLogic.ActualMapNumber] = true;
                                 }
                             }
                         }

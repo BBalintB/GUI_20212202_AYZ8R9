@@ -133,9 +133,9 @@ namespace GUI_20212202_AYZ8R9.Models
             }
         }
 
-        private int[] chests;
+        private bool[] chests;
 
-        public int[] Chests
+        public bool[] Chests
         {
             get { return chests; }
             set { chests = value; }
@@ -158,7 +158,7 @@ namespace GUI_20212202_AYZ8R9.Models
             Position = RoundPosition.Neutral;
             Weapon = new Weapon();
             Inventory = new ObservableCollection<Weapon>();
-            Chests = new int[7];
+            Chests = new bool[7];
             Battles = new bool[7];
         }
 
@@ -190,13 +190,13 @@ namespace GUI_20212202_AYZ8R9.Models
             }
             if (Chests != null)
             {
-                Chests[0] = 0;
-                Chests[1] = 2;
-                Chests[2] = 3;
-                Chests[3] = 0;
-                Chests[4] = 0;
-                Chests[5] = 0;
-                Chests[6] = 0;
+                Chests[0] = true;
+                Chests[1] = false;
+                Chests[2] = false;
+                Chests[3] = false;
+                Chests[4] = false;
+                Chests[5] = false;
+                Chests[6] = false;
             }
             if (Battles != null)
             {
