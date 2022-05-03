@@ -18,6 +18,7 @@ Spear:16:2:uncommon
 Crowbar:16:2:uncommon
 Sniper:25:-5:rare
 Shotgun:22:0:rare
+Auto Shotgun:25:0:rare
 Vector:16:10:rare
 Thompson:18:8:rare
 MP5:17:10:rare
