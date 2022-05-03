@@ -138,9 +138,10 @@ namespace GUI_20212202_AYZ8R9.ViewModels.MenuOptionsWindowViewModels
                 () =>
                 {
                     Close();
-                    logic.SetUpNewGame();
                     NewGame.Hero.Weapon = RandomUtil.GetARandomWeapon();
                     NewGame.Hero.Inventory.Add(NewGame.Hero.Weapon);
+                    logic.SetUpNewGame();
+                    
                 }
                 );
 

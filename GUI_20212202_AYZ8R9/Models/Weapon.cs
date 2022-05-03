@@ -56,6 +56,8 @@ namespace GUI_20212202_AYZ8R9.Models
             }
         }
 
+        public string ImageURL { get; set; }
+
         public Weapon()
         {
             Damage = 0;
