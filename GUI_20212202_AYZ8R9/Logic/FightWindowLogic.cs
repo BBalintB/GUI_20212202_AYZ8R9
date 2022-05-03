@@ -139,10 +139,10 @@ namespace GUI_20212202_AYZ8R9.Logic
                         image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Heavy:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "monster.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Sniper:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "yellow.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Specialist:
                         image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
