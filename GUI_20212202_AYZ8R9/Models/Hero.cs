@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,6 +36,7 @@ namespace GUI_20212202_AYZ8R9.Models
     public class Hero:ObservableObject,ICharacter
     {
         private BitmapImage image;
+        [JsonIgnore]
         public BitmapImage Image
         {
             get { return image; }
@@ -158,7 +160,23 @@ namespace GUI_20212202_AYZ8R9.Models
             Inventory = new ObservableCollection<Weapon>();
             Chests = new int[7];
             Battles = new bool[7];
-            Image = Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+            if (HeroType != HeroTypes.Neutral)
+            {
+                if (HeroType != HeroTypes.Assault)
+                {
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+
+                }
+                else if (HeroType != HeroTypes.Support)
+                {
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+
+                }
+                else {
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+
+                }
+            }
         }
 
         void SetStats(HeroTypes type) {
