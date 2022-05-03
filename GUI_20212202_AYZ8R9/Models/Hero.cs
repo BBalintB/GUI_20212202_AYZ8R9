@@ -154,29 +154,12 @@ namespace GUI_20212202_AYZ8R9.Models
 
         public Hero()
         {
-            HeroType = HeroTypes.Neutral;
+            //HeroType = HeroTypes.Neutral;
             Position = RoundPosition.Neutral;
             Weapon = new Weapon();
             Inventory = new ObservableCollection<Weapon>();
             Chests = new int[7];
             Battles = new bool[7];
-            if (HeroType != HeroTypes.Neutral)
-            {
-                if (HeroType != HeroTypes.Assault)
-                {
-                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
-
-                }
-                else if (HeroType != HeroTypes.Support)
-                {
-                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
-
-                }
-                else {
-                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
-
-                }
-            }
         }
 
         void SetStats(HeroTypes type) {
@@ -185,14 +168,20 @@ namespace GUI_20212202_AYZ8R9.Models
                 case HeroTypes.Archer:
                     HP = 100;
                     Attack = 75;
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "arch_head.png"), UriKind.RelativeOrAbsolute));
+
                     break;
                 case HeroTypes.Assault:
                     HP = 100;
                     Attack = 60;
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "soilder_head.png"), UriKind.RelativeOrAbsolute));
+
                     break;
                 case HeroTypes.Support:
                     HP = 100;
                     Attack = 50;
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "supp_head.png"), UriKind.RelativeOrAbsolute));
+
                     break;
                 default:
                     HP = 0;

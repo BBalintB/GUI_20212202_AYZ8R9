@@ -143,6 +143,10 @@
     <None Remove="Images\Gun\GUN7.png" />
     <None Remove="Images\Gun\GUN8.png" />
     <None Remove="Images\Gun\GUN9.png" />
+    <None Remove="Images\heads\arch_head.png" />
+    <None Remove="Images\heads\enemy.png" />
+    <None Remove="Images\heads\soilder_head.png" />
+    <None Remove="Images\heads\supp_head.png" />
     <None Remove="Images\Main_Character\Run\Run_1.png" />
     <None Remove="Images\Main_Character\Run\Run_2.png" />
     <None Remove="Images\Main_Character\Run\Run_3.png" />
@@ -197,6 +201,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\heads\arch_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\enemy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\soilder_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\supp_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\NPC_HEAD\P1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

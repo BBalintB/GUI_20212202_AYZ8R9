@@ -127,40 +127,40 @@ namespace GUI_20212202_AYZ8R9.Logic
                     case HeroTypes.Neutral:
                         break;
                     case HeroTypes.Archer:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Assault:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Support:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Medic:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Heavy:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Sniper:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Specialist:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
                         break;
                     case HeroTypes.Bandit:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
 
                         break;
                     case HeroTypes.Soldier:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
 
                         break;
                     case HeroTypes.Robot:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
 
                         break;
                     case HeroTypes.Mercenary:
-                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
+                        image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "enemy.png"), UriKind.RelativeOrAbsolute));
 
                         break;
                     default:
