@@ -2,6 +2,7 @@
 using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Renderer;
+using GUI_20212202_AYZ8R9.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,7 +99,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void Control(Controls control)
         {
-            dt.Stop();         
+            dt.Stop();
             if (this.Charactersize.Width != right_corner.Horizontal - left_corner.Horizontal && this.Charactersize.Height != right_corner.Vertical - left_corner.Vertical)
             {
                 left_corner.Horizontal = right_corner.Horizontal - this.Charactersize.Width;
@@ -116,7 +117,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 case Controls.Jump:
                     if (!JumpIsBusy)
-                    { 
+                    {
                         dt.Stop();
                         MethodJump();
                     }
@@ -140,7 +141,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.RunSpeed = 10;
                     break;
                 case Controls.RunStop:
-                    this.RunSpeed = 50;                    
+                    this.RunSpeed = 50;
                     //if (!Task_Run)
                     //{
                     //    Task_Run = true;
@@ -185,7 +186,9 @@ namespace GUI_20212202_AYZ8R9.Logic
 
                                 if (this.game.Hero.Battles[this.MapLogic.ActualMapNumber] == false)
                                 {
-                                    bool tmp = (bool)new FightWindow(this.game).ShowDialog();
+                                    FightWindow a = new FightWindow(this.game);
+                                    bool tmp = (bool)a.ShowDialog();
+                                    //(a.DataContext as FightWindowViewModel).
                                     this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = tmp;
                                 }
                             }
@@ -395,11 +398,11 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 if (blocks[i].BlockType == Element.PRE)
                 {
-                    left_corner.Horizontal = blocks[i].Positon.X+30;
-                    left_corner.Vertical = blocks[i].Positon.Y-2;
-                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width+30;
-                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height-2;
-                    this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical- left_corner.Vertical); 
+                    left_corner.Horizontal = blocks[i].Positon.X + 30;
+                    left_corner.Vertical = blocks[i].Positon.Y - 2;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width + 30;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
+                    this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
             this.game.Hero.MapPosition = this.MapLogic.ActualMapNumber;
@@ -414,10 +417,10 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 if (blocks[i].BlockType == Element.NE)
                 {
-                    left_corner.Horizontal = blocks[i].Positon.X-30;
-                    left_corner.Vertical = blocks[i].Positon.Y-2;
-                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width-30;
-                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height-2;
+                    left_corner.Horizontal = blocks[i].Positon.X - 30;
+                    left_corner.Vertical = blocks[i].Positon.Y - 2;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width - 30;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
                     this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
@@ -429,7 +432,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         #region ChestMethod
         public void OpenChest()
-        { 
+        {
             // todo
         }
 
@@ -518,7 +521,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 {
                     bool down = true;
                     bool inx = false;
-                    Rect player = new Rect(left_corner.Horizontal+6, left_corner.Vertical + 3, right_corner.Horizontal - left_corner.Horizontal-12, right_corner.Vertical - left_corner.Vertical);
+                    Rect player = new Rect(left_corner.Horizontal + 6, left_corner.Vertical + 3, right_corner.Horizontal - left_corner.Horizontal - 12, right_corner.Vertical - left_corner.Vertical);
                     for (int i = 0; i < blocks.Count; i++)
                     {
                         if (player.IntersectsWith(blocks[i].Positon)
@@ -583,7 +586,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                         || blocks[i].BlockType == Element.CH1
                         || blocks[i].BlockType == Element.Z
                         || blocks[i].BlockType == Element.PLAYER
-                        || blocks[i].BlockType == Element.HOMEB)
+                        || blocks[i].BlockType == Element.HOMEB
+                        || blocks[i].BlockType == Element.P2
+                            || blocks[i].BlockType == Element.P1
+                            || blocks[i].BlockType == Element.P3
+                            || blocks[i].BlockType == Element.P4)
                         {
                             up = false;
                         }
