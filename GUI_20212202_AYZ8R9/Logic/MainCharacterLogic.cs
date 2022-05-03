@@ -186,7 +186,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                                 if (this.game.Hero.Battles[this.MapLogic.ActualMapNumber] == false)
                                 {
                                     bool tmp = (bool)new FightWindow(this.game).ShowDialog();
-                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = true;
+                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = tmp;
                                 }
                             }
                             if (blocks[i].BlockType == Element.CH || blocks[i].BlockType == Element.CH1)
