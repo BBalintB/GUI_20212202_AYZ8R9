@@ -216,7 +216,7 @@
             </Grid>
         </Grid>
 
-        <!--<Grid Background="Black" Visibility="{Binding EndWindowVisibility}">
+        <Grid Background="Black" Visibility="{Binding EndWindowVisibility}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5*"/>
@@ -234,7 +234,7 @@
                 <Button Command="{Binding RestartCommand}"  Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="White" Grid.Row="2" Content="Restart" Height="Auto" FontSize="25" Margin="20"/>
                 <Button Command="{Binding ExitCommand}" Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="White" Grid.Row="3" Content="Exit" Height="Auto" FontSize="25" Margin="20"/>
             </Grid>
-        </Grid>-->
+        </Grid>
 
     </Grid>
 </Window>
