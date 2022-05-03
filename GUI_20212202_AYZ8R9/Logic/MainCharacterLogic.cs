@@ -542,7 +542,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                             inx = true;
                         }
                     }
-                    if (down)
+                    if (down || !inx)
                     {
                         right_corner.Vertical += 1;
                         left_corner.Vertical += 1;
@@ -555,14 +555,14 @@ namespace GUI_20212202_AYZ8R9.Logic
                         {
                             DoingPath = "Back_Jump";
                         }
-                        Thread.Sleep(5);
+                        //Thread.Sleep(5);
                         Changed2?.Invoke(this, null);
                     }
                     else
                     {
                         this.JumpIsBusy = false;
                     }
-                    Thread.Sleep(5);
+                    Thread.Sleep(1);
                 }
             });
         }
@@ -613,7 +613,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                             DoingPath = "Back_Jump";
                         }
                         Thread.Sleep(5);
-                        this.JumpIsBusy = false;
+                        //this.JumpIsBusy = false;
                         Changed2?.Invoke(this, null);
                     }
                     Thread.Sleep(1);
