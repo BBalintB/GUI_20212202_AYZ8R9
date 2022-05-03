@@ -529,7 +529,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                         && blocks[i].BlockType != Element.CH1
                         && blocks[i].BlockType != Element.Z
                         && blocks[i].BlockType != Element.PLAYER
-                        && blocks[i].BlockType != Element.HOMEB)
+                        && blocks[i].BlockType != Element.HOMEB
+                        && blocks[i].BlockType != Element.EN)
                         {
                             down = false;
                         }
@@ -631,7 +632,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.EN
                             || blocks[i].BlockType == Element.END
                             || blocks[i].BlockType == Element.HC
-                            || blocks[i].BlockType == Element.HOMEB)
+                            || blocks[i].BlockType == Element.P2
+                            || blocks[i].BlockType == Element.P1
+                            || blocks[i].BlockType == Element.P3
+                            || blocks[i].BlockType == Element.P4
+                            )
             {
                 return true;
             }
