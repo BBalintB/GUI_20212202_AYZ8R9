@@ -1,0 +1,4 @@
+Gonosz Tamás:200:35:Heavy
+Gonosz Károly:100:50:Sniper
+Gonosz Péter:100:50:Sniper
+Gonosz Miklós:200:35:Heavy

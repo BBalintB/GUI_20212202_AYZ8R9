@@ -29,6 +29,9 @@
   <ItemGroup>
     <None Remove="Enemy\2.txt" />
     <None Remove="Enemy\3.txt" />
+    <None Remove="Enemy\4.txt" />
+    <None Remove="Enemy\5.txt" />
+    <None Remove="Enemy\6.txt" />
     <None Remove="Images\Assault\Back_Idle_1.png" />
     <None Remove="Images\Assault\Back_Idle_2.png" />
     <None Remove="Images\Assault\Back_Idle_3.png" />
@@ -164,9 +167,12 @@
     <None Remove="Images\Gun\Thompson.png" />
     <None Remove="Images\Gun\Vector.png" />
     <None Remove="Images\heads\arch_head.png" />
+    <None Remove="Images\heads\assault.png" />
     <None Remove="Images\heads\enemy.png" />
+    <None Remove="Images\heads\monster.png" />
     <None Remove="Images\heads\soilder_head.png" />
     <None Remove="Images\heads\supp_head.png" />
+    <None Remove="Images\heads\yellow.png" />
     <None Remove="Images\Main_Character\Run\Run_1.png" />
     <None Remove="Images\Main_Character\Run\Run_2.png" />
     <None Remove="Images\Main_Character\Run\Run_3.png" />
@@ -221,6 +227,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Enemy\4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Gun\Axe.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -284,13 +299,22 @@
     <Content Include="Images\heads\arch_head.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\heads\assault.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\heads\enemy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\monster.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\heads\soilder_head.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\heads\supp_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\yellow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\NPC_HEAD\P1.png">
