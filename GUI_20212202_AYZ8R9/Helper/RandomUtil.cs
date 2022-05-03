@@ -25,8 +25,9 @@ namespace GUI_20212202_AYZ8R9.Helper
                     Name = tmp[0],
                     Damage = int.Parse(tmp[1]),
                     HPBoost = int.Parse(tmp[2]),
-                    Type = xy
-                });
+                    Type = xy,
+                    ImageURL = Path.Combine(Directory.GetCurrentDirectory(), "Images", "Gun", tmp[0] + ".png")
+                }) ;
             }
             var random = rnd.Next(0, 101);
             Weapon newGun = new Weapon();

@@ -34,6 +34,7 @@
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="6*" />
                             </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageURL}" Grid.Column="0"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
@@ -68,6 +69,7 @@
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="6*" />
                             </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageURL}" Grid.Column="0"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
@@ -104,6 +106,7 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="6*" />
                 </Grid.ColumnDefinitions>
+                <Image Source="{Binding Hero.Weapon.ImageURL}" Grid.Column="0"/>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -117,6 +120,7 @@
                     <Label Grid.Row="2" Content="{Binding Hero.Weapon.HPBoost}"  Foreground="Black" ContentStringFormat="HPboost: {0}" />
                 </Grid>
             </Grid>
+            <Image Source="{Binding Hero.Image}" Grid.Row="1"/>
             <Label Content="{Binding Hero.HeroType}" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="Class: {0}"/>
             <Label Background="White"  Content="{Binding Hero.HP}" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="HP: {0}"/>
             <Label Content="{Binding Hero.Attack}" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" ContentStringFormat="Damage: {0}"/>
