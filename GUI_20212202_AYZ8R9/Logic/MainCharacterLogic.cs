@@ -282,7 +282,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Animation_Counter++;
                 }
             }
-            Thread.Sleep(RunSpeed);
+            Thread.Sleep(10);
         }
 
         private void Ladder_Climbing(Controls controls)
@@ -588,9 +588,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                         || blocks[i].BlockType == Element.PLAYER
                         || blocks[i].BlockType == Element.HOMEB
                         || blocks[i].BlockType == Element.P2
-                            || blocks[i].BlockType == Element.P1
-                            || blocks[i].BlockType == Element.P3
-                            || blocks[i].BlockType == Element.P4)
+                        || blocks[i].BlockType == Element.P1
+                        || blocks[i].BlockType == Element.P3
+                        || blocks[i].BlockType == Element.P4)
                         {
                             up = false;
                         }
