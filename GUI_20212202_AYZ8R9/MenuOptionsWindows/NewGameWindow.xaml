@@ -45,7 +45,7 @@
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding HeroImagePath}" Grid.Column="1" Grid.Row="0" Width="150"/>
                 <Button Grid.Row="1" Command="{Binding Hero1Command}" Background="LightPink" Style="{StaticResource MaterialDesignFlatLightButton}" Foreground="Black" FontSize="20" Height="45">Archer</Button>
-                <Button Grid.Row="1" Command="{Binding Hero2Command}" Background="Gray" Grid.Column="1" Style="{StaticResource MaterialDesignFlatLightButton}" Foreground="Black" FontSize="20" Height="45">Assault</Button>
+                <Button Grid.Row="1" Command="{Binding Hero2Command}" Background="DarkGray" Grid.Column="1" Style="{StaticResource MaterialDesignFlatLightButton}" Foreground="Black" FontSize="20" Height="45">Assault</Button>
                 <Button Grid.Row="1" Command="{Binding Hero3Command}" Background="LightBlue" Grid.Column="2" Style="{StaticResource MaterialDesignFlatLightButton}" Foreground="Black" FontSize="20" Height="45">Support</Button>
             </Grid>
             <Grid Grid.Row="1">
