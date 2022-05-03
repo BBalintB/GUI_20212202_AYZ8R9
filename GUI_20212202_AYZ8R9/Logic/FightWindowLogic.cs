@@ -61,10 +61,10 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 Color = "Red",
                 Name = "Green",
-                HP = 100,               
+                HP = 200,               
                 Attack = 35,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Assault,
+                HeroType = HeroTypes.Heavy,
                 Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute))
 
             });
@@ -72,7 +72,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             availableHeroes.Add(new NPC_Character()
             {
                 Color = "Blue",
-                Name = "Jóska",
+                Name = "Angella",
                 HP = 100,
                 Attack = 20,
                 SpecialAttackCounter = 0,
@@ -83,7 +83,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             availableHeroes.Add(new NPC_Character()
             {
                 Color = "Black",
-                Name = "Kati",
+                Name = "Boris",
                 HP = 100,
                 Attack = 45,
                 SpecialAttackCounter = 0,
@@ -95,22 +95,22 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 Color = "Red",
                 Name = "Killmogger",
-                HP = 100,
+                HP = 170,
                 Attack = 30,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Assault,
+                HeroType = HeroTypes.Heavy,
                 Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute))
             });
 
             availableHeroes.Add(new NPC_Character()
             {
                 Color = "Red",
-                Name = "Supi",
+                Name = "Pyro",
                 HP = 100,
                 Attack = 15,
                 SpecialAttackCounter = 0,
-                HeroType = HeroTypes.Support,
-                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "medic_head.png"), UriKind.RelativeOrAbsolute))
+                HeroType = HeroTypes.Specialist,
+                Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "P1.png"), UriKind.RelativeOrAbsolute))
             });
 
             

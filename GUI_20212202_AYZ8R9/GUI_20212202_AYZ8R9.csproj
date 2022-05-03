@@ -29,6 +29,9 @@
   <ItemGroup>
     <None Remove="Enemy\2.txt" />
     <None Remove="Enemy\3.txt" />
+    <None Remove="Enemy\4.txt" />
+    <None Remove="Enemy\5.txt" />
+    <None Remove="Enemy\6.txt" />
     <None Remove="Images\Assault\Back_Idle_1.png" />
     <None Remove="Images\Assault\Back_Idle_2.png" />
     <None Remove="Images\Assault\Back_Idle_3.png" />
@@ -224,6 +227,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Enemy\4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Gun\Axe.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
