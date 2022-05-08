@@ -528,7 +528,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 {
                     bool down = true;
                     bool inx = false;
-                    Rect player = new Rect(left_corner.Horizontal + 6, left_corner.Vertical + 3, right_corner.Horizontal - left_corner.Horizontal - 12, right_corner.Vertical - left_corner.Vertical);
+                    Rect player = new Rect(left_corner.Horizontal + 6, left_corner.Vertical + 1, right_corner.Horizontal - left_corner.Horizontal - 12, right_corner.Vertical - left_corner.Vertical);
                     for (int i = 0; i < blocks.Count; i++)
                     {
                         if (player.IntersectsWith(blocks[i].Positon)
@@ -569,7 +569,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     {
                         this.JumpIsBusy = false;
                     }
-                    Thread.Sleep(1);
+                    Thread.Sleep(5);
                 }
             });
         }

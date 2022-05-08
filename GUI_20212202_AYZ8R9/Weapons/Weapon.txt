@@ -15,7 +15,7 @@ Iron Baseball Bat:13:1:uncommon
 Revolver:20:2:uncommon
 Iron Stick:12:1:uncommon
 Spear:16:2:uncommon
-Crowbar:16:2:uncommon
+Crossbow:16:2:uncommon
 Sniper:25:-5:rare
 Shotgun:22:0:rare
 Auto Shotgun:25:0:rare
