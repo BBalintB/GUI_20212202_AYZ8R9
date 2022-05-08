@@ -116,6 +116,7 @@
     <None Remove="Images\Gun\Axe.png" />
     <None Remove="Images\Gun\Baseball Bat.png" />
     <None Remove="Images\Gun\Bottle.png" />
+    <None Remove="Images\Gun\Crossbow.png" />
     <None Remove="Images\Gun\Flamethrower.png" />
     <None Remove="Images\Gun\GUN1.png" />
     <None Remove="Images\Gun\GUN10.png" />
@@ -156,6 +157,8 @@
     <None Remove="Images\Gun\Iron Stick.png" />
     <None Remove="Images\Gun\Knife.png" />
     <None Remove="Images\Gun\Laser Pistol.png" />
+    <None Remove="Images\Gun\LMG.png" />
+    <None Remove="Images\Gun\Minigun.png" />
     <None Remove="Images\Gun\MP5.png" />
     <None Remove="Images\Gun\Old sniper.png" />
     <None Remove="Images\Gun\Pistol.png" />
@@ -258,6 +261,9 @@
     <Content Include="Images\Gun\Bottle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Gun\Crossbow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Gun\Flamethrower.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -274,6 +280,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\Laser Pistol.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\LMG.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Minigun.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\MP5.png">
@@ -757,9 +769,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\GUN1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN12.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\GUN14.png">
