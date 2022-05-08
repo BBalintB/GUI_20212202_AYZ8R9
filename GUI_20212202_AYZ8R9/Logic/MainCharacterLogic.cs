@@ -88,6 +88,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             Task_Run = true;
             MethodDown();
             MethodFix();
+            CharacterSizeFixer();
             //MethodIdle();
             //MethodLoad();
         }
@@ -100,11 +101,6 @@ namespace GUI_20212202_AYZ8R9.Logic
         public void Control(Controls control)
         {
             dt.Stop();
-            if (this.Charactersize.Width != right_corner.Horizontal - left_corner.Horizontal && this.Charactersize.Height != right_corner.Vertical - left_corner.Vertical)
-            {
-                left_corner.Horizontal = right_corner.Horizontal - this.Charactersize.Width;
-                left_corner.Vertical = right_corner.Vertical - this.Charactersize.Height;
-            }
             switch (control)
             {
                 case Controls.Left:
@@ -124,9 +120,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 case Controls.Stop:
                     Animation_Counter = 1;
-                    Task_Run = true;
-                    Task_Idle = true;
-                    MethodDown();
+                    //Task_Run = true;
+                    //Task_Idle = true;
+                    //MethodDown();
                     dt.Start();
                     break;
                 case Controls.Down:
@@ -569,7 +565,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     {
                         this.JumpIsBusy = false;
                     }
-                    Thread.Sleep(5);
+                    Thread.Sleep(2);
                 }
             });
         }
@@ -627,6 +623,27 @@ namespace GUI_20212202_AYZ8R9.Logic
                 }
             });
         }
+
+
+        public async Task CharacterSizeFixer()
+        {
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    if (this.Charactersize.Width != right_corner.Horizontal - left_corner.Horizontal && this.Charactersize.Height != right_corner.Vertical - left_corner.Vertical)
+                    {
+                        left_corner.Horizontal = right_corner.Horizontal - this.Charactersize.Width;
+                        left_corner.Vertical = right_corner.Vertical - this.Charactersize.Height;
+                    }
+                    Thread.Sleep(1);
+                }
+            });
+        }
+                    
+
+
+
         #endregion
 
         #region Bools
