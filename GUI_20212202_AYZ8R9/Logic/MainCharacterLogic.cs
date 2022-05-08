@@ -137,7 +137,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.RunSpeed = 10;
                     break;
                 case Controls.RunStop:
-                    this.RunSpeed = 50;
+                    this.RunSpeed = 30;
                     //if (!Task_Run)
                     //{
                     //    Task_Run = true;
@@ -282,7 +282,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     Animation_Counter++;
                 }
             }
-            Thread.Sleep(10);
+            Thread.Sleep(RunSpeed);
         }
 
         private void Ladder_Climbing(Controls controls)

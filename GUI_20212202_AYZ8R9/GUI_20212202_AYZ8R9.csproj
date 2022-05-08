@@ -82,11 +82,14 @@
     <None Remove="Images\Backgrounds\War4.png" />
     <None Remove="Images\Blocks\A.png" />
     <None Remove="Images\Blocks\B.png" />
+    <None Remove="Images\Blocks\Board2.png" />
     <None Remove="Images\Blocks\C.png" />
     <None Remove="Images\Blocks\CH.png" />
     <None Remove="Images\Blocks\CH1.png" />
     <None Remove="Images\Blocks\D.png" />
+    <None Remove="Images\Blocks\Door.png" />
     <None Remove="Images\Blocks\E.png" />
+    <None Remove="Images\Blocks\end.png" />
     <None Remove="Images\Blocks\enemy.png" />
     <None Remove="Images\Blocks\F.png" />
     <None Remove="Images\Blocks\G.png" />
@@ -244,6 +247,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Enemy\6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\Board2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\Door.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\end.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\50. cal Sniper.png">
@@ -961,9 +973,6 @@
 
   <ItemGroup>
     <None Update="Images\Backgrounds\Overlay_illumination.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Images\Blocks\end.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

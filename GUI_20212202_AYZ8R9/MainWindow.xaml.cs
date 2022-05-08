@@ -201,7 +201,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Left);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    //Characterlogic.Control(MainCharacterLogic.Controls.Run);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
@@ -212,7 +212,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    //Characterlogic.Control(MainCharacterLogic.Controls.Run);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
@@ -238,7 +238,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Left);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    //Characterlogic.Control(MainCharacterLogic.Controls.Run);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
@@ -249,7 +249,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
                                 if (Keyboard.IsKeyDown(Key.LeftShift))
                                 {
-                                    //Characterlogic.Control(MainCharacterLogic.Controls.Run);
+                                    Characterlogic.Control(MainCharacterLogic.Controls.Run);
                                 }
                             }
                         });
