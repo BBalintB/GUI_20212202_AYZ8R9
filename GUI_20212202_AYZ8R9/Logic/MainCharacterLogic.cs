@@ -514,6 +514,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                 Task_Idle = true;
                 MethodDown();
                 dt.Start();
+                //Thread.Sleep(150);
+                //this.JumpIsBusy = false;
+                
             });
         }
 
