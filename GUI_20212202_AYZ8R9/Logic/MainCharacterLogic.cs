@@ -2,6 +2,7 @@
 using GUI_20212202_AYZ8R9.MenuOptionsWindows;
 using GUI_20212202_AYZ8R9.Models;
 using GUI_20212202_AYZ8R9.Renderer;
+using GUI_20212202_AYZ8R9.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,6 +88,7 @@ namespace GUI_20212202_AYZ8R9.Logic
             Task_Run = true;
             MethodDown();
             MethodFix();
+            CharacterSizeFixer();
             //MethodIdle();
             //MethodLoad();
         }
@@ -98,12 +100,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         public void Control(Controls control)
         {
-            dt.Stop();         
-            if (this.Charactersize.Width != right_corner.Horizontal - left_corner.Horizontal && this.Charactersize.Height != right_corner.Vertical - left_corner.Vertical)
-            {
-                left_corner.Horizontal = right_corner.Horizontal - this.Charactersize.Width;
-                left_corner.Vertical = right_corner.Vertical - this.Charactersize.Height;
-            }
+            dt.Stop();
             switch (control)
             {
                 case Controls.Left:
@@ -116,16 +113,16 @@ namespace GUI_20212202_AYZ8R9.Logic
                     break;
                 case Controls.Jump:
                     if (!JumpIsBusy)
-                    { 
+                    {
                         dt.Stop();
                         MethodJump();
                     }
                     break;
                 case Controls.Stop:
                     Animation_Counter = 1;
-                    Task_Run = true;
-                    Task_Idle = true;
-                    MethodDown();
+                    //Task_Run = true;
+                    //Task_Idle = true;
+                    //MethodDown();
                     dt.Start();
                     break;
                 case Controls.Down:
@@ -140,7 +137,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                     this.RunSpeed = 10;
                     break;
                 case Controls.RunStop:
-                    this.RunSpeed = 50;                    
+                    this.RunSpeed = 30;
                     //if (!Task_Run)
                     //{
                     //    Task_Run = true;
@@ -185,16 +182,20 @@ namespace GUI_20212202_AYZ8R9.Logic
 
                                 if (this.game.Hero.Battles[this.MapLogic.ActualMapNumber] == false)
                                 {
-                                    bool tmp = (bool)new FightWindow(this.game).ShowDialog();
-                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = true;
+                                    FightWindow a = new FightWindow(this.game);
+                                    bool tmp = (bool)a.ShowDialog();
+                                    //(a.DataContext as FightWindowViewModel).
+                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = tmp;
+                                    this.game.FileLastSaveDate = DateTime.Now.ToString();
+                                    Save.WriteOutJSON(game, Path.Combine("Games", game.FileName + ".json"));
                                 }
                             }
                             if (blocks[i].BlockType == Element.CH || blocks[i].BlockType == Element.CH1)
                             {
-                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] > 0)
+                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] ==false )
                                 {
                                     game.Hero.Inventory.Add(RandomUtil.GetARandomWeapon());
-                                    game.Hero.Chests[this.MapLogic.ActualMapNumber]--;
+                                    game.Hero.Chests[this.MapLogic.ActualMapNumber]= true;
                                 }
                             }
                             run = true;
@@ -246,15 +247,17 @@ namespace GUI_20212202_AYZ8R9.Logic
                                 if (this.game.Hero.Battles[this.MapLogic.ActualMapNumber] == false)
                                 {
                                     bool tmp = (bool)new FightWindow(this.game).ShowDialog();
-                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = true;
+                                    this.game.Hero.Battles[this.MapLogic.ActualMapNumber] = tmp;
+                                    this.game.FileLastSaveDate = DateTime.Now.ToString();
+                                    Save.WriteOutJSON(game, Path.Combine("Games", game.FileName + ".json"));
                                 }
                             }
                             if (blocks[i].BlockType == Element.CH || blocks[i].BlockType == Element.CH1)
                             {
-                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] > 0)
+                                if (game.Hero.Chests[this.MapLogic.ActualMapNumber] == false)
                                 {
                                     game.Hero.Inventory.Add(RandomUtil.GetARandomWeapon());
-                                    game.Hero.Chests[this.MapLogic.ActualMapNumber]--;
+                                    game.Hero.Chests[this.MapLogic.ActualMapNumber] = true;
                                 }
                             }
                         }
@@ -395,11 +398,11 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 if (blocks[i].BlockType == Element.PRE)
                 {
-                    left_corner.Horizontal = blocks[i].Positon.X+30;
-                    left_corner.Vertical = blocks[i].Positon.Y-2;
-                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width+30;
-                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height-2;
-                    this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical- left_corner.Vertical); 
+                    left_corner.Horizontal = blocks[i].Positon.X + 30;
+                    left_corner.Vertical = blocks[i].Positon.Y - 2;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width + 30;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
+                    this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
             this.game.Hero.MapPosition = this.MapLogic.ActualMapNumber;
@@ -414,10 +417,10 @@ namespace GUI_20212202_AYZ8R9.Logic
             {
                 if (blocks[i].BlockType == Element.NE)
                 {
-                    left_corner.Horizontal = blocks[i].Positon.X-30;
-                    left_corner.Vertical = blocks[i].Positon.Y-2;
-                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width-30;
-                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height-2;
+                    left_corner.Horizontal = blocks[i].Positon.X - 30;
+                    left_corner.Vertical = blocks[i].Positon.Y - 2;
+                    right_corner.Horizontal = blocks[i].Positon.X + blocks[i].Positon.Width - 30;
+                    right_corner.Vertical = blocks[i].Positon.Y + blocks[i].Positon.Height - 2;
                     this.Charactersize = new Size(right_corner.Horizontal - left_corner.Horizontal, right_corner.Vertical - left_corner.Vertical);
                 }
             }
@@ -429,7 +432,7 @@ namespace GUI_20212202_AYZ8R9.Logic
 
         #region ChestMethod
         public void OpenChest()
-        { 
+        {
             // todo
         }
 
@@ -507,6 +510,9 @@ namespace GUI_20212202_AYZ8R9.Logic
                 Task_Idle = true;
                 MethodDown();
                 dt.Start();
+                //Thread.Sleep(150);
+                //this.JumpIsBusy = false;
+                
             });
         }
 
@@ -518,7 +524,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                 {
                     bool down = true;
                     bool inx = false;
-                    Rect player = new Rect(left_corner.Horizontal+6, left_corner.Vertical + 3, right_corner.Horizontal - left_corner.Horizontal-12, right_corner.Vertical - left_corner.Vertical);
+                    Rect player = new Rect(left_corner.Horizontal + 6, left_corner.Vertical + 1, right_corner.Horizontal - left_corner.Horizontal - 12, right_corner.Vertical - left_corner.Vertical);
                     for (int i = 0; i < blocks.Count; i++)
                     {
                         if (player.IntersectsWith(blocks[i].Positon)
@@ -529,7 +535,8 @@ namespace GUI_20212202_AYZ8R9.Logic
                         && blocks[i].BlockType != Element.CH1
                         && blocks[i].BlockType != Element.Z
                         && blocks[i].BlockType != Element.PLAYER
-                        && blocks[i].BlockType != Element.HOMEB)
+                        && blocks[i].BlockType != Element.HOMEB
+                        && blocks[i].BlockType != Element.EN)
                         {
                             down = false;
                         }
@@ -538,7 +545,7 @@ namespace GUI_20212202_AYZ8R9.Logic
                             inx = true;
                         }
                     }
-                    if (down)
+                    if (down || !inx)
                     {
                         right_corner.Vertical += 1;
                         left_corner.Vertical += 1;
@@ -551,14 +558,14 @@ namespace GUI_20212202_AYZ8R9.Logic
                         {
                             DoingPath = "Back_Jump";
                         }
-                        Thread.Sleep(5);
+                        //Thread.Sleep(5);
                         Changed2?.Invoke(this, null);
                     }
                     else
                     {
                         this.JumpIsBusy = false;
                     }
-                    Thread.Sleep(5);
+                    Thread.Sleep(2);
                 }
             });
         }
@@ -582,7 +589,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                         || blocks[i].BlockType == Element.CH1
                         || blocks[i].BlockType == Element.Z
                         || blocks[i].BlockType == Element.PLAYER
-                        || blocks[i].BlockType == Element.HOMEB)
+                        || blocks[i].BlockType == Element.HOMEB
+                        || blocks[i].BlockType == Element.P2
+                        || blocks[i].BlockType == Element.P1
+                        || blocks[i].BlockType == Element.P3
+                        || blocks[i].BlockType == Element.P4)
                         {
                             up = false;
                         }
@@ -605,13 +616,34 @@ namespace GUI_20212202_AYZ8R9.Logic
                             DoingPath = "Back_Jump";
                         }
                         Thread.Sleep(5);
-                        this.JumpIsBusy = false;
+                        //this.JumpIsBusy = false;
                         Changed2?.Invoke(this, null);
                     }
                     Thread.Sleep(1);
                 }
             });
         }
+
+
+        public async Task CharacterSizeFixer()
+        {
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    if (this.Charactersize.Width != right_corner.Horizontal - left_corner.Horizontal && this.Charactersize.Height != right_corner.Vertical - left_corner.Vertical)
+                    {
+                        left_corner.Horizontal = right_corner.Horizontal - this.Charactersize.Width;
+                        left_corner.Vertical = right_corner.Vertical - this.Charactersize.Height;
+                    }
+                    Thread.Sleep(1);
+                }
+            });
+        }
+                    
+
+
+
         #endregion
 
         #region Bools
@@ -631,7 +663,11 @@ namespace GUI_20212202_AYZ8R9.Logic
                             || blocks[i].BlockType == Element.EN
                             || blocks[i].BlockType == Element.END
                             || blocks[i].BlockType == Element.HC
-                            || blocks[i].BlockType == Element.HOMEB)
+                            || blocks[i].BlockType == Element.P2
+                            || blocks[i].BlockType == Element.P1
+                            || blocks[i].BlockType == Element.P3
+                            || blocks[i].BlockType == Element.P4
+                            )
             {
                 return true;
             }

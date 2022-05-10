@@ -81,44 +81,61 @@ namespace GUI_20212202_AYZ8R9.ViewModels
         }
         public MainWindowViewModel(IMenuLogic logic, IGameModel model)
         {
-            Display display = new Display();
-            Games = new ObservableCollection<Game>();
-            this.logic = logic;
-            logic.SetupCollection(Games);
-            GameVisibility = Visibility.Collapsed;
-            logic.SetUpVisibility(MenuVisibility, GameVisibility);
-            NewGameCommand = new RelayCommand(() => //This button opens the new game window
+            try
             {
-                MenuVisibility = Visibility.Collapsed;
-                logic.CreateNewGame(SelectedGame);
-                MenuVisibility = Visibility.Visible;
-            });
-            LoadGameCommand = new RelayCommand(
-            () => //This button opens the new load game window
+                Display display = new Display();
+                Games = new ObservableCollection<Game>();
+                this.logic = logic;
+                logic.SetupCollection(Games);
+                GameVisibility = Visibility.Collapsed;
+                logic.SetUpVisibility(MenuVisibility, GameVisibility);
+                NewGameCommand = new RelayCommand(() => //This button opens the new game window
+                {
+                    MenuVisibility = Visibility.Collapsed;
+                    logic.CreateNewGame(SelectedGame);
+                    MenuVisibility = Visibility.Visible;
+                });
+                try
+                {
+                    LoadGameCommand = new RelayCommand(
+                () => //This button opens the new load game window
             {
-                MenuVisibility = Visibility.Collapsed;
-                GameVisibility = Visibility.Visible;
-                LoadAction?.Invoke();
-                logic.LoadInGame(SelectedGame);
+                    MenuVisibility = Visibility.Collapsed;
+                    GameVisibility = Visibility.Visible;
+                    LoadAction?.Invoke();
+                    logic.LoadInGame(SelectedGame);
                 //MenuVisibility = Visibility.Visible;
                 //GameVisibility = Visibility.Collapsed;
 
             },
-            () => SelectedGame != null);
-            DeleteFileCommand = new RelayCommand(
-            () => //This button opens the game
-            {
-                logic.DeleteFile(selectedGame);
-            },
-            () => SelectedGame != null);
-            SettingsCommand = new RelayCommand(() =>
-            {
-                //TODO
-            });
+                () => SelectedGame != null);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
 
-            ExitCommand = new RelayCommand(
-                () => CloseWindow?.Invoke()
-                ) ;
+                DeleteFileCommand = new RelayCommand(
+                () => //This button opens the game
+            {
+                    logic.DeleteFile(selectedGame);
+                },
+                () => SelectedGame != null);
+                SettingsCommand = new RelayCommand(() =>
+                {
+                    //TODO
+                });
+
+                ExitCommand = new RelayCommand(
+                    () => CloseWindow?.Invoke()
+                    );
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+                throw;
+            }            
         }
     }
 }

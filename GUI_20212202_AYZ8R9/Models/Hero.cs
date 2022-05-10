@@ -36,6 +36,7 @@ namespace GUI_20212202_AYZ8R9.Models
     public class Hero:ObservableObject,ICharacter
     {
         private BitmapImage image;
+        [JsonIgnore]
         public BitmapImage Image
         {
             get { return image; }
@@ -132,9 +133,9 @@ namespace GUI_20212202_AYZ8R9.Models
             }
         }
 
-        private int[] chests;
+        private bool[] chests;
 
-        public int[] Chests
+        public bool[] Chests
         {
             get { return chests; }
             set { chests = value; }
@@ -153,13 +154,12 @@ namespace GUI_20212202_AYZ8R9.Models
 
         public Hero()
         {
-            HeroType = HeroTypes.Neutral;
+            //HeroType = HeroTypes.Neutral;
             Position = RoundPosition.Neutral;
             Weapon = new Weapon();
             Inventory = new ObservableCollection<Weapon>();
-            Chests = new int[7];
+            Chests = new bool[7];
             Battles = new bool[7];
-            Image = Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "NPC_HEAD", "heavy_head.png"), UriKind.RelativeOrAbsolute));
         }
 
         void SetStats(HeroTypes type) {
@@ -168,14 +168,20 @@ namespace GUI_20212202_AYZ8R9.Models
                 case HeroTypes.Archer:
                     HP = 100;
                     Attack = 75;
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "arch_head.png"), UriKind.RelativeOrAbsolute));
+
                     break;
                 case HeroTypes.Assault:
                     HP = 100;
                     Attack = 60;
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "soilder_head.png"), UriKind.RelativeOrAbsolute));
+
                     break;
                 case HeroTypes.Support:
                     HP = 100;
                     Attack = 50;
+                    Image = new BitmapImage(new Uri(Path.Combine(Directory.GetCurrentDirectory(), "Images", "heads", "supp_head.png"), UriKind.RelativeOrAbsolute));
+
                     break;
                 default:
                     HP = 0;
@@ -184,13 +190,13 @@ namespace GUI_20212202_AYZ8R9.Models
             }
             if (Chests != null)
             {
-                Chests[0] = 0;
-                Chests[1] = 2;
-                Chests[2] = 3;
-                Chests[3] = 0;
-                Chests[4] = 0;
-                Chests[5] = 0;
-                Chests[6] = 0;
+                Chests[0] = true;
+                Chests[1] = false;
+                Chests[2] = false;
+                Chests[3] = false;
+                Chests[4] = false;
+                Chests[5] = false;
+                Chests[6] = false;
             }
             if (Battles != null)
             {

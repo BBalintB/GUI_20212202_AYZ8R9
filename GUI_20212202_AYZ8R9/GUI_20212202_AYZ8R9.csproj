@@ -29,6 +29,9 @@
   <ItemGroup>
     <None Remove="Enemy\2.txt" />
     <None Remove="Enemy\3.txt" />
+    <None Remove="Enemy\4.txt" />
+    <None Remove="Enemy\5.txt" />
+    <None Remove="Enemy\6.txt" />
     <None Remove="Images\Assault\Back_Idle_1.png" />
     <None Remove="Images\Assault\Back_Idle_2.png" />
     <None Remove="Images\Assault\Back_Idle_3.png" />
@@ -79,11 +82,14 @@
     <None Remove="Images\Backgrounds\War4.png" />
     <None Remove="Images\Blocks\A.png" />
     <None Remove="Images\Blocks\B.png" />
+    <None Remove="Images\Blocks\Board2.png" />
     <None Remove="Images\Blocks\C.png" />
     <None Remove="Images\Blocks\CH.png" />
     <None Remove="Images\Blocks\CH1.png" />
     <None Remove="Images\Blocks\D.png" />
+    <None Remove="Images\Blocks\Door.png" />
     <None Remove="Images\Blocks\E.png" />
+    <None Remove="Images\Blocks\end.png" />
     <None Remove="Images\Blocks\enemy.png" />
     <None Remove="Images\Blocks\F.png" />
     <None Remove="Images\Blocks\G.png" />
@@ -108,6 +114,13 @@
     <None Remove="Images\Blocks\Z.png" />
     <None Remove="Images\FightWindow\hazard.jpg" />
     <None Remove="Images\FightWindow\radioactive.jpg" />
+    <None Remove="Images\Gun\50. cal Sniper.png" />
+    <None Remove="Images\Gun\Auto Shotgun.png" />
+    <None Remove="Images\Gun\Axe.png" />
+    <None Remove="Images\Gun\Baseball Bat.png" />
+    <None Remove="Images\Gun\Bottle.png" />
+    <None Remove="Images\Gun\Crossbow.png" />
+    <None Remove="Images\Gun\Flamethrower.png" />
     <None Remove="Images\Gun\GUN1.png" />
     <None Remove="Images\Gun\GUN10.png" />
     <None Remove="Images\Gun\GUN11.png" />
@@ -116,7 +129,6 @@
     <None Remove="Images\Gun\GUN14.png" />
     <None Remove="Images\Gun\GUN15.png" />
     <None Remove="Images\Gun\GUN16.png" />
-    <None Remove="Images\Gun\GUN17.png" />
     <None Remove="Images\Gun\GUN18.png" />
     <None Remove="Images\Gun\GUN19.png" />
     <None Remove="Images\Gun\GUN2.png" />
@@ -143,6 +155,37 @@
     <None Remove="Images\Gun\GUN7.png" />
     <None Remove="Images\Gun\GUN8.png" />
     <None Remove="Images\Gun\GUN9.png" />
+    <None Remove="Images\Gun\Hammer.png" />
+    <None Remove="Images\Gun\Iron Baseball Bat.png" />
+    <None Remove="Images\Gun\Iron Stick.png" />
+    <None Remove="Images\Gun\Knife.png" />
+    <None Remove="Images\Gun\Laser Pistol.png" />
+    <None Remove="Images\Gun\LMG.png" />
+    <None Remove="Images\Gun\Minigun.png" />
+    <None Remove="Images\Gun\MP5.png" />
+    <None Remove="Images\Gun\Old sniper.png" />
+    <None Remove="Images\Gun\Pistol.png" />
+    <None Remove="Images\Gun\Revolver.png" />
+    <None Remove="Images\Gun\Rifle.png" />
+    <None Remove="Images\Gun\Rocket Launcher.png" />
+    <None Remove="Images\Gun\Rusty Axe.png" />
+    <None Remove="Images\Gun\Rusty Knife.png" />
+    <None Remove="Images\Gun\Rusty Revolver.png" />
+    <None Remove="Images\Gun\Rusty Sword.png" />
+    <None Remove="Images\Gun\Scar.png" />
+    <None Remove="Images\Gun\Shotgun.png" />
+    <None Remove="Images\Gun\Spear.png" />
+    <None Remove="Images\Gun\Stick.png" />
+    <None Remove="Images\Gun\Sword.png" />
+    <None Remove="Images\Gun\Thompson.png" />
+    <None Remove="Images\Gun\Vector.png" />
+    <None Remove="Images\heads\arch_head.png" />
+    <None Remove="Images\heads\assault.png" />
+    <None Remove="Images\heads\enemy.png" />
+    <None Remove="Images\heads\monster.png" />
+    <None Remove="Images\heads\soilder_head.png" />
+    <None Remove="Images\heads\supp_head.png" />
+    <None Remove="Images\heads\yellow.png" />
     <None Remove="Images\Main_Character\Run\Run_1.png" />
     <None Remove="Images\Main_Character\Run\Run_2.png" />
     <None Remove="Images\Main_Character\Run\Run_3.png" />
@@ -197,6 +240,135 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Enemy\4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Enemy\6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\Board2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\Door.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Blocks\end.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\50. cal Sniper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Auto Shotgun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Axe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Baseball Bat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Bottle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Crossbow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Flamethrower.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Hammer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Iron Baseball Bat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Iron Stick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Knife.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Laser Pistol.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\LMG.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Minigun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\MP5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Old sniper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Revolver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Rifle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Rocket Launcher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Rusty Axe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Rusty Knife.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Rusty Revolver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Rusty Sword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Scar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Shotgun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Spear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Stick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Sword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Thompson.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Gun\Vector.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\arch_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\assault.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\enemy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\monster.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\soilder_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\supp_head.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\heads\yellow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\NPC_HEAD\P1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -611,28 +783,13 @@
     <Content Include="Images\Gun\GUN1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Gun\GUN10.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN11.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN12.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN13.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Gun\GUN14.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\GUN15.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Gun\GUN16.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN17.png">
+    <Content Include="Images\Gun\Pistol.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\GUN18.png">
@@ -641,76 +798,13 @@
     <Content Include="Images\Gun\GUN19.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Gun\GUN2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Gun\GUN20.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN21.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN22.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN23.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN24.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN25.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN26.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN27.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN28.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN29.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Gun\GUN3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Gun\GUN30.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN31.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN32.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN33.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN34.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN35.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Gun\GUN4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN7.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Gun\GUN9.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\NPC\P1.png">
@@ -879,9 +973,6 @@
 
   <ItemGroup>
     <None Update="Images\Backgrounds\Overlay_illumination.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Images\Blocks\end.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

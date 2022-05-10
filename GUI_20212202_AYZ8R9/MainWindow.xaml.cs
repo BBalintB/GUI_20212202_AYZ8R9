@@ -31,6 +31,8 @@ namespace GUI_20212202_AYZ8R9
         MainCharacterLogic Characterlogic;
         MapLogic Maplogic;
 
+        public bool run { get; set; }
+
         private Game game;
 
         public Game Game
@@ -47,12 +49,11 @@ namespace GUI_20212202_AYZ8R9
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             if (DataContext is IMainActions vm)
             {
-                vm.LoadAction += () =>
+                vm.LoadAction += async () =>
                 {
-                    
+                    run = true;
                     Method1();
                     this.Game = (this.DataContext as MainWindowViewModel).SelectedGame;
                     display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
@@ -72,7 +73,7 @@ namespace GUI_20212202_AYZ8R9
 
                 vm.CloseWindow += () =>
                 {
-                    
+                    run = false;
                     this.Close();
                 };
             }
@@ -189,9 +190,10 @@ namespace GUI_20212202_AYZ8R9
             {
                 try
                 {
-                    while (true)
+                    while (run)
                     {
-
+                        if (Dispatcher != null)
+                        {
                         Application.Current.Dispatcher?.Invoke((Action)delegate
                         {
                             if (Keyboard.IsKeyDown(Key.Left))
@@ -279,6 +281,7 @@ namespace GUI_20212202_AYZ8R9
                                 Characterlogic.Control(MainCharacterLogic.Controls.Right);
                             }
                         });
+                        }
                         Thread.Sleep(30);
                     }
                 }
@@ -298,10 +301,12 @@ namespace GUI_20212202_AYZ8R9
 
         private void grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ;
             CharacterDisplay.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
-            
-            ;
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            run = false;
         }
     }
 }
