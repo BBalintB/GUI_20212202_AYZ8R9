@@ -65,7 +65,7 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="1" Content="A p o c a l y p t i c" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontWeight="DemiBold"/>
-                <Label Grid.Row="2" Content="When the whole world stoped..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Light" Foreground="Red"/>
+                <Label Grid.Row="2" Content="When the whole world stopped..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontWeight="Light" Foreground="Red"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Border BorderThickness="2" BorderBrush="Black">
